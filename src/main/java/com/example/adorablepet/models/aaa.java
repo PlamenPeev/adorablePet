@@ -1,2 +1,4 @@
-package com.example.adorablepet.models;public class aaa {
+package com.example.adorablepet.models;
+
+public class aaa {
 }
