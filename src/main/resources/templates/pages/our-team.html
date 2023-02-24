@@ -151,27 +151,33 @@
 <div class="header">
   <div>
     <div class="logo">Logo</div>
-    <button>  <a href="#">ADD PET</a></button>
-    <button>  <a href="#">REFERENCE</a></button>
+    <th:block th:unless="${session.isEmpty()}">
+      <button>  <a href="pets/add">ADD PET</a></button>
+      <button>  <a href="/home">HOME</a></button>
+    </th:block>
   </div>
 
   <h1>Vet Clinic ADORABLE PET</h1>
   <div>
-    <button>  <a href="#">REGISTER</a></button>
-    <button>  <a href="#">LOGIN</a></button>
-    <button>  <a href="#" >LOGOUT</a></button>
+    <th:block th:if="${session.isEmpty()}">
+      <button>  <a href="users/register">REGISTER</a></button>
+      <button>  <a href="users/login">LOGIN</a></button>
+    </th:block>
+    <th:block th:unless="${session.isEmpty()}">
+      <button>  <a href="users/logout" >LOGOUT</a></button>
+    </th:block>
   </div>
 
 </div>
 
 
 <div class="nav-bar">
-  <a href="/index">ABOUT US</a>
+  <a href="/templates/index">ABOUT US</a>
   <a href="/pages/departments">DEPARTMENTS</a>
   <a href="#">OUR TEAM</a>
   <a href="#">USEFUL INFORMATION</a>
   <a href="#">CLINIC SERVICES</a>
-  <a href="#">GOOD HEART</a>
+  <a href="/pages/good-heart">GOOD HEART</a>
   <a href="/pages/projects">PROJECTS</a>
 </div>
 
@@ -183,44 +189,44 @@
 
     <div class="card">
       <img src="https://st4.depositphotos.com/11328482/40017/i/450/depositphotos_400177176-stock-photo-portrait-stylish-lady-curly-hair.jpg" alt="Department 1">
-      <h2>Department 1</h2>
-      <p>Short description of department 1.</p>
-      <a href="#" class="button">Learn More</a>
+      <h2>Name name 1</h2>
+      <p>Short description of doctor 1.</p>
+
     </div>
 
     <div class="card">
       <img src="https://st4.depositphotos.com/11328482/40017/i/450/depositphotos_400177176-stock-photo-portrait-stylish-lady-curly-hair.jpg" alt="Department 2">
-      <h2>Department 2</h2>
-      <p>Short description of department 2.</p>
-      <a href="#" class="button">Learn More</a>
+      <h2>Name name 2</h2>
+      <p>Short description of doctor 2.</p>
+
     </div>
 
     <div class="card">
       <img src="https://st4.depositphotos.com/11328482/40017/i/450/depositphotos_400177176-stock-photo-portrait-stylish-lady-curly-hair.jpg" alt="Department 3">
-      <h2>Department 3</h2>
-      <p>Short description of department 3.</p>
-      <a href="#" class="button">Learn More</a>
+      <h2>Name name 3</h2>
+      <p>Short description of doctor 3.</p>
+
     </div>
 
     <div class="card">
       <img src="https://st4.depositphotos.com/11328482/40017/i/450/depositphotos_400177176-stock-photo-portrait-stylish-lady-curly-hair.jpg" alt="Department 3">
-      <h2>Department 3</h2>
-      <p>Short description of department 3.</p>
-      <a href="#" class="button">Learn More</a>
+      <h2>Name name 4</h2>
+      <p>Short description of doctor 4.</p>
+
     </div>
 
     <div class="card">
       <img src="https://st4.depositphotos.com/11328482/40017/i/450/depositphotos_400177176-stock-photo-portrait-stylish-lady-curly-hair.jpg" alt="Department 3">
-      <h2>Department 3</h2>
-      <p>Short description of department 3.</p>
-      <a href="#" class="button">Learn More</a>
+      <h2>Name name 5</h2>
+      <p>Short description of doctor 5.</p>
+
     </div>
 
     <div class="card">
       <img src="https://st4.depositphotos.com/11328482/40017/i/450/depositphotos_400177176-stock-photo-portrait-stylish-lady-curly-hair.jpg" alt="Department 3">
-      <h2>Department 3</h2>
-      <p>Short description of department 3.</p>
-      <a href="#" class="button">Learn More</a>
+      <h2>Name name 6</h2>
+      <p>Short description of doctor 6.</p>
+
     </div>
 
   </div>

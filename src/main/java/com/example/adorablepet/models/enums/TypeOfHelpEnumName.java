@@ -1,6 +1,6 @@
 package com.example.adorablepet.models.enums;
 
-public enum TypeOfHelp {
+public enum TypeOfHelpEnumName {
     TREATMENT,
     PREVENTION,
     GROOMING,

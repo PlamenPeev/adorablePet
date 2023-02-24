@@ -1,180 +1,59 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Vet Clinic</title>
-    <style>
-        /* Add your styling here */
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem;
-            background-color: #f2f2f2;
-        }
-
-        .header .logo {
-            width: 50px;
-            height: 50px;
-            background-color: #fff;
-            border-radius: 10px;
-            text-align: center;
-        }
-
-        .header h1 {
-            margin: 0;
-        }
-
-        .header button {
-            padding: 0.5rem 1rem;
-            background-color: #4CAF50;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            margin-left: 0.5rem;
-        }
-
-        .header a{
-            text-decoration: none;
-            color: #fff;
-        }
-
-        .header a:hover {
-         color: #333;
-        }
-
-        .header div {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem;
-
-        }
-
-
-        .nav-bar {
-            display: flex;
-            justify-content: center;
-            background-color: #333;
-            color: #fff;
-        }
-
-        .nav-bar a {
-            padding: 1rem;
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .nav-bar a:hover {
-            background-color: #ddd;
-            color: #333;
-        }
-
-        /*MAIN*/
-        .main {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 5rem;
-            background-color: #4CAF50;
-        }
-
-        .main span {
-            display: flex;
-            justify-content: space-between;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .main p {
-            padding: 2rem;
-        }
-
-        .main img {
-            padding: .25rem;
-            background-color: #fff;
-            border: 1px solid #dee2e6;
-            border-radius: .25rem;
-            max-width: 100%;
-        }
-
-        .box {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .box a{
-            padding: 1rem;
-        }
-
-        /*FOOTER*/
-        .footer {
-            padding: 1rem;
-            text-align: center;
-            background-color: #f2f2f2;
-        }
-    </style>
-</head>
-
-
-
-
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/commons::head"></head>
 <body>
-<div class="header">
-    <div>
-        <div class="logo">Logo</div>
-        <button>  <a href="#">ADD PET</a></button>
-        <button>  <a href="#">REFERENCE</a></button>
+<header th:replace="fragments/commons::nav"></header>
+<main>
+    <div class="container bg-blur rounded mt-5 mb-4">
+        <h1>All products to buy</h1>
+        <div class="row mt-3 mb-3">
+            <div class="col-5 bg-dark rounded m-auto" style="height: 30vh; overflow: auto">
+                <h3 class="mySticky bg-gray text-dark rounded">Foods</h3>
+                <div th:each="o : ${products}"  th:object="${o}"
+                     class="mt-3 rounded badge-info">
+                    <img class="mr-2" th:src=" '/img/' + *{category.getCategoryNameEnum().name().toLowerCase()} + '.png'"
+
+                         alt="Food" width="50px" height="50px">
+                    <span th:text="|Name: *{name} Price: *{price} lv|"></span>
+                    <a class="ml-3 text-danger" th:href="@{/products/buy/{id}(id=*{id})}">Buy</a>
+                </div>
+            </div>
+            <div class="col-5 bg-dark rounded m-auto" style="height: 30vh; overflow: auto">
+                <h3 class="mySticky bg-gray text-dark rounded">Drinks</h3>
+                <div class="mt-3 rounded badge-warning">
+                    <img class="mr-2" src="/img/drink.png" alt="Food" width="50px" height="50px">
+                    <span>Name: {name} Price: {price} lv</span>
+                    <a class="ml-3 text-danger" href="/">Buy</a>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3 mb-3">
+            <div class="col-5 bg-dark rounded m-auto" style="height: 30vh; overflow: auto">
+                <h3 class="mySticky bg-gray text-dark rounded">Households</h3>
+                <div th:each="o : ${products}"  th:object="${o}"
+                     class="mt-3 rounded badge-success">
+                    <img class="mr-2" th:src=" '/img/' + *{category.getCategoryNameEnum().name().toLowerCase()} + '.png'"
+                         alt="Food" width="50px" height="50px">
+                    <span th:text="|Name: *{name} Price: *{price} lv|"></span>
+                    <a class="ml-3 text-danger" th:href="@{/products/buy/{id}(id=*{id})}">Buy</a>
+                </div>
+            </div>
+            <div class="col-5 bg-dark rounded m-auto" style="height: 30vh; overflow: auto">
+                <h3 class="mySticky bg-gray text-dark rounded">Other</h3>
+                <div th:each="o : ${products}"  th:object="${o}"
+                     class="mt-3 rounded badge-secondary">
+                    <img class="mr-2" th:src=" '/img/' + *{category.getCategoryNameEnum().name().toLowerCase()} + '.png'"
+                         alt="Food" width="50px" height="50px">
+                    <span th:text="|Name: *{name} Price: *{price} lv|"></span>
+                    <a class="ml-3 text-danger" th:href="@{/products/buy/{id}(id=*{id})}">Buy</a>
+                </div>
+            </div>
+        </div>
+        <a href="/home" class="btn btn-danger"
+           th:text="|Buy all products for *{totalPriceOfProducts} lv|"></a>
     </div>
-
-    <h1>Vet Clinic ADORABLE PET</h1>
-    <div>
-        <button>  <a href="#">REGISTER</a></button>
-        <button>  <a href="#">LOGIN</a></button>
-        <button>  <a href="#" >LOGOUT</a></button>
-    </div>
-
-</div>
-
-
-<div class="nav-bar">
-    <a href="#">HOME</a>
-    <a href="#">DEPARTMENTS</a>
-    <a href="#">OUR TEAM</a>
-    <a href="#">USEFUL INFORMATION</a>
-    <a href="#">CLINIC SERVICES</a>
-    <a href="#">GOOD HEART</a>
-    <a href="#">PROJECTS</a>
-</div>
-
-<div class="main">
-<span>
-<p>ABOUT US</p>
-<p>Lorem mxcmnsd jknxknx kjnkwd knd knkajxcasxc kjdiqwancl mncn, cklhnc,m iljnf, c,
-felfnmsdnc cmnkelnfc,as ck,jfnilefkncl,aknijlk kljlkcdmcljfomcp
-mcoefjefjsdnccmpxzcsodi0w. K c d cdszpopodcszdjjc
-cjsopackjaocmlzcmipadjapjcnm.
-<br>
-Lorem mxcmnsd jknxknx kjnkwd knd knkajxcasxc kjdiqwancl mncn, cklhnc,m iljnf, c,
-felfnmsdnc cmnkelnfc,as ck,jfnilefkncl,aknijlk kljlkcdmcljfomcp
-mcoefjefjsdnciksdc
-</p>
-
-<div class="box">
-<div><a href="#">One</a></div>
-<div><a href="#">Two</a></div>
-<div><a href="#">Three</a></div>
-</div>
-
-
-</span>
-
-    <img src="https://st4.depositphotos.com/11328482/40017/i/450/depositphotos_400177176-stock-photo-portrait-stylish-lady-curly-hair.jpg">
-
-</div>
-
-<div class="footer">
-    <p>Contact us: (phone) (email)<br>Location: (address)</p>
-</div>
+</main>
+<footer th:replace="fragments/commons::footer"></footer>
 </body>
 </html>

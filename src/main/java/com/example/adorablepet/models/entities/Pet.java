@@ -1,7 +1,7 @@
 package com.example.adorablepet.models.entities;
 
-import com.example.adorablepet.models.enums.Chipped;
-import com.example.adorablepet.models.enums.TypeOfAnimal;
+import com.example.adorablepet.models.enums.ChippedEnumName;
+import com.example.adorablepet.models.enums.TypeOfAnimalEnumName;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
@@ -19,11 +19,14 @@ public class Pet extends BaseEntity{
 
     @Column
     @Enumerated(EnumType.STRING)
-    private Chipped chip;
+    private ChippedEnumName chippedEnumName;
 
     @Column
     @Enumerated(EnumType.STRING)
-    private TypeOfAnimal type;
+    private TypeOfAnimalEnumName typeOfAnimalEnumName;
+
+    @OneToOne
+    private TypeOfHelp typeOfHelp;
 
     @ManyToOne
     private User owner;
@@ -52,21 +55,30 @@ public class Pet extends BaseEntity{
         return this;
     }
 
-    public Chipped getChip() {
-        return chip;
+    public ChippedEnumName getChippedEnumName() {
+        return chippedEnumName;
     }
 
-    public Pet setChip(Chipped chip) {
-        this.chip = chip;
+    public Pet setChippedEnumName(ChippedEnumName chippedEnumName) {
+        this.chippedEnumName = chippedEnumName;
         return this;
     }
 
-    public TypeOfAnimal getType() {
-        return type;
+    public TypeOfAnimalEnumName getTypeOfAnimalEnumName() {
+        return typeOfAnimalEnumName;
     }
 
-    public Pet setType(TypeOfAnimal type) {
-        this.type = type;
+    public Pet setTypeOfAnimalEnumName(TypeOfAnimalEnumName typeOfAnimalEnumName) {
+        this.typeOfAnimalEnumName = typeOfAnimalEnumName;
+        return this;
+    }
+
+    public TypeOfHelp getTypeOfHelp() {
+        return typeOfHelp;
+    }
+
+    public Pet setTypeOfHelp(TypeOfHelp typeOfHelp) {
+        this.typeOfHelp = typeOfHelp;
         return this;
     }
 

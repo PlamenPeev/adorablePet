@@ -1,6 +1,6 @@
 package com.example.adorablepet.models.enums;
 
-public enum TypeOfAnimal {
+public enum TypeOfAnimalEnumName {
     DOG,
     CAT,
     RABBIT,

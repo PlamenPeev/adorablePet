@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vet Clinic</title>
+    <style>
+        /* Add your styling here */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background-color: #f2f2f2;
+        }
+
+        .header .logo {
+            width: 50px;
+            height: 50px;
+            background-color: #fff;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+        }
+
+        .header button {
+            padding: 0.5rem 1rem;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            margin-left: 0.5rem;
+        }
+
+        .header a{
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .header a:hover {
+         color: #333;
+        }
+
+        .header div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+
+        }
+
+
+        .nav-bar {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            color: #fff;
+        }
+
+        .nav-bar a {
+            padding: 1rem;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .nav-bar a:hover {
+            background-color: #ddd;
+            color: #333;
+        }
+
+        /*MAIN*/
+        .main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5rem;
+            background-color: #4CAF50;
+        }
+
+        .main span {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .main p {
+            padding: 2rem;
+        }
+
+        .main img {
+            padding: .25rem;
+            background-color: #fff;
+            border: 1px solid #dee2e6;
+            border-radius: .25rem;
+            max-width: 100%;
+        }
+
+        .box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .box a{
+            padding: 1rem;
+        }
+
+        /*FOOTER*/
+        .footer {
+            padding: 1rem;
+            text-align: center;
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+
+
+
+<body>
+<div class="header">
+    <div>
+        <div class="logo">Logo</div>
+        <th:block th:unless="${session.isEmpty()}">
+            <button>  <a href="pets/add">ADD PET</a></button>
+            <button>  <a href="/home">HOME</a></button>
+        </th:block>
+
+    </div>
+
+    <h1>Vet Clinic ADORABLE PET</h1>
+    <div>
+        <th:block th:if="${session.isEmpty()}">
+            <button>  <a href="users/register">REGISTER</a></button>
+            <button>  <a href="users/login">LOGIN</a></button>
+        </th:block>
+       <th:block th:unless="${session.isEmpty()}">
+           <button>  <a href="users/logout" >LOGOUT</a></button>
+       </th:block>
+
+    </div>
+
+</div>
+
+
+<div class="nav-bar">
+    <a href="/index">ABOUT US</a>
+    <a href="/pages/departments">DEPARTMENTS</a>
+    <a href="#">OUR TEAM</a>
+    <a href="#">USEFUL INFORMATION</a>
+    <a href="#">CLINIC SERVICES</a>
+    <a href="/pages/good-heart">GOOD HEART</a>
+    <a href="/pages/projects">PROJECTS</a>
+</div>
+
+<div class="main">
+<span>
+<p>ABOUT US</p>
+<p>Lorem mxcmnsd jknxknx kjnkwd knd knkajxcasxc kjdiqwancl mncn, cklhnc,m iljnf, c,
+felfnmsdnc cmnkelnfc,as ck,jfnilefkncl,aknijlk kljlkcdmcljfomcp
+mcoefjefjsdnccmpxzcsodi0w. K c d cdszpopodcszdjjc
+cjsopackjaocmlzcmipadjapjcnm.
+<br>
+Lorem mxcmnsd jknxknx kjnkwd knd knkajxcasxc kjdiqwancl mncn, cklhnc,m iljnf, c,
+felfnmsdnc cmnkelnfc,as ck,jfnilefkncl,aknijlk kljlkcdmcljfomcp
+mcoefjefjsdnciksdc
+</p>
+
+<div class="box">
+<div><a href="#">One</a></div>
+<div><a href="#">Two</a></div>
+<div><a href="#">Three</a></div>
+</div>
+
+
+</span>
+
+    <img src="https://st4.depositphotos.com/11328482/40017/i/450/depositphotos_400177176-stock-photo-portrait-stylish-lady-curly-hair.jpg">
+
+</div>
+
+<div class="footer">
+    <p>Contact us: (phone) (email)<br>Location: (address)</p>
+</div>
+</body>
+</html>

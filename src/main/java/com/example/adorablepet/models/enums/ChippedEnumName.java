@@ -1,6 +1,6 @@
 package com.example.adorablepet.models.enums;
 
-public enum Chipped {
+public enum ChippedEnumName {
     YES,
     NO
 }
