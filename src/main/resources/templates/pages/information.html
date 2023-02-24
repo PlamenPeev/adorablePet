@@ -36,12 +36,12 @@
     }
 
     .header a{
-        text-decoration: none;
-        color: #fff;
+      text-decoration: none;
+      color: #fff;
     }
 
     .header a:hover {
-        color: #333;
+      color: #333;
     }
 
     .header div {
@@ -158,24 +158,24 @@
 
 <body>
 <div class="header">
-    <div>
-        <div class="logo">Logo</div>
-        <th:block th:unless="${session.isEmpty()}">
-            <button>  <a href="pets/add">ADD PET</a></button>
-            <button>  <a href="/home">HOME</a></button>
-        </th:block>
-    </div>
+  <div>
+    <div class="logo">Logo</div>
+    <th:block th:unless="${session.isEmpty()}">
+      <button>  <a href="pets/add">ADD PET</a></button>
+      <button>  <a href="/home">HOME</a></button>
+    </th:block>
+  </div>
 
-    <h1>Vet Clinic ADORABLE PET</h1>
-    <div>
-        <th:block th:if="${session.isEmpty()}">
-            <button>  <a href="users/register">REGISTER</a></button>
-            <button>  <a href="users/login">LOGIN</a></button>
-        </th:block>
-        <th:block th:unless="${session.isEmpty()}">
-            <button>  <a href="users/logout" >LOGOUT</a></button>
-        </th:block>
-    </div>
+  <h1>Vet Clinic ADORABLE PET</h1>
+  <div>
+    <th:block th:if="${session.isEmpty()}">
+      <button>  <a href="users/register">REGISTER</a></button>
+      <button>  <a href="users/login">LOGIN</a></button>
+    </th:block>
+    <th:block th:unless="${session.isEmpty()}">
+      <button>  <a href="users/logout" >LOGOUT</a></button>
+    </th:block>
+  </div>
 
 </div>
 
