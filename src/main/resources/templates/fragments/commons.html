@@ -14,10 +14,13 @@
 <header>
     <div class="header">
         <div>
-            <div class="logo">Logo</div>
-            <th:block th:unless="${session.isEmpty()}">
-                <button>  <a href="pets/add">ADD PET</a></button>
-                <button>  <a href="/home">HOME</a></button>
+            <th:block class="logo">
+                <img src="/img/logo.jpg" alt="PetaPixel - Photo by Hannie Heere">
+            </th:block>
+
+            <th:block>
+                <button><a href="pets/add">ADD PET</a></button>
+                <button><a href="/home">HOME</a></button>
             </th:block>
 
         </div>
@@ -25,11 +28,11 @@
         <h1>Vet Clinic ADORABLE PET</h1>
         <div>
             <th:block th:if="${session.isEmpty()}">
-                <button>  <a href="users/register">REGISTER</a></button>
-                <button>  <a href="users/login">LOGIN</a></button>
+                <button><a href="users/register">REGISTER</a></button>
+                <button><a href="users/login">LOGIN</a></button>
             </th:block>
             <th:block th:unless="${session.isEmpty()}">
-                <button>  <a href="users/logout" >LOGOUT</a></button>
+                <button><a href="users/logout">LOGOUT</a></button>
             </th:block>
 
         </div>
@@ -38,7 +41,7 @@
 
 
     <div class="nav-bar">
-        <a href="/index">ABOUT US</a>
+        <a href="/">ABOUT US</a>
         <a href="/pages/departments">DEPARTMENTS</a>
         <a href="/pages/our-team">OUR TEAM</a>
         <a href="/pages/information">USEFUL INFORMATION</a>
