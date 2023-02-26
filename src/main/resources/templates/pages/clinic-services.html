@@ -141,46 +141,20 @@
             text-align: center;
             background-color: #f2f2f2;
         }
+
+        .footer img{
+            padding: .25rem;
+            background-color: #fff;
+            border: 1px solid #dee2e6;
+            border-radius: .25rem;
+            max-width: 10%;
+        }
     </style>
 </head>
 
-
-
-
 <body>
-<div class="header">
-    <div>
-        <div class="logo">Logo</div>
-        <th:block th:unless="${session.isEmpty()}">
-            <button>  <a href="pets/add">ADD PET</a></button>
-            <button>  <a href="/home">HOME</a></button>
-        </th:block>
-    </div>
 
-    <h1>Vet Clinic ADORABLE PET</h1>
-    <div>
-        <th:block th:if="${session.isEmpty()}">
-            <button>  <a href="users/register">REGISTER</a></button>
-            <button>  <a href="users/login">LOGIN</a></button>
-        </th:block>
-        <th:block th:unless="${session.isEmpty()}">
-            <button>  <a href="users/logout" >LOGOUT</a></button>
-        </th:block>
-    </div>
-
-</div>
-
-
-<div class="nav-bar">
-    <a href="/">ABOUT US</a>
-    <a href="/pages/departments">DEPARTMENTS</a>
-    <a href="/pages/our-team">OUR TEAM</a>
-    <a href="/pages/information">USEFUL INFORMATION</a>
-    <a href="/pages/clinic-services">CLINIC SERVICES</a>
-    <a href="/pages/good-heart">GOOD HEART</a>
-    <a href="/pages/projects">PROJECTS</a>
-</div>
-
+<header th:replace="fragments/commons::header"></header>
 
 
 <div class="main">
@@ -234,13 +208,6 @@
 
 
 
-<div class="footer">
-    <div class="container-fluid text-center">
-        <p>Contact us: (phone) (email)<br>Location: (address)</p>
-        <div>
-            &copy; Vet Clinic Adorable Pet 2023. All rights reserved.
-        </div>
-    </div>
-</div>
+<footer th:replace="fragments/commons::footer"></footer>
 </body>
 </html>
