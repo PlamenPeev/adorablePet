@@ -5,6 +5,7 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Vet Clinic Adorable Pet</title>
+    <link rel="shortcut icon" type="img/png" href="/img/favicon.png">
     <link rel="stylesheet" href="/static/css/reset-css.css"/>
     <link rel="stylesheet" href="/static/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/static/css/style.css"/>
@@ -20,7 +21,8 @@
 
             <th:block>
                 <button><a href="pets/add">ADD PET</a></button>
-                <button><a href="/home">HOME</a></button>
+                <button><a href="/home">Pet Schedule</a></button>
+                <button><a href="/home">Vet Schedule</a></button>
             </th:block>
 
         </div>
@@ -41,13 +43,13 @@
 
 
     <div class="nav-bar">
-        <a href="/">ABOUT US</a>
-        <a href="/pages/departments">DEPARTMENTS</a>
-        <a href="/pages/our-team">OUR TEAM</a>
-        <a href="/pages/information">USEFUL INFORMATION</a>
-        <a href="/pages/clinic-services">CLINIC SERVICES</a>
-        <a href="/pages/good-heart">GOOD HEART</a>
-        <a href="/pages/projects">PROJECTS</a>
+        <a th:href="@{/}">ABOUT US</a>
+        <a th:href="@{/pages/departments}">DEPARTMENTS</a>
+        <a th:href="@{/pages/our-team}">OUR TEAM</a>
+        <a th:href="@{/pages/information}">USEFUL INFORMATION</a>
+        <a th:href="@{/pages/clinic-services}">CLINIC SERVICES</a>
+        <a th:href="@{/pages/good-heart}">GOOD HEART</a>
+        <a th:href="@{/pages/projects}">PROJECTS</a>
     </div>
 </header>
 
@@ -55,7 +57,8 @@
     <div class="container-fluid text-center">
 
         <img src="/img/contact.jpg">
-        <p>Contact us: (phone) (email)<br>Location: (address)</p>
+        <p>Contact us: phone: +359 42 3I5 5Y3, email: adorable_pet@gmail.com
+            <br>Location: City of Stara Zagora, bul. Bulgaria № 012P</p>
         <div>
             &copy; Vet Clinic Adorable Pet 2023. All rights reserved.
         </div>

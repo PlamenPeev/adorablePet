@@ -3,6 +3,7 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Vet Clinic</title>
+    <link rel="shortcut icon" type="img/png" href="/img/favicon.png">
     <style>
         /* Add your styling here */
         .header {
@@ -19,7 +20,7 @@
             text-align: center;
         }
 
-        .header img{
+        .header img {
             padding: .25rem;
             border: 1px solid green;
             border-radius: 50%;
@@ -39,16 +40,16 @@
             margin-left: 0.5rem;
         }
 
-        .header a{
+        .header a {
             text-decoration: none;
             color: #fff;
         }
 
         .header a:hover {
-         color: #333;
+            color: #333;
         }
 
-        .header div{
+        .header div {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -80,7 +81,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 5rem;
+            padding: 2rem;
             background-color: #4CAF50;
         }
 
@@ -92,7 +93,7 @@
         }
 
         .main p {
-            padding: 2rem;
+            padding: 0.5rem;
         }
 
         .main img {
@@ -109,7 +110,7 @@
             justify-content: space-between;
         }
 
-        .box a{
+        .box a {
             padding: 1rem;
         }
 
@@ -120,7 +121,7 @@
             background-color: #f2f2f2;
         }
 
-        .footer img{
+        .footer img {
             padding: .25rem;
             background-color: #fff;
             border: 1px solid #dee2e6;
@@ -137,16 +138,20 @@
 
 <div class="main">
 <span>
-<p>ABOUT US</p>
-<p>Lorem mxcmnsd jknxknx kjnkwd knd knkajxcasxc kjdiqwancl mncn, cklhnc,m iljnf, c,
-felfnmsdnc cmnkelnfc,as ck,jfnilefkncl,aknijlk kljlkcdmcljfomcp
-mcoefjefjsdnccmpxzcsodi0w. K c d cdszpopodcszdjjc
-cjsopackjaocmlzcmipadjapjcnm.
-<br>
-Lorem mxcmnsd jknxknx kjnkwd knd knkajxcasxc kjdiqwancl mncn, cklhnc,m iljnf, c,
-felfnmsdnc cmnkelnfc,as ck,jfnilefkncl,aknijlk kljlkcdmcljfomcp
-mcoefjefjsdnciksdc
-</p>
+<h3>ABOUT US</h3>
+<p>We are a small community of veterinarians, technicians, lab technicians, trainers,
+    groomers and receptionists united in the common idea of offering people a variety
+    of services to help their beloved pets. The clinic was established in 2017 and we
+    are growing gradually by expanding our activities.</p>
+<p>Veterinarians and specialists are available at the clinic to help you diagnose health
+    problems and prescribe the correct treatment for recovery.</p>
+<p>We have modern equipment for imaging diagnostics and a laboratory. We work with the
+    latest technology in our operating rooms.</p>
+<p>We offer premium services with our internationally recognized groomers who will give
+    you advice according to your pet and how to care, maintain their hygiene, and what
+    they need depending on the season.
+    Our hotel part has comfortable separate areas to ensure the necessary comfort of our friends.
+    And our trainers will help you fight bad behavioral reactions.</p>
 
 <div class="box">
 <div><a href="#">One</a></div>
@@ -156,7 +161,7 @@ mcoefjefjsdnciksdc
 
 
 </span>
-<img src="/img/farm-country-house.jpg">
+    <img src="/img/farm-country-house.jpg">
 </div>
 
 <footer th:replace="fragments/commons::footer"></footer>
