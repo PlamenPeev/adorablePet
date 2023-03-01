@@ -111,12 +111,20 @@
             margin-left: 2rem;
         }
 
+        .q-a .scroll{
+            height: 400px;
+            overflow: scroll;
+        }
+
         .box-container{
             display: flex;
         }
 
         .box-container img{
             width: 50%;
+            height: 70%;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
         }
 
         .geeks {
@@ -206,8 +214,8 @@
         <img src="/images/information/urgent-cases.jpg" alt="Emergency calls">
         </div>
 
-        <div class="card">
-            <article>
+        <div class="card q-a">
+            <article class="scroll">
             <h2>EMERGENCY CASES</h2>
 <p>If your pet's condition suddenly worsens, it is good to be prepared and know how to react in the
     event of an emergency. At such times, it is good to know how to make the right first aid
@@ -231,8 +239,8 @@
         <img src="/images/information/before-operation.jpg" alt="The day before operation">
     </div>
 
-    <div class="card">
-        <article>
+    <div class="card q-a">
+        <article class="scroll">
             <h2>THE DAY BEFORE OPERATION</h2>
             <p>1. The patient should not have access to food for at least 12 hours before anesthesia</p>
             <p>2. The patient should not drink water for at least 2 hours before anesthesia</p>
@@ -256,8 +264,8 @@
         <img src="/images/information/Q&A.jpg" alt="Questions § Answers">
     </div>
 
-    <div class="card">
-        <article>
+    <div class="card q-a">
+        <article class="scroll">
             <h2>Q & A</h2>
             <p><strong>Q:</strong> What services does your veterinary clinic offer?<br>
                 <strong> A:</strong>Our veterinary clinic offers a wide range of services, including laboratory testing, imaging diagnostics, internal medicine, obstetrics and gynecology, skin disease treatment, dental medicine, and surgery.
@@ -285,7 +293,7 @@
 </section>
 
 
-<section>
+<section class="box-container">
     <div class="geeks">
         <img src="/images/information/price-list.jpg" alt="Price list">
     </div>
