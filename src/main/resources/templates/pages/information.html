@@ -111,16 +111,24 @@
             margin-left: 2rem;
         }
 
+        .box-container{
+            display: flex;
+        }
+
+        .box-container img{
+            width: 50%;
+        }
+
         .geeks {
             width: 50%;
             height: 200px;
         }
 
-        .card img {
+       /* .card img {
             width: 100%;
             height: 200px;
             *object-position: left;
-        }
+        }*/
 
         .card h2 {
             margin: 20px;
@@ -175,26 +183,32 @@
 
     <div class="card-container">
 
-        <div class="card">
-<span class="geeks">
-<img src="/images/information/home-visits1.jpg" alt="Home visits">
-</span>
-            <span>
-<h2>HOME VISITS</h2>
-<p>AdorablePet Center has a team of doctors for home visits. Some diagnostic and therapeutic
+        <section class="box-container">
+            <div class="geeks">
+            <img src="/images/information/home-visits1.jpg" alt="Home visits">
+            </div>
+
+            <div class="card">
+            <article>
+            <h2>HOME VISITS</h2>
+    <p>AdorablePet Center has a team of doctors for home visits. Some diagnostic and therapeutic
     manipulations can be performed at home: subcutaneous, muscular and venous injections,
     electrocardiography, ultrasound, blood and urine sampling, wound treatment and wound bandage
     replacement. To book this service, please contact our call center: + 359 342 011 444</p>
+            </article>
+            </div>
+        </section>
 
-</span>
+
+
+<section class="box-container">
+        <div class="geeks">
+        <img src="/images/information/urgent-cases.jpg" alt="Emergency calls">
         </div>
 
         <div class="card">
-<span class="geeks">
-<img src="/images/information/urgent-cases.jpg" alt="Emergency calls">
-</span>
-            <span>
-<h2>EMERGENCY CASES</h2>
+            <article>
+            <h2>EMERGENCY CASES</h2>
 <p>If your pet's condition suddenly worsens, it is good to be prepared and know how to react in the
     event of an emergency. At such times, it is good to know how to make the right first aid
     decision and how to transport your pet safely.</p>
@@ -207,70 +221,84 @@
 <p>3. Urgent conditions in which you should immediately seek competent help: copious salivation,
     swelling in the eye area, vomiting, impaired breathing, paralysis of the limbs, refusal of usual
     routine activities.</p>
-</span>
+        </article>
         </div>
+</section>
 
-        <div class="card">
-<span class="geeks">
-<img src="/images/information/before-operation.jpg" alt="The day before operation">
-</span>
-            <span>
-<h2>THE DAY BEFORE OPERATION</h2>
-<p>1. The patient should not have access to food for at least 12 hours before anesthesia</p>
-<p>2. The patient should not drink water for at least 2 hours before anesthesia</p>
-<p>3. Before anesthesia, during the walk, the animal should not be allowed to take anything
-    outside - grass, leaves, twigs, waste.</p>
-<p>4. Prior to anesthesia, a veterinarian will examine the patient to measure all vital signs.</p>
-<p>5. It is necessary to have up-to-date blood tests done a few days before the operation, proving
-    that your pet can be sedated and operated on.</p>
-<p>6. The anesthesia itself consists of several parts, and premedication is initially applied -
-    a means that reduces the side effects of anesthesia and improves vital functions. A muscle
-    relaxation anesthetic is then applied, followed by a venous catheter through which intravenous
-    fluids are infused and intravenous anesthesia is introduced, allowing - intubation - insertion
-    of a tracheal tube through which oxygen is supplied and maintenance inhalation anesthesia.</p>
-</span>
-        </div>
 
-        <div class="card">
-<span class="geeks">
-<img src="/images/information/Q&A.jpg" alt="Questions § Answers">
-</span>
-            <span>
-<h2>Q & A</h2>
-<p><strong>Q:</strong> What services does your veterinary clinic offer?<br>
-<strong> A:</strong>Our veterinary clinic offers a wide range of services, including laboratory testing, imaging diagnostics, internal medicine, obstetrics and gynecology, skin disease treatment, dental medicine, and surgery.
-</p>
-<p><strong>Q:</strong> Can you perform surgeries on pets?<br>
-<strong>A:</strong> Yes, our veterinary clinic is equipped with state-of-the-art surgical facilities and staffed by highly skilled veterinarians, allowing us to perform a wide range of surgical procedures for pets.
-</p>
-<p><strong>Q:</strong> How do you diagnose pet health conditions?<br>
-<strong>A:</strong> Our veterinarians use a combination of physical exams, laboratory tests, imaging, and other diagnostic tools to accurately diagnose pet health conditions.
-</p>
-<p><strong>Q:</strong> Can you provide emergency care for pets?<br>
- <strong>A:</strong>Yes, our veterinary clinic is equipped to handle pet emergencies and provides around-the-clock care to ensure your pet receives the treatment they need as quickly as possible.
-</p>
-<p><strong>Q:</strong> What is your approach to pet care?<br>
-<strong>A:</strong> Our approach to pet care is centered on providing the highest quality medical care in a compassionate and stress-free environment. We take the time to understand each pet's unique needs and develop personalized treatment plans to meet those needs.
-</p>
-<p><strong>Q:</strong> Can you provide care for pets with chronic conditions?<br>
-<strong>A:</strong> Yes, our veterinary clinic provides ongoing care for pets with chronic conditions, including regular check-ups and monitoring to ensure the best possible outcome for your pet.
-</p>
-<p><strong>Q:</strong> What forms of payment do you accept?<br>
-<strong>A:</strong> Our veterinary clinic accepts a wide range of payment options, including cash, credit cards, and pet insurance. Please contact us for more information on the payment options we accept.
-</p>
-</span>
-        </div>
+<section class="box-container">
+    <div class="geeks">
+        <img src="/images/information/before-operation.jpg" alt="The day before operation">
+    </div>
 
-        <div class="card">
-<span class="geeks">
-<img src="/images/information/price-list.jpg" alt="Price list">
-</span>
-            <span>
-<h2>PRICES OF MANIPULATIONS</h2>
-<p>For detailed price information, select the button below.</p>
-<a href="#" class="button">Learn More</a>
-</span>
-        </div>
+    <div class="card">
+        <article>
+            <h2>THE DAY BEFORE OPERATION</h2>
+            <p>1. The patient should not have access to food for at least 12 hours before anesthesia</p>
+            <p>2. The patient should not drink water for at least 2 hours before anesthesia</p>
+            <p>3. Before anesthesia, during the walk, the animal should not be allowed to take anything
+                outside - grass, leaves, twigs, waste.</p>
+            <p>4. Prior to anesthesia, a veterinarian will examine the patient to measure all vital signs.</p>
+            <p>5. It is necessary to have up-to-date blood tests done a few days before the operation, proving
+                that your pet can be sedated and operated on.</p>
+            <p>6. The anesthesia itself consists of several parts, and premedication is initially applied -
+                a means that reduces the side effects of anesthesia and improves vital functions. A muscle
+                relaxation anesthetic is then applied, followed by a venous catheter through which intravenous
+                fluids are infused and intravenous anesthesia is introduced, allowing - intubation - insertion
+                of a tracheal tube through which oxygen is supplied and maintenance inhalation anesthesia.</p>
+        </article>
+    </div>
+</section>
+
+
+<section class="box-container">
+    <div class="geeks">
+        <img src="/images/information/Q&A.jpg" alt="Questions § Answers">
+    </div>
+
+    <div class="card">
+        <article>
+            <h2>Q & A</h2>
+            <p><strong>Q:</strong> What services does your veterinary clinic offer?<br>
+                <strong> A:</strong>Our veterinary clinic offers a wide range of services, including laboratory testing, imaging diagnostics, internal medicine, obstetrics and gynecology, skin disease treatment, dental medicine, and surgery.
+            </p>
+            <p><strong>Q:</strong> Can you perform surgeries on pets?<br>
+                <strong>A:</strong> Yes, our veterinary clinic is equipped with state-of-the-art surgical facilities and staffed by highly skilled veterinarians, allowing us to perform a wide range of surgical procedures for pets.
+            </p>
+            <p><strong>Q:</strong> How do you diagnose pet health conditions?<br>
+                <strong>A:</strong> Our veterinarians use a combination of physical exams, laboratory tests, imaging, and other diagnostic tools to accurately diagnose pet health conditions.
+            </p>
+            <p><strong>Q:</strong> Can you provide emergency care for pets?<br>
+                <strong>A:</strong>Yes, our veterinary clinic is equipped to handle pet emergencies and provides around-the-clock care to ensure your pet receives the treatment they need as quickly as possible.
+            </p>
+            <p><strong>Q:</strong> What is your approach to pet care?<br>
+                <strong>A:</strong> Our approach to pet care is centered on providing the highest quality medical care in a compassionate and stress-free environment. We take the time to understand each pet's unique needs and develop personalized treatment plans to meet those needs.
+            </p>
+            <p><strong>Q:</strong> Can you provide care for pets with chronic conditions?<br>
+                <strong>A:</strong> Yes, our veterinary clinic provides ongoing care for pets with chronic conditions, including regular check-ups and monitoring to ensure the best possible outcome for your pet.
+            </p>
+            <p><strong>Q:</strong> What forms of payment do you accept?<br>
+                <strong>A:</strong> Our veterinary clinic accepts a wide range of payment options, including cash, credit cards, and pet insurance. Please contact us for more information on the payment options we accept.
+            </p>
+        </article>
+    </div>
+</section>
+
+
+<section>
+    <div class="geeks">
+        <img src="/images/information/price-list.jpg" alt="Price list">
+    </div>
+
+    <div class="card">
+        <article>
+            <h2>PRICES OF MANIPULATIONS</h2>
+            <p>For detailed price information, select the button below.</p>
+            <a href="#" class="button">Learn More</a>
+        </article>
+    </div>
+</section>
+
 
 
     </div>

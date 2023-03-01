@@ -13,6 +13,11 @@ public class PageController {
         return "pages/departments";
     }
 
+    @GetMapping("/departments-more-info")
+    private String departmentsMoreInfo(){
+        return "pages/departments-more-info";
+    }
+
     @GetMapping("/our-team")
     private String ourTeam(){
         return "pages/our-team";
