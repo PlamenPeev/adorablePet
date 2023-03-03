@@ -1,170 +1,175 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Vet Clinic Adorable Pet</title>
+    <title>Vet Clinic Adorable Pet</title>
     <link rel="shortcut icon" type="img/png" href="/images/favicon.png">
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    /* Add your styling here */
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Add your styling here */
 
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem;
-      background-color: #f2f2f2;
-    }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background-color: #f2f2f2;
+        }
 
-    .header .logo {
-        width: 50px;
-        height: 50px;
-        text-align: center;
-    }
+        .header .logo {
+            width: 50px;
+            height: 50px;
+            text-align: center;
+        }
 
-    .header img{
-        padding: .25rem;
-        border: 1px solid green;
-        border-radius: 50%;
-        max-width: 80px;
-    }
+        .header img {
+            padding: .25rem;
+            border: 1px solid green;
+            border-radius: 50%;
+            max-width: 80px;
+        }
 
-    .header h1 {
-      margin: 0;
-    }
+        .header h1 {
+            margin: 0;
+        }
 
-    .header button {
-      padding: 0.5rem 1rem;
-      background-color: #4CAF50;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      margin-left: 0.5rem;
-    }
+        .header button {
+            padding: 0.5rem 1rem;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            margin-left: 0.5rem;
+        }
 
-    .header a{
-        text-decoration: none;
-        color: #fff;
-    }
+        .header a {
+            text-decoration: none;
+            color: #fff;
+        }
 
-    .header a:hover {
-        color: #333;
-    }
+        .header a:hover {
+            color: #333;
+        }
 
-    .header div {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem;
+        .header div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
 
-    }
-
-
-    .nav-bar {
-      display: flex;
-      justify-content: center;
-      background-color: #333;
-      color: #fff;
-    }
-
-    .nav-bar a {
-      padding: 1rem;
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .nav-bar a:hover {
-      background-color: #ddd;
-      color: #333;
-    }
-
-    /*MAIN*/
-    .main {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 5rem;
-      background-color: #4CAF50;
-    }
-
-    /* CARDS*/
-    .card-container {
-      display: flex;
-      flex-wrap: wrap;
-      flex-direction: column;
-      justify-content: space-between;
-      max-width: 1200px;
-      margin: auto;
-      padding: 40px;
-    }
-
-    .card {
-      display: flex;
-      flex-wrap: wrap;
-      flex-direction: row;
-      justify-content: space-between;
-      width: 600px;
-      margin-bottom: 40px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.2);
-      border-radius: 10px;
-      overflow: hidden;
-      background-color: #f2f2f2;
-      margin-left: 2rem;
-    }
-
-    .geeks {
-      width:50%;
-      height:200px;
-    }
-
-    .card img {
-      width: 100%;
-      height: 200px;
-      object-position: right;
-    }
-
-    .card h2 {
-      margin: 20px;
-      font-size: 24px;
-      font-weight: bold;
-    }
-
-    .card p {
-      margin: 20px;
-      font-size: 16px;
-      color: #666;
-    }
-
-    .card .button {
-      display: block;
-      margin: 20px;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      /*background-color: #008CBA;*/
-      background-color: #4CAF50;
-      color: #fff;
-      font-size: 16px;
-      text-align: center;
-      text-decoration: none;
-    }
+        }
 
 
+        .nav-bar {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            color: #fff;
+        }
 
-    /*FOOTER*/
-    .footer {
-      padding: 1rem;
-      text-align: center;
-      background-color: #f2f2f2;
-    }
+        .nav-bar a {
+            padding: 1rem;
+            text-decoration: none;
+            color: inherit;
+        }
 
-    .footer img{
-        padding: .25rem;
-        background-color: #fff;
-        border: 1px solid #dee2e6;
-        border-radius: .25rem;
-        max-width: 10%;
-    }
-  </style>
+        .nav-bar a:hover {
+            background-color: #ddd;
+            color: #333;
+        }
+
+        /*MAIN*/
+        .main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5rem;
+            background-color: #4CAF50;
+        }
+
+        /* CARDS*/
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: auto;
+            padding: 40px;
+        }
+
+        .card {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            width: 600px;
+            margin-bottom: 40px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #f2f2f2;
+            margin-left: 2rem;
+        }
+
+        .geeks {
+            width: 50%;
+            height: 220px;
+        }
+
+        .card img {
+            width: 100%;
+            height: 220px;
+            object-position: right;
+        }
+
+        .card article{
+            width: auto;
+            height: auto;
+            object-position: left;
+        }
+
+        .card h2 {
+            margin: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .card p {
+            margin: 20px;
+            font-size: 16px;
+            color: #666;
+        }
+
+        .card .button {
+            display: block;
+            margin: 20px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            /*background-color: #008CBA;*/
+            background-color: #4CAF50;
+            color: #fff;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+        }
+
+
+        /*FOOTER*/
+        .footer {
+            padding: 1rem;
+            text-align: center;
+            background-color: #f2f2f2;
+        }
+
+        .footer img {
+            padding: .25rem;
+            background-color: #fff;
+            border: 1px solid #dee2e6;
+            border-radius: .25rem;
+            max-width: 10%;
+        }
+    </style>
 </head>
 
 
@@ -175,74 +180,76 @@
 
 <div class="main">
 
-  <div class="card-container">
+    <div class="card-container">
 
-    <div class="card">
-<span class = "geeks">
-<img src="/images/projects/vet-in-school.jpg" alt="Vet in school">
-</span>
-        <span class = "geeks">
-<img src="/images/projects/vet-in-school2.jpg" alt="Our dog toy patient">
-</span>
-<span>
-<h2>CLOSE TO THE SCHOOL</h2>
-<p>Introducing children to the profession of veterinary doctor. We conduct open lessons after
-    pre-registration and arrangement with the class head and permission received from the principal
-    of the relevant school. The subject is dedicated to our pets, how to care for them, why they
-    need to be feed with certain foods, how to respond in emergencies, simulation of a small
-    surgery. The played situation is very fun for kids. See the gallery of photos and the happiness
-    in their eyes.</p>
-</span>
-        <span class = "geeks">
-<img src="/images/projects/vet-in-school3.jpg" alt="Happy kids eyes">
-</span>
-        <span class = "geeks">
-<img src="/images/projects/vet-in-school4.jpg" alt="During the surgery">
-</span>
+        <section class="card">
+          <div class="geeks">
+          <img src="/images/projects/vet-in-school.jpg" alt="Vet in school">
+          </div>
+          <div class="geeks">
+          <img src="/images/projects/vet-in-school2.jpg" alt="Our dog toy patient">
+          </div>
+          <div>
+            <h2>CLOSE TO THE SCHOOL</h2>
+            <p>Introducing children to the profession of veterinary doctor. We conduct open lessons after
+            pre-registration and arrangement with the class head and permission received from the principal
+            of the relevant school. The subject is dedicated to our pets, how to care for them, why they
+            need to be feed with certain foods, how to respond in emergencies, simulation of a small
+            surgery. The played situation is very fun for kids. See the gallery of photos and the happiness
+            in their eyes.</p>
+          </div>
+          <div class="geeks">
+          <img src="/images/projects/vet-in-school3.jpg" alt="Happy kids eyes">
+          </div>
+          <div class="geeks">
+          <img src="/images/projects/vet-in-school4.jpg" alt="During the surgery">
+          </div>
+        </section>
+
+
+        <section class="card">
+            <div class="geeks">
+            <img src="/images/projects/pharmacy.jpg" alt="Pharmacy">
+            </div>
+
+            <div class="geeks">
+              <h2>PHARMACY</h2>
+              <p>We are planning to open a Pharmacy to close the loop regarding the treatment of your pets.
+              In this way, we will help our customers in their search and ensure that the prescribed
+              medication of the treatment will be available at any time and place.</p>
+            </div>
+        </section>
+
+
+        <section class="card">
+            <div class="geeks">
+            <img src="/images/projects/in_memorial.jpg" alt="Good memories in our hearts">
+            </div>
+
+            <div class="geeks">
+            <h2>IN MEMORY</h2>
+            <p>For our beloved animals, members of our families, we develop a program after their earthly
+            journey. The product we are developing will be related to favorite moments spent together,
+            his favorite toys, family photos, etc. related to the fact that we will never forget them
+            and they will live with us forever.</p>
+            </div>
+        </section>
+
+
+        <section class="card">
+            <div class="geeks">
+            <img src="/images/projects/future-clinic.jpg" alt="Our future clinic">
+            </div>
+
+            <div class="geeks">
+            <h2>FUTURE CLINIC</h2>
+            <p>Project and scheme of the future new large building for all.</p>
+            </div>
+        </section>
+
+
     </div>
-
-
-    <div class="card">
-<span class = "geeks">
-<img src="/images/projects/pharmacy.jpg" alt="Pharmacy">
-</span>
-<span>
-<h2>PHARMACY</h2>
-<p>We are planning to open a Pharmacy to close the loop regarding the treatment of your pets.
-    In this way, we will help our customers in their search and ensure that the prescribed
-    medication of the treatment will be available at any time and place.</p>
-</span>
-    </div>
-
-
-    <div class="card">
-<span class = "geeks">
-<img src="/images/projects/in_memorial.jpg" alt="Good memories in our hearts">
-</span>
-<span>
-<h2>IN MEMORY</h2>
-<p>For our beloved animals, members of our families, we develop a program after their earthly
-    journey. The product we are developing will be related to favorite moments spent together,
-    his favorite toys, family photos, etc. related to the fact that we will never forget them
-    and they will live with us forever.</p>
-</span>
-    </div>
-
-
-    <div class="card">
-<span class = "geeks">
-<img src="/images/projects/future-clinic.jpg" alt="Our future clinic">
-</span>
-<span>
-<h2>FUTURE CLINIC</h2>
-<p>Project and scheme of the future new large building for all.</p>
-</span>
-    </div>
-
-
-  </div>
 </div>
-
 
 
 <footer th:replace="fragments/commons::footer"></footer>
