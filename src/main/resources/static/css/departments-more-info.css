@@ -69,14 +69,16 @@
     color: #333;
 }
 
+
 /*MAIN*/
+
 .main {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 5rem;
-    background-color: #4CAF50;
 }
+
 
 /* CARDS*/
 .card-container {
