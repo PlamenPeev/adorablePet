@@ -68,6 +68,13 @@
     color: #333;
 }
 
+.nav-link {
+    color: darkred;
+    text-decoration: none;
+}
+
+
+
 /*MAIN*/
 .main {
     display: flex;

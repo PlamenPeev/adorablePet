@@ -69,7 +69,14 @@
     color: #333;
 }
 
+.nav-link {
+    color: #000;
+    text-decoration: none;
+}
 
+.nav-link.active {
+    background-color: #ccc;
+}
 
 /*MAIN*/
 .main {

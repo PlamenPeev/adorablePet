@@ -1,18 +1,18 @@
 package com.example.adorablepet.models.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
-public class User extends BaseEntity{
+public class UserEntity extends BaseEntity{
 
-    @Column
-    private String username;
+//    @Column(nullable = false)
+//    private String username;
 
-    @Column
+    @Column(nullable = false)
     private String password;
 
     @Column(name ="first_name")
@@ -21,32 +21,35 @@ public class User extends BaseEntity{
     @Column(name ="last_name")
     private String lastName;
 
-    @Column
+    @Column(nullable = false)
     private String email;
 
     @Column(name ="phone_number")
     private String phoneNumber;
 
+    @ManyToMany(fetch = FetchType.EAGER)
+    private List<Role> roles = new ArrayList<>();
+
     @ManyToOne
     private Country country;
 
-    public User() {
+    public UserEntity() {
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public User setUsername(String username) {
-        this.username = username;
-        return this;
-    }
+//    public String getUsername() {
+//        return username;
+//    }
+//
+//    public UserEntity setUsername(String username) {
+//        this.username = username;
+//        return this;
+//    }
 
     public String getPassword() {
         return password;
     }
 
-    public User setPassword(String password) {
+    public UserEntity setPassword(String password) {
         this.password = password;
         return this;
     }
@@ -55,7 +58,7 @@ public class User extends BaseEntity{
         return firstName;
     }
 
-    public User setFirstName(String firstName) {
+    public UserEntity setFirstName(String firstName) {
         this.firstName = firstName;
         return this;
     }
@@ -64,7 +67,7 @@ public class User extends BaseEntity{
         return lastName;
     }
 
-    public User setLastName(String lastName) {
+    public UserEntity setLastName(String lastName) {
         this.lastName = lastName;
         return this;
     }
@@ -73,7 +76,7 @@ public class User extends BaseEntity{
         return email;
     }
 
-    public User setEmail(String email) {
+    public UserEntity setEmail(String email) {
         this.email = email;
         return this;
     }
@@ -82,8 +85,17 @@ public class User extends BaseEntity{
         return phoneNumber;
     }
 
-    public User setPhoneNumber(String phoneNumber) {
+    public UserEntity setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+        return this;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public UserEntity setRoles(List<Role> roles) {
+        this.roles = roles;
         return this;
     }
 
@@ -91,8 +103,13 @@ public class User extends BaseEntity{
         return country;
     }
 
-    public User setCountry(Country country) {
+    public UserEntity setCountry(Country country) {
         this.country = country;
         return this;
+    }
+
+    public UserEntity addRole(Role role){
+this.roles.add(role);
+return this;
     }
 }

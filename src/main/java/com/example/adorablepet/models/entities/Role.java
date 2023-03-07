@@ -7,14 +7,14 @@ import jakarta.persistence.*;
 @Table(name="roles")
 public class Role extends BaseEntity{
 
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private RoleEnumName roleEnumName;
 
     @Column(columnDefinition = "TEXT")
     private String description;
 
-    @OneToOne
-    private User user;
+
 
     public Role() {
     }
@@ -37,12 +37,5 @@ public class Role extends BaseEntity{
         return this;
     }
 
-    public User getUser() {
-        return user;
-    }
 
-    public Role setUser(User user) {
-        this.user = user;
-        return this;
-    }
 }

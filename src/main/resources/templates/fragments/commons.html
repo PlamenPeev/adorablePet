@@ -5,14 +5,13 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Vet Clinic Adorable Pet</title>
-    <link rel="shortcut icon" type="img/png" href="/images/favicon.png">
-    <link rel="stylesheet" href="/static/css/reset-css.css"/>
-    <link rel="stylesheet" href="/static/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="/static/css/style.css"/>
+    <link rel="shortcut icon" type="img/png" th:href="@{/images/favicon.png}">
+
 </head>
 <body>
 
 <header>
+
     <div class="header">
         <div>
             <th:block class="logo">
@@ -20,22 +19,25 @@
             </th:block>
 
             <th:block>
-                <button><a href="pets/add">ADD PET</a></button>
-                <button><a href="/home">Pet Schedule</a></button>
-                <button><a href="/home">Vet Schedule</a></button>
+                <button sec:authorize="isAuthenticated()"><a th:href="@{/pets/add}">ADD PET</a></button>
+                <button sec:authorize="hasRole('MODERATOR')"><a th:href="@{/pages/moderators}">MODERATORS</a></button>
+                <button sec:authorize="hasRole('ADMIN')"><a th:href="@{/pages/admins}">ADMINS</a></button>
             </th:block>
 
         </div>
 
         <h1>Vet Clinic ADORABLE PET</h1>
         <div>
-            <th:block th:if="${session.isEmpty()}">
-                <button><a href="users/register">REGISTER</a></button>
-                <button><a href="users/login">LOGIN</a></button>
+            <th:block sec:authorize="!isAuthenticated()">
+                <button><a th:href="@{/users/register}">REGISTER</a></button>
+                <button><a th:href="@{/users/login}" >LOGIN</a></button>
             </th:block>
-            <th:block th:unless="${session.isEmpty()}">
-                <button><a href="users/logout">LOGOUT</a></button>
+            <th:block sec:authorize="isAuthenticated()">
+                <form th:method="post" th:action="@{/users/logout}">
+                    <button><a>LOGOUT</a></button>
+                </form>
             </th:block>
+
 
         </div>
 
@@ -43,13 +45,14 @@
 
 
     <div class="nav-bar">
-        <a th:href="@{/}">ABOUT US</a>
-        <a th:href="@{/pages/departments}">DEPARTMENTS</a>
-        <a th:href="@{/pages/our-team}">OUR TEAM</a>
-        <a th:href="@{/pages/information}">USEFUL INFORMATION</a>
-        <a th:href="@{/pages/clinic-services}">CLINIC SERVICES</a>
-        <a th:href="@{/pages/good-heart}">GOOD HEART</a>
-        <a th:href="@{/pages/projects}">PROJECTS</a>
+
+        <a th:href="@{/}" class="nav-link active">ABOUT US</a>
+        <a th:href="@{/pages/departments}" class="nav-link">DEPARTMENTS</a>
+        <a th:href="@{/pages/our-team}" class="nav-link">OUR TEAM</a>
+        <a th:href="@{/pages/information}" class="nav-link">USEFUL INFORMATION</a>
+        <a th:href="@{/pages/clinic-services}" class="nav-link">CLINIC SERVICES</a>
+        <a th:href="@{/pages/good-heart}" class="nav-link">GOOD HEART</a>
+        <a th:href="@{/pages/projects}" class="nav-link">PROJECTS</a>
     </div>
 </header>
 

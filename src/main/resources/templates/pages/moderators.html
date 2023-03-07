@@ -1,9 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/commons::head"></head>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Vet Clinic Adorable Pet</title>
+    <link rel="shortcut icon" type="img/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/reset-css.css"/>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/style.css"/>
+    <link rel="stylesheet" href="/css/departments-more-info.css">
+    <style>
+        body{
+            background-image: url("/images/background-img-form.jpg");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+        }
+    </style>
+</head>
 <body>
-<header th:replace="fragments/commons::nav"></header>
+<header th:replace="fragments/commons::header"></header>
 <main>
     <div class="container bg-blur rounded mt-5 mb-4">
         <h1>All products to buy</h1>
@@ -24,7 +41,7 @@
                 <div class="mt-3 rounded badge-warning">
                     <img class="mr-2" src="/images/drink.png" alt="Food" width="50px" height="50px">
                     <span>Name: {name} Price: {price} lv</span>
-                    <a class="ml-3 text-danger" href="/">Buy</a>
+                    <a class="ml-3 text-danger" href="/static">Buy</a>
                 </div>
             </div>
         </div>

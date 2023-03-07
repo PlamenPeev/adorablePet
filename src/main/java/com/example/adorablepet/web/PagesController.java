@@ -6,7 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("pages")
-public class PageController {
+public class PagesController {
+
 
     @GetMapping("/departments")
     private String departments(){
@@ -40,6 +41,20 @@ public class PageController {
 
     @GetMapping("/projects")
     private String projects(){
+
         return "pages/projects";
     }
+
+    @GetMapping("/admins")
+    private String admin(){
+
+        return "pages/admins";
+    }
+
+    @GetMapping("/moderators")
+    private String moderator(){
+
+        return "pages/moderators";
+    }
+
 }

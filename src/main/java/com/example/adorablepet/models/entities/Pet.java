@@ -29,10 +29,10 @@ public class Pet extends BaseEntity{
     private TypeOfHelp typeOfHelp;
 
     @ManyToOne
-    private User owner;
+    private UserEntity owner;
 
     @ManyToMany
-    private Set<User> adopters;
+    private Set<UserEntity> adopters;
 
     public Pet() {
     }
@@ -82,20 +82,20 @@ public class Pet extends BaseEntity{
         return this;
     }
 
-    public User getOwner() {
+    public UserEntity getOwner() {
         return owner;
     }
 
-    public Pet setOwner(User owner) {
+    public Pet setOwner(UserEntity owner) {
         this.owner = owner;
         return this;
     }
 
-    public Set<User> getAdopters() {
+    public Set<UserEntity> getAdopters() {
         return adopters;
     }
 
-    public Pet setAdopters(Set<User> adopters) {
+    public Pet setAdopters(Set<UserEntity> adopters) {
         this.adopters = adopters;
         return this;
     }

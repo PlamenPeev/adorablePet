@@ -1,13 +1,30 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/commons::head"></head>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Vet Clinic Adorable Pet</title>
+    <link rel="shortcut icon" type="img/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/reset-css.css"/>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/style.css"/>
+    <link rel="stylesheet" href="/css/departments-more-info.css">
+    <style>
+        body{
+            background-image: url("/images/background-img-form.jpg");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+        }
+    </style>
+</head>
 <body>
-<header th:replace="fragments/commons::nav"></header>
+<header th:replace="fragments/commons::header"></header>
 <main>
     <h1 class="text-center mt-2"><span class="badge badge-pill badge-dark">Add product</span></h1>
     <hr class="hr-3 w-25 bg-white"/>
-    <form class="mx-auto w-25 bg-blur rounded" th:method="POST" th:action="@{/products/add}"
+    <form class="mx-auto w-25 bg-blur rounded" th:method="POST" th:action="@{/pets/add}"
           th:object="${productAddBindingModel}">
         <div class="form-group">
             <div class="label-holder textCol d-flex justify-content-center">
