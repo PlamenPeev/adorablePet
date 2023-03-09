@@ -22,10 +22,13 @@
 <body>
 <header th:replace="fragments/commons::header"></header>
 <main>
-    <h1 class="text-center mt-2"><span class="badge badge-pill badge-dark">Add product</span></h1>
+    <h1 class="text-center mt-2"><span class="badge badge-pill badge-dark">Add Pet</span></h1>
     <hr class="hr-3 w-25 bg-white"/>
-    <form class="mx-auto w-25 bg-blur rounded" th:method="POST" th:action="@{/pets/add}"
-          th:object="${productAddBindingModel}">
+    <form class="mx-auto w-25 bg-blur rounded"
+          th:method="post"
+          th:action="@{/pets/add}"
+          th:object="${petAddDTO}">
+
         <div class="form-group">
             <div class="label-holder textCol d-flex justify-content-center">
                 <label for="name" class="h4 mb-2 text-white">Name</label>
@@ -35,49 +38,90 @@
             <small th:each="e : ${#fields.errors('name')}" th:text="${e}"
                    class="text-danger"> Name error</small>
         </div>
+
         <div class="form-group">
-            <div class="label-holder text-white textCol d-flex justify-content-center">
-                <label for="description" class="h4 mb-2">Description</label>
+            <div class="label-holder textCol d-flex justify-content-center">
+                <label for="age" class="h4 mb-2 text-white">Age</label>
             </div>
-            <textarea th:field="*{description}" th:errorclass="bg-danger"
-                      type="text" class="form-control" id="description" name="description"></textarea>
-            <small th:each="e : ${#fields.errors('description')}" th:text="${e}"
-                   class="text-danger">Description error message</small>
+            <input th:field="*{age}" th:errorclass="bg-danger"
+                   type="text" class="form-control" id="age" name="age"/>
+            <small th:each="e : ${#fields.errors('age')}" th:text="${e}"
+                   class="text-danger"> Age error</small>
         </div>
-        <div class="form-group">
-            <div class="label-holder text-white textCol d-flex justify-content-center">
-                <label for="neededBefore" class="h4 mb-2">Before</label>
-            </div>
-            <input th:field="*{neededBefore}" th:errorclass="bg-danger"
-                   type="datetime-local" class="form-control" id="neededBefore" name="neededBefore"/>
-            <small th:each="e : ${#fields.errors('neededBefore')}" th:text="${e}"
-                   class="text-danger">Needed before date error</small>
-        </div>
-        <div class="form-group">
-            <div class="label-holder text-white textCol d-flex justify-content-center">
-                <label for="price" class="h4 mb-2">Price</label>
-            </div>
-            <input th:field="*{price}" th:errorclass="bg-danger"
-                   type="number" step="0.1" class="form-control" id="price" name="price"/>
-            <small th:each="e : ${#fields.errors('price')}" th:text="${e}"
-                   class="text-danger">Price error message</small>
-        </div>
+
         <div class="form-group">
             <div class="text-white label-holder d-flex justify-content-center">
-                <label for="category" class="h4 mb-2">Category</label>
+                <label for="chippedEnumName" class="h4 mb-2">Chipped</label>
             </div>
-            <select th:field="*{category}" th:errorclass="bg-danger" class="browser-default custom-select" id="category" name="category">
-                <option value="">Select category</option>
-                <option th:each="o : ${T(com.example.web_shoppinglist.model.entity.CategoryNameEnum).values()}"
-                        th:text="${o}" th:value="${o}">Food</option>
-
+            <select th:field="*{chippedEnumName}" th:errorclass="bg-danger"
+                    class="browser-default custom-select"
+                    id="chippedEnumName" name="chippedEnumName">
+                <option value="">Select option</option>
+                <option th:each="o : ${T(com.example.adorablepet.models.enums.ChippedEnumName).values()}"
+                        th:text="${o}" th:value="${o}">Option</option>
             </select>
-            <small th:each="e : ${#fields.errors('category')}" th:text="${e}"
-                   class="text-danger">Category error message</small>
+            <small th:each="e : ${#fields.errors('chippedEnumName')}" th:text="${e}"
+                   class="text-danger">Chipped error message</small>
         </div>
 
+        <div class="form-group">
+            <div class="text-white label-holder d-flex justify-content-center">
+                <label for="typeOfAnimalEnumName" class="h4 mb-2">Type of Animal</label>
+            </div>
+            <select th:field="*{typeOfAnimalEnumName}" th:errorclass="bg-danger"
+                    class="browser-default custom-select"
+                    id="typeOfAnimalEnumName" name="typeOfAnimalEnumName">
+                <option value="">Select type of Animal</option>
+                <option th:each="o : ${T(com.example.adorablepet.models.enums.TypeOfAnimalEnumName).values()}"
+                        th:text="${o}" th:value="${o}">Option</option>
+            </select>
+            <small th:each="e : ${#fields.errors('typeOfAnimalEnumName')}" th:text="${e}"
+                   class="text-danger">TypeOfAnimal error message</small>
+        </div>
+
+
+
+        <div class="form-group">
+            <div class="text-white label-holder d-flex justify-content-center">
+                <label for="typeOfHelp" class="h4 mb-2">Type of Help</label>
+            </div>
+            <select th:field="*{typeOfHelp}" th:errorclass="bg-danger"
+                    class="browser-default custom-select"
+                    id="typeOfHelp" name="typeOfHelp">
+                <option value="">Select type of Service</option>
+                <option th:each="o : ${T(com.example.adorablepet.models.enums.TypeOfHelpEnumName).values()}"
+                        th:text="${o}" th:value="${o}">Option</option>
+            </select>
+            <small th:each="e : ${#fields.errors('typeOfHelp')}" th:text="${e}"
+                   class="text-danger">TypeOfAnimal error message</small>
+        </div>
+
+
+        <div class="form-group">
+            <div class="label-holder text-white textCol d-flex justify-content-center">
+                <label for="dateOfVisit" class="h4 mb-2">Date of Visit</label>
+            </div>
+            <input th:field="*{dateOfVisit}" th:errorclass="bg-danger"
+                   type="date" class="form-control"
+                   id="dateOfVisit" name="dateOfVisit"/>
+            <small th:each="e : ${#fields.errors('dateOfVisit')}" th:text="${e}"
+                   class="text-danger">Visit date error</small>
+        </div>
+
+        <div class="form-group">
+            <div class="label-holder textCol d-flex justify-content-center">
+                <label for="hourOfVisit" class="h4 mb-2 text-white">Hour of Visit</label>
+            </div>
+            <input th:field="*{hourOfVisit}" th:errorclass="bg-danger"
+                   type="number" class="form-control" id="hourOfVisit" name="hourOfVisit"/>
+            <small th:each="e : ${#fields.errors('hourOfVisit')}" th:text="${e}"
+                   class="text-danger"> Hour error</small>
+        </div>
+
+
+
         <div class="button-holder d-flex justify-content-center">
-            <button type="submit" class="btn btn-warning  mb-3" value="Register">Add product</button>
+            <button type="submit" class="btn btn-warning  mb-3" value="Register">Add Pet</button>
         </div>
     </form>
 </main>

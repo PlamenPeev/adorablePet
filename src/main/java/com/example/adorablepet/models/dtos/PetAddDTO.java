@@ -1,54 +1,58 @@
-package com.example.adorablepet.models.entities;
+package com.example.adorablepet.models.dtos;
 
+import com.example.adorablepet.models.entities.TypeOfHelp;
+import com.example.adorablepet.models.entities.UserEntity;
 import com.example.adorablepet.models.enums.ChippedEnumName;
 import com.example.adorablepet.models.enums.TypeOfAnimalEnumName;
-import jakarta.persistence.*;
-
+import jakarta.validation.constraints.*;
+import org.hibernate.validator.constraints.Length;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Set;
 
-@Entity
-@Table(name = "pets")
-public class Pet extends BaseEntity{
+public class PetAddDTO {
 
-    @Column
+    @NotNull
+    @Length(min=2,
+            message = "Name length should be more than 2 characters.")
     private String name;
 
-    @Column
+    @NotNull
+    @Positive
     private BigDecimal age;
 
-    @Column
-    @Enumerated(EnumType.STRING)
+    @NotNull
     private ChippedEnumName chippedEnumName;
 
-    @Column
-    @Enumerated(EnumType.STRING)
+    @NotNull
     private TypeOfAnimalEnumName typeOfAnimalEnumName;
 
-    @OneToOne
+
     private TypeOfHelp typeOfHelp;
 
-    @ManyToOne
+    @NotNull
     private UserEntity owner;
 
-    @ManyToMany
-    private Set<UserEntity> adopters;
-
-    @Column(name ="date_of_visit")
+    @NotNull
+    @FutureOrPresent
     private LocalDate dateOfVisit;
 
-    @Column(name ="hour_of_visit")
+    @NotNull( message = "The hour should be between 09:00 and 17:00.")
+    @Min(9)
+    @Max(17)
     private int hourOfVisit;
 
-    public Pet() {
+
+    private Set<UserEntity> adopters;
+
+    public PetAddDTO() {
     }
 
     public String getName() {
         return name;
     }
 
-    public Pet setName(String name) {
+    public PetAddDTO setName(String name) {
         this.name = name;
         return this;
     }
@@ -57,7 +61,7 @@ public class Pet extends BaseEntity{
         return age;
     }
 
-    public Pet setAge(BigDecimal age) {
+    public PetAddDTO setAge(BigDecimal age) {
         this.age = age;
         return this;
     }
@@ -66,7 +70,7 @@ public class Pet extends BaseEntity{
         return chippedEnumName;
     }
 
-    public Pet setChippedEnumName(ChippedEnumName chippedEnumName) {
+    public PetAddDTO setChippedEnumName(ChippedEnumName chippedEnumName) {
         this.chippedEnumName = chippedEnumName;
         return this;
     }
@@ -75,7 +79,7 @@ public class Pet extends BaseEntity{
         return typeOfAnimalEnumName;
     }
 
-    public Pet setTypeOfAnimalEnumName(TypeOfAnimalEnumName typeOfAnimalEnumName) {
+    public PetAddDTO setTypeOfAnimalEnumName(TypeOfAnimalEnumName typeOfAnimalEnumName) {
         this.typeOfAnimalEnumName = typeOfAnimalEnumName;
         return this;
     }
@@ -84,7 +88,7 @@ public class Pet extends BaseEntity{
         return typeOfHelp;
     }
 
-    public Pet setTypeOfHelp(TypeOfHelp typeOfHelp) {
+    public PetAddDTO setTypeOfHelp(TypeOfHelp typeOfHelp) {
         this.typeOfHelp = typeOfHelp;
         return this;
     }
@@ -93,7 +97,7 @@ public class Pet extends BaseEntity{
         return owner;
     }
 
-    public Pet setOwner(UserEntity owner) {
+    public PetAddDTO setOwner(UserEntity owner) {
         this.owner = owner;
         return this;
     }
@@ -102,7 +106,7 @@ public class Pet extends BaseEntity{
         return adopters;
     }
 
-    public Pet setAdopters(Set<UserEntity> adopters) {
+    public PetAddDTO setAdopters(Set<UserEntity> adopters) {
         this.adopters = adopters;
         return this;
     }
@@ -111,7 +115,7 @@ public class Pet extends BaseEntity{
         return dateOfVisit;
     }
 
-    public Pet setDateOfVisit(LocalDate dateOfVisit) {
+    public PetAddDTO setDateOfVisit(LocalDate dateOfVisit) {
         this.dateOfVisit = dateOfVisit;
         return this;
     }
@@ -120,7 +124,7 @@ public class Pet extends BaseEntity{
         return hourOfVisit;
     }
 
-    public Pet setHourOfVisit(int hourOfVisit) {
+    public PetAddDTO setHourOfVisit(int hourOfVisit) {
         this.hourOfVisit = hourOfVisit;
         return this;
     }

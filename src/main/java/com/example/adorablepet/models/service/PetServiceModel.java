@@ -1,5 +1,7 @@
-package com.example.adorablepet.models.entities;
+package com.example.adorablepet.models.service;
 
+import com.example.adorablepet.models.entities.TypeOfHelp;
+import com.example.adorablepet.models.entities.UserEntity;
 import com.example.adorablepet.models.enums.ChippedEnumName;
 import com.example.adorablepet.models.enums.TypeOfAnimalEnumName;
 import jakarta.persistence.*;
@@ -8,47 +10,36 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Set;
 
-@Entity
-@Table(name = "pets")
-public class Pet extends BaseEntity{
+public class PetServiceModel {
 
-    @Column
+    private Long id;
     private String name;
-
-    @Column
     private BigDecimal age;
-
-    @Column
-    @Enumerated(EnumType.STRING)
     private ChippedEnumName chippedEnumName;
-
-    @Column
-    @Enumerated(EnumType.STRING)
     private TypeOfAnimalEnumName typeOfAnimalEnumName;
-
-    @OneToOne
     private TypeOfHelp typeOfHelp;
-
-    @ManyToOne
     private UserEntity owner;
-
-    @ManyToMany
     private Set<UserEntity> adopters;
-
-    @Column(name ="date_of_visit")
     private LocalDate dateOfVisit;
-
-    @Column(name ="hour_of_visit")
     private int hourOfVisit;
 
-    public Pet() {
+    public PetServiceModel() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public PetServiceModel setId(Long id) {
+        this.id = id;
+        return this;
     }
 
     public String getName() {
         return name;
     }
 
-    public Pet setName(String name) {
+    public PetServiceModel setName(String name) {
         this.name = name;
         return this;
     }
@@ -57,7 +48,7 @@ public class Pet extends BaseEntity{
         return age;
     }
 
-    public Pet setAge(BigDecimal age) {
+    public PetServiceModel setAge(BigDecimal age) {
         this.age = age;
         return this;
     }
@@ -66,7 +57,7 @@ public class Pet extends BaseEntity{
         return chippedEnumName;
     }
 
-    public Pet setChippedEnumName(ChippedEnumName chippedEnumName) {
+    public PetServiceModel setChippedEnumName(ChippedEnumName chippedEnumName) {
         this.chippedEnumName = chippedEnumName;
         return this;
     }
@@ -75,7 +66,7 @@ public class Pet extends BaseEntity{
         return typeOfAnimalEnumName;
     }
 
-    public Pet setTypeOfAnimalEnumName(TypeOfAnimalEnumName typeOfAnimalEnumName) {
+    public PetServiceModel setTypeOfAnimalEnumName(TypeOfAnimalEnumName typeOfAnimalEnumName) {
         this.typeOfAnimalEnumName = typeOfAnimalEnumName;
         return this;
     }
@@ -84,7 +75,7 @@ public class Pet extends BaseEntity{
         return typeOfHelp;
     }
 
-    public Pet setTypeOfHelp(TypeOfHelp typeOfHelp) {
+    public PetServiceModel setTypeOfHelp(TypeOfHelp typeOfHelp) {
         this.typeOfHelp = typeOfHelp;
         return this;
     }
@@ -93,7 +84,7 @@ public class Pet extends BaseEntity{
         return owner;
     }
 
-    public Pet setOwner(UserEntity owner) {
+    public PetServiceModel setOwner(UserEntity owner) {
         this.owner = owner;
         return this;
     }
@@ -102,7 +93,7 @@ public class Pet extends BaseEntity{
         return adopters;
     }
 
-    public Pet setAdopters(Set<UserEntity> adopters) {
+    public PetServiceModel setAdopters(Set<UserEntity> adopters) {
         this.adopters = adopters;
         return this;
     }
@@ -111,7 +102,7 @@ public class Pet extends BaseEntity{
         return dateOfVisit;
     }
 
-    public Pet setDateOfVisit(LocalDate dateOfVisit) {
+    public PetServiceModel setDateOfVisit(LocalDate dateOfVisit) {
         this.dateOfVisit = dateOfVisit;
         return this;
     }
@@ -120,7 +111,7 @@ public class Pet extends BaseEntity{
         return hourOfVisit;
     }
 
-    public Pet setHourOfVisit(int hourOfVisit) {
+    public PetServiceModel setHourOfVisit(int hourOfVisit) {
         this.hourOfVisit = hourOfVisit;
         return this;
     }

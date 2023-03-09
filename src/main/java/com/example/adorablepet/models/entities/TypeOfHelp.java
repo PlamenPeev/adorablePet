@@ -7,6 +7,8 @@ import jakarta.persistence.*;
 @Table(name="type_of_help")
 public class TypeOfHelp extends BaseEntity{
 
+
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private TypeOfHelpEnumName typeOfHelpEnumName;
 
@@ -14,6 +16,11 @@ public class TypeOfHelp extends BaseEntity{
     private String description;
 
     public TypeOfHelp() {
+    }
+
+    public TypeOfHelp(TypeOfHelpEnumName typeOfHelpEnumName, String description) {
+        this.typeOfHelpEnumName = typeOfHelpEnumName;
+        this.description = description;
     }
 
     public TypeOfHelpEnumName getTypeOfHelpEnumName() {
@@ -33,4 +40,6 @@ public class TypeOfHelp extends BaseEntity{
         this.description = description;
         return this;
     }
+
+
 }
