@@ -53,3 +53,7 @@ footer {
     position: sticky;
     left: 0;
 }
+
+.btn {
+    background-color: #4CAF50
+}

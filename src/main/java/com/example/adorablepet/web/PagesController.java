@@ -57,4 +57,10 @@ public class PagesController {
         return "pages/moderators";
     }
 
+    @GetMapping("/my-pets")
+    private String myPets(){
+
+        return "pages/my-pets";
+    }
+
 }

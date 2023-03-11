@@ -17,6 +17,8 @@ import org.springframework.security.web.context.HttpSessionSecurityContextReposi
 import org.springframework.security.web.context.RequestAttributeSecurityContextRepository;
 import org.springframework.security.web.context.SecurityContextRepository;
 
+import java.security.Principal;
+
 
 @Configuration
 public class SecurityConfiguration {
