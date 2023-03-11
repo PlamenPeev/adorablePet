@@ -25,7 +25,7 @@
     <h1 class="text-center mt-2"><span class="badge badge-pill badge-dark">Add Pet</span></h1>
     <hr class="hr-3 w-25 bg-white"/>
     <form class="mx-auto w-25 bg-blur rounded"
-          th:method="post"
+          th:method="POST"
           th:action="@{/pets/add}"
           th:object="${petAddDTO}">
 
@@ -34,7 +34,9 @@
                 <label for="name" class="h4 mb-2 text-white">Name</label>
             </div>
             <input th:field="*{name}" th:errorclass="bg-danger"
-                   type="text" class="form-control" id="name" name="name"/>
+                   type="text" class="form-control"
+                   id="name"
+                   name="name"/>
             <small th:each="e : ${#fields.errors('name')}" th:text="${e}"
                    class="text-danger"> Name error</small>
         </div>
@@ -44,7 +46,9 @@
                 <label for="age" class="h4 mb-2 text-white">Age</label>
             </div>
             <input th:field="*{age}" th:errorclass="bg-danger"
-                   type="text" class="form-control" id="age" name="age"/>
+                   type="number" class="form-control"
+                   id="age"
+                   name="age"/>
             <small th:each="e : ${#fields.errors('age')}" th:text="${e}"
                    class="text-danger"> Age error</small>
         </div>
@@ -55,7 +59,8 @@
             </div>
             <select th:field="*{chippedEnumName}" th:errorclass="bg-danger"
                     class="browser-default custom-select"
-                    id="chippedEnumName" name="chippedEnumName">
+                    id="chippedEnumName"
+                    name="chippedEnumName">
                 <option value="">Select option</option>
                 <option th:each="o : ${T(com.example.adorablepet.models.enums.ChippedEnumName).values()}"
                         th:text="${o}" th:value="${o}">Option</option>
@@ -70,7 +75,8 @@
             </div>
             <select th:field="*{typeOfAnimalEnumName}" th:errorclass="bg-danger"
                     class="browser-default custom-select"
-                    id="typeOfAnimalEnumName" name="typeOfAnimalEnumName">
+                    id="typeOfAnimalEnumName"
+                    name="typeOfAnimalEnumName">
                 <option value="">Select type of Animal</option>
                 <option th:each="o : ${T(com.example.adorablepet.models.enums.TypeOfAnimalEnumName).values()}"
                         th:text="${o}" th:value="${o}">Option</option>
@@ -79,15 +85,15 @@
                    class="text-danger">TypeOfAnimal error message</small>
         </div>
 
-
-
         <div class="form-group">
             <div class="text-white label-holder d-flex justify-content-center">
                 <label for="typeOfHelp" class="h4 mb-2">Type of Help</label>
             </div>
             <select th:field="*{typeOfHelp}" th:errorclass="bg-danger"
+                    type="text"
                     class="browser-default custom-select"
-                    id="typeOfHelp" name="typeOfHelp">
+                    id="typeOfHelp"
+                    name="typeOfHelp">
                 <option value="">Select type of Service</option>
                 <option th:each="o : ${T(com.example.adorablepet.models.enums.TypeOfHelpEnumName).values()}"
                         th:text="${o}" th:value="${o}">Option</option>
@@ -103,7 +109,8 @@
             </div>
             <input th:field="*{dateOfVisit}" th:errorclass="bg-danger"
                    type="date" class="form-control"
-                   id="dateOfVisit" name="dateOfVisit"/>
+                   id="dateOfVisit"
+                   name="dateOfVisit"/>
             <small th:each="e : ${#fields.errors('dateOfVisit')}" th:text="${e}"
                    class="text-danger">Visit date error</small>
         </div>
@@ -113,7 +120,9 @@
                 <label for="hourOfVisit" class="h4 mb-2 text-white">Hour of Visit</label>
             </div>
             <input th:field="*{hourOfVisit}" th:errorclass="bg-danger"
-                   type="number" class="form-control" id="hourOfVisit" name="hourOfVisit"/>
+                   type="number" class="form-control"
+                   id="hourOfVisit"
+                   name="hourOfVisit"/>
             <small th:each="e : ${#fields.errors('hourOfVisit')}" th:text="${e}"
                    class="text-danger"> Hour error</small>
         </div>

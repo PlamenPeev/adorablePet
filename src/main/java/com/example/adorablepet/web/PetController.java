@@ -51,6 +51,6 @@ public class PetController {
         this.petService.addPet(this.modelMapper
                 .map(petAddDTO, PetServiceModel.class));
 
-        return "redirect:/home";
+        return "redirect:/";
     }
 }

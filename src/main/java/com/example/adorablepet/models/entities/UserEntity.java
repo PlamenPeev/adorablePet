@@ -30,8 +30,8 @@ public class UserEntity extends BaseEntity{
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Role> roles = new ArrayList<>();
 
-    @ManyToOne
-    private Country country;
+
+    private String country;
 
     public UserEntity() {
     }
@@ -99,11 +99,11 @@ public class UserEntity extends BaseEntity{
         return this;
     }
 
-    public Country getCountry() {
+    public String getCountry() {
         return country;
     }
 
-    public UserEntity setCountry(Country country) {
+    public UserEntity setCountry(String country) {
         this.country = country;
         return this;
     }

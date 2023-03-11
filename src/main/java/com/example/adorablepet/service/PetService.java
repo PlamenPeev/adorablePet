@@ -1,12 +1,13 @@
 package com.example.adorablepet.service;
 
 import com.example.adorablepet.models.entities.Pet;
-import com.example.adorablepet.models.enums.TypeOfHelpEnumName;
 import com.example.adorablepet.models.service.PetServiceModel;
 import com.example.adorablepet.repository.PetRepository;
 import com.example.adorablepet.session.CurrentUser;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+
+import java.security.Principal;
 
 @Service
 public class PetService {
@@ -19,8 +20,10 @@ public class PetService {
 
 
 
+
     public PetService(ModelMapper modelMapper, UserService userService,
-                      CurrentUser currentUser, PetRepository petRepository, TypeOfHelpService typeOfHelpService) {
+                      CurrentUser currentUser, PetRepository petRepository,
+                      TypeOfHelpService typeOfHelpService) {
         this.modelMapper = modelMapper;
         this.userService = userService;
         this.currentUser = currentUser;
@@ -34,7 +37,8 @@ public class PetService {
 
         pet.setOwner(userService.findUserByEmail(currentUser.getEmail()));
         pet.setTypeOfHelp(typeOfHelpService
-                .findTypeOfHelpByTypeOfHelpEnumName(petServiceModel.getTypeOfHelp().getTypeOfHelpEnumName()));
+                .findTypeOfHelpByTypeOfHelpEnumName(
+                        petServiceModel.getTypeOfHelp().getTypeOfHelpEnumName()));
 
         this.petRepository.save(pet);
     }

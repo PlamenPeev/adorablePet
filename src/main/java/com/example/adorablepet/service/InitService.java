@@ -55,11 +55,16 @@ public class InitService {
                 setEmail("admin@example.com").
                 setFirstName("Admin").
                 setLastName("Adminov").
+                setPhoneNumber("0888234567").
+                setCountry("Australia").
                 setPassword(passwordEncoder.encode("topsecret")).
                 setRoles(roleRepository.findAll());
 
         userRepository.save(adminUser);
     }
+
+
+
 
     private void initModerator(){
 
@@ -70,10 +75,13 @@ public class InitService {
                 setEmail("moderator@example.com").
                 setFirstName("Moderator").
                 setLastName("Moderatorov").
+                setPhoneNumber("0879234589").
+                setCountry("Greece").
                 setPassword(passwordEncoder.encode("topsecret")).
                 setRoles(List.of(moderatorRole));
 
         userRepository.save(moderatorUser);
+
     }
 
     private void initNormalUser(){
@@ -82,6 +90,8 @@ public class InitService {
                 setEmail("user@example.com").
                 setFirstName("User").
                 setLastName("Userov").
+                setPhoneNumber("0778234543").
+                setCountry("France").
                 setPassword(passwordEncoder.encode("topsecret"));
 
         userRepository.save(normalUser);
