@@ -1,3 +1,6 @@
+html{
+    font-family: 'Courgette', cursive;
+}
 
 .header {
     display: flex;
@@ -22,6 +25,7 @@
 
 .header h1 {
     margin: 0;
+    font-size: 2.5rem;
 }
 
 .header button {
@@ -69,12 +73,18 @@
     color: #333;
 }
 
-.nav-link {
-    color: #000;
-    text-decoration: none;
+
+
+
+.nav-bar a:active{
+    background-color: #ccc;
 }
 
-
+.nav-item {
+    border: 1px solid #ccc;
+    text-decoration: none;
+    color: darkred;
+}
 
 /*MAIN*/
 .main {

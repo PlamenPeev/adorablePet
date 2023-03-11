@@ -1,3 +1,8 @@
+
+html{
+    font-family: 'Courgette', cursive;
+}
+
 .w-15 {
     width: 15%;
 }
@@ -10,6 +15,17 @@
     background-color: rgba(1, 141, 8, 0);
 }
 
+
+
+.nav-bar a:active{
+    background-color: #ccc;
+}
+
+.nav-item {
+    border: 1px solid #ccc;
+    text-decoration: none;
+    color: darkred;
+}
 
 body {
     background-image: url(/static/images/background.jpg);

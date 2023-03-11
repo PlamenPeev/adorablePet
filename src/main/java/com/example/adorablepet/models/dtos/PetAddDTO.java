@@ -103,15 +103,6 @@ public class PetAddDTO {
         return this;
     }
 
-    public Set<UserEntity> getAdopters() {
-        return adopters;
-    }
-
-    public PetAddDTO setAdopters(Set<UserEntity> adopters) {
-        this.adopters = adopters;
-        return this;
-    }
-
     public LocalDate getDateOfVisit() {
         return dateOfVisit;
     }
@@ -127,6 +118,15 @@ public class PetAddDTO {
 
     public PetAddDTO setHourOfVisit(int hourOfVisit) {
         this.hourOfVisit = hourOfVisit;
+        return this;
+    }
+
+    public Set<UserEntity> getAdopters() {
+        return adopters;
+    }
+
+    public PetAddDTO setAdopters(Set<UserEntity> adopters) {
+        this.adopters = adopters;
         return this;
     }
 }

@@ -1,3 +1,7 @@
+html{
+    font-family: 'Courgette', cursive;
+}
+
 .header {
     display: flex;
     justify-content: space-between;
@@ -21,6 +25,7 @@
 
 .header h1 {
     margin: 0;
+    font-size: 2.5rem;
 }
 
 .header button {
@@ -68,9 +73,15 @@
     color: #333;
 }
 
-.nav-link {
-    color: darkred;
+
+.nav-bar a:active{
+    background-color: #ccc;
+}
+
+.nav-item {
+    border: 1px solid #ccc;
     text-decoration: none;
+    color: darkred;
 }
 
 
@@ -101,6 +112,7 @@
     flex-direction: row-reverse;
     justify-content: space-between;
     width: 600px;
+    height: auto;
     margin-bottom: 40px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
@@ -109,15 +121,35 @@
     margin-left: 2rem;
 }
 
+.card-h{
+    height: 300px;
+}
+
 .geeks {
     width: 50%;
     height: 220px;
+}
+
+.geeks-h{
+    height: 300px;
+}
+
+.h-2{
+    height: 260px;
 }
 
 .card img {
     width: 100%;
     height: 220px;
     object-position: right;
+}
+
+.img-h img{
+    height: 300px;
+}
+
+.img-h-2 img{
+    height: 260px;
 }
 
 .card article{

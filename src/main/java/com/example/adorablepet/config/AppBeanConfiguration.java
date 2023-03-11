@@ -27,25 +27,6 @@ public class AppBeanConfiguration {
                                 DateTimeFormatter.ofPattern("dd/MM/yyyy"));
                 return parse;}});
 
-        modelMapper.addConverter(new Converter<String, LocalDateTime>() {
-
-            @Override
-            public LocalDateTime convert(MappingContext<String, LocalDateTime> mappingContext) {
-                LocalDateTime parse = LocalDateTime.parse(mappingContext.getSource(),
-                        DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-                return parse;}});
-
-
-
-        modelMapper.addConverter(new Converter<String, LocalTime>() {
-
-            @Override
-            public LocalTime convert(MappingContext<String, LocalTime> mappingContext) {
-                LocalTime parse = LocalTime.parse(mappingContext.getSource(),
-                        DateTimeFormatter.ofPattern("HH:mm:ss"));
-                return parse;
-            }});
-
 
         return modelMapper;
     }
