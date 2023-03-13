@@ -37,6 +37,11 @@ html{
     margin-left: 0.5rem;
 }
 
+.text-style button{
+    font-size:0.8rem;
+    font-family: 'Courgette', cursive;
+}
+
 .header a {
     text-decoration: none;
     color: #fff;
@@ -120,6 +125,10 @@ html{
     height: 200px;
     object-fit: cover;
     object-position: center;
+}
+
+.img-gr img{
+    height: 290px;
 }
 
 .card h2 {

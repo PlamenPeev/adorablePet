@@ -1,3 +1,6 @@
+html{
+    font-family: 'Courgette', cursive;
+}
 
 .header {
     display: flex;
@@ -34,6 +37,11 @@
     margin-left: 0.5rem;
 }
 
+.text-style button{
+    font-size:0.8rem;
+    font-family: 'Courgette', cursive;
+}
+
 .header a{
     text-decoration: none;
     color: #fff;
@@ -58,9 +66,7 @@
     background-color: #333;
     color: #fff;
 }
-html{
-    font-family: 'Courgette', cursive;
-}
+
 
 .nav-bar a {
     padding: 1rem;
@@ -128,7 +134,7 @@ html{
 }
 
 .resize{
-    height: 500px;
+    height: 600px;
 }
 
 .card h2 {

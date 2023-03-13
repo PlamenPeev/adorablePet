@@ -9,41 +9,59 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
-    <style >@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');</style>
+
+
 </head>
 <body>
 
 <header>
 
     <div class="header">
-        <div>
+
+        <div class="text-style">
             <th:block class="logo">
                 <img src="/images/barbalyacho_logo.jpg" alt="Draw by Plam DrawArt">
             </th:block>
 
             <th:block>
-                <button sec:authorize="isAuthenticated()"><a th:href="@{/pets/add}">ADD PET</a></button>
-                <button sec:authorize="isAuthenticated()"><a th:href="@{/pages/my-pets}">MY PETS</a></button>
-                <button sec:authorize="hasRole('MODERATOR')"><a th:href="@{/pages/moderators}">MODERATORS</a></button>
-                <button sec:authorize="hasRole('ADMIN')"><a th:href="@{/pages/admins}">ADMINS</a></button>
+                <button sec:authorize="isAuthenticated()"><a th:text="#{navbar_add_pet}"
+                                                             th:href="@{/pets/add}">ADD PET</a></button>
+                <button sec:authorize="isAuthenticated()"><a th:text="#{navbar_my_pets}"
+                                                             th:href="@{/pages/my-pets}">MY PETS</a></button>
+                <button sec:authorize="hasRole('MODERATOR')"><a th:text="#{navbar_moderators}"
+                                                                th:href="@{/pages/moderators}">MODERATORS</a></button>
+                <button sec:authorize="hasRole('ADMIN')"><a th:text="#{navbar_admins}"
+                                                            th:href="@{/pages/admins}">ADMINS</a></button>
             </th:block>
-
         </div>
 
         <h1>Vet Clinic ADORABLE PET</h1>
-        <div>
+
+
+            <form th:method="get">
+                <label class="text-white" th:text="#{navbar_language}" for="lang"></label>
+                <select
+                        onchange="this.form.submit()"
+                        id="lang"
+                        name="lang">
+                    <option value="en_US" th:selected="${#locale.toString()} == 'en_US'">English</option>
+                    <option value="bg_BG" th:selected="${#locale.toString()} == 'bg_BG'">Български</option>
+                </select>
+            </form>
+
+        <div class="text-style">
             <th:block sec:authorize="!isAuthenticated()">
-                <button><a th:href="@{/users/register}">REGISTER</a></button>
-                <button><a th:href="@{/users/login}" >LOGIN</a></button>
+                <button><a th:text="#{navbar_register}" th:href="@{/users/register}">REGISTER</a></button>
+                <button><a th:text="#{navbar_login}" th:href="@{/users/login}" >LOGIN</a></button>
             </th:block>
             <th:block sec:authorize="isAuthenticated()">
                 <form th:method="post" th:action="@{/users/logout}">
-                    <button><a>LOGOUT</a></button>
+                    <button><a th:text="#{navbar_logout}">LOGOUT</a></button>
                 </form>
             </th:block>
 
-
         </div>
+
 
     </div>
 

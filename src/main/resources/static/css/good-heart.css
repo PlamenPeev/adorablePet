@@ -37,6 +37,11 @@ html{
     margin-left: 0.5rem;
 }
 
+.text-style button{
+    font-size:0.8rem;
+    font-family: 'Courgette', cursive;
+}
+
 .header a{
     text-decoration: none;
     color: #fff;
@@ -122,8 +127,8 @@ html{
 }
 
 .img-box img{
-    width: 100%;
-    height: 100%;
+    width: 50rem;
+    height: 10rem;
 }
 
 .box {

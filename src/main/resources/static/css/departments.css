@@ -37,6 +37,11 @@ html{
     margin-left: 0.5rem;
 }
 
+.text-style button{
+    font-size:0.8rem;
+    font-family: 'Courgette', cursive;
+}
+
 .header a {
     text-decoration: none;
     color: #fff;
