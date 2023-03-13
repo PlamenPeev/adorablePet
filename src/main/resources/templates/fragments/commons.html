@@ -38,18 +38,22 @@
         <h1>Vet Clinic ADORABLE PET</h1>
 
 
-            <form th:method="get">
-                <label class="text-white" th:text="#{navbar_language}" for="lang"></label>
-                <select
-                        onchange="this.form.submit()"
-                        id="lang"
-                        name="lang">
-                    <option value="en_US" th:selected="${#locale.toString()} == 'en_US'">English</option>
-                    <option value="bg_BG" th:selected="${#locale.toString()} == 'bg_BG'">Български</option>
-                </select>
-            </form>
+
 
         <div class="text-style">
+            <th:block>
+                <form th:method="get">
+                    <label class="text-white" th:text="#{navbar_language}" for="lang"></label>
+                    <select
+                            onchange="this.form.submit()"
+                            id="lang"
+                            name="lang">
+                        <option value="en_US" th:selected="${#locale.toString()} == 'en_US'">English</option>
+                        <option value="bg_BG" th:selected="${#locale.toString()} == 'bg_BG'">Български</option>
+                    </select>
+                </form>
+            </th:block>
+
             <th:block sec:authorize="!isAuthenticated()">
                 <button><a th:text="#{navbar_register}" th:href="@{/users/register}">REGISTER</a></button>
                 <button><a th:text="#{navbar_login}" th:href="@{/users/login}" >LOGIN</a></button>
@@ -68,13 +72,13 @@
 
     <div class="nav-bar">
 
-        <a th:href="@{/}" class="nav-item">ABOUT US</a>
-        <a th:href="@{/pages/departments}" class="nav-item">DEPARTMENTS</a>
-        <a th:href="@{/pages/our-team}" class="nav-item">OUR TEAM</a>
-        <a th:href="@{/pages/information}" class="nav-item">USEFUL INFORMATION</a>
-        <a th:href="@{/pages/clinic-services}" class="nav-item">CLINIC SERVICES</a>
-        <a th:href="@{/pages/good-heart}" class="nav-item">GOOD HEART</a>
-        <a th:href="@{/pages/projects}" class="nav-item">PROJECTS</a>
+        <a th:href="@{/}" class="nav-item" th:text="#{navbar_about_us}">ABOUT US</a>
+        <a th:href="@{/pages/departments}" class="nav-item" th:text="#{navbar_departments}">DEPARTMENTS</a>
+        <a th:href="@{/pages/our-team}" class="nav-item" th:text="#{navbar_our_team}">OUR TEAM</a>
+        <a th:href="@{/pages/information}" class="nav-item" th:text="#{navbar_information}">USEFUL INFORMATION</a>
+        <a th:href="@{/pages/clinic-services}" class="nav-item" th:text="#{navbar_services}">CLINIC SERVICES</a>
+        <a th:href="@{/pages/good-heart}" class="nav-item" th:text="#{navbar_good_heart}">GOOD HEART</a>
+        <a th:href="@{/pages/projects}" class="nav-item" th:text="#{navbar_projects}">PROJECTS</a>
     </div>
 </header>
 
