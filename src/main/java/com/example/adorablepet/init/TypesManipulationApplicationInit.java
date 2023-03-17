@@ -96,7 +96,7 @@ public class TypesManipulationApplicationInit implements CommandLineRunner {
             aType.setTitle(type);
 //            String substring= aType.getTitle().
 //             substring(Math.max(type.length() - 2,0));
-            aType.setPrice(new BigDecimal("0.00"));
+            aType.setPrice(new BigDecimal("1"));
             allTypes.add(aType);
         }
 

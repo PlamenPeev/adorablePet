@@ -6,6 +6,8 @@ import com.example.adorablepet.models.service.PetServiceModel;
 import com.example.adorablepet.service.PetService;
 import jakarta.validation.Valid;
 import org.modelmapper.ModelMapper;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -43,7 +45,8 @@ public class PetController {
     public String addConfirm(@Valid @ModelAttribute("petAddDTO")
                              PetAddDTO petAddDTO,
                              BindingResult bindingResult,
-                             RedirectAttributes redirectAttributes) {
+                             RedirectAttributes redirectAttributes,
+                             @AuthenticationPrincipal UserDetails loggedUser) {
 
         if (bindingResult.hasErrors()) {
             redirectAttributes.addFlashAttribute("petAddDTO", petAddDTO);
@@ -56,10 +59,7 @@ public class PetController {
         this.petService.addPet(this.modelMapper
                 .map(petAddDTO, PetServiceModel.class));
 
-        //this.petService.addPet(petAddDTO,userDetailsService);
-
-
-        return "redirect:/";
+              return "redirect:/";
     }
 
 

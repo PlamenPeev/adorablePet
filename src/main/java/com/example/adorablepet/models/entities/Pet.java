@@ -15,7 +15,7 @@ public class Pet extends BaseEntity{
     private String name;
 
     @Column
-    private BigDecimal age;
+    private Double age;
 
     @Column
     @Enumerated(EnumType.STRING)
@@ -50,11 +50,11 @@ public class Pet extends BaseEntity{
         return this;
     }
 
-    public BigDecimal getAge() {
+    public Double getAge() {
         return age;
     }
 
-    public Pet setAge(BigDecimal age) {
+    public Pet setAge(Double age) {
         this.age = age;
         return this;
     }

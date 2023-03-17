@@ -16,7 +16,7 @@
             background-size: 100% 100%;
         }
     </style>
-    <script src="../../static/js/price-list.js"></script>
+
 </head>
 
 
@@ -32,8 +32,8 @@
         <table>
             <thead>
             <tr>
+                <th>Manipulation</th>
                 <th>Type</th>
-                <th>Title</th>
                 <th>Price</th>
             </tr>
             </thead>
@@ -46,7 +46,7 @@
 
 
 </div>
-
+<script th:src="@{/js/price-list.js}"></script>
 
 <footer th:replace="fragments/commons::footer"></footer>
 </body>

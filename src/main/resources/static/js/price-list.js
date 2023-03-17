@@ -1,7 +1,7 @@
 let loadPricesBtn = document.getElementById("loadPrices");
 
-loadPricesBtn.addEventListener('click', reloadPrices)
 
+loadPricesBtn.addEventListener('click', reloadPrices)
 
 function reloadPrices() {
 

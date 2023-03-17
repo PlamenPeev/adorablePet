@@ -7,34 +7,32 @@ import java.util.List;
 
 @Entity
 @Table(name = "users")
-public class UserEntity extends BaseEntity{
-
+public class UserEntity extends BaseEntity {
 
 
     @Column(nullable = false)
     private String password;
 
-    @Column(name ="first_name")
+    @Column(name = "first_name")
     private String firstName;
 
-    @Column(name ="last_name")
+    @Column(name = "last_name")
     private String lastName;
 
-    @Column(nullable = false,unique = true)
+    @Column(nullable = false, unique = true)
     private String email;
 
-    @Column(name ="phone_number")
+    @Column(name = "phone_number")
     private String phoneNumber;
 
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Role> roles = new ArrayList<>();
 
-
+@Column
     private String country;
 
     public UserEntity() {
     }
-
 
 
     public String getPassword() {
@@ -100,8 +98,21 @@ public class UserEntity extends BaseEntity{
         return this;
     }
 
-    public UserEntity addRole(Role role){
-this.roles.add(role);
-return this;
+    public UserEntity addRole(Role role) {
+        this.roles.add(role);
+        return this;
+    }
+
+    @Override
+    public String toString() {
+        return "UserEntity{" +
+                "password='" + (password != null ? "[PROVIDED]" : "[N/A]") + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", roles=" + roles +
+                ", country='" + country + '\'' +
+                '}';
     }
 }

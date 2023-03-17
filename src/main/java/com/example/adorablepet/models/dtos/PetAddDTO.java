@@ -20,7 +20,7 @@ public class PetAddDTO {
 
     @NotNull
     @Positive
-    private BigDecimal age;
+    private Double age;
 
     @NotNull
     private ChippedEnumName chippedEnumName;
@@ -31,8 +31,8 @@ public class PetAddDTO {
     @NotNull
     private TypeOfHelpEnumName typeOfHelp;
 
-    @NotNull
-    private UserEntity owner;
+//    @NotNull
+//    private UserEntity owner;
 
 
     @FutureOrPresent
@@ -56,11 +56,11 @@ public class PetAddDTO {
         return this;
     }
 
-    public BigDecimal getAge() {
+    public Double getAge() {
         return age;
     }
 
-    public PetAddDTO setAge(BigDecimal age) {
+    public PetAddDTO setAge(Double age) {
         this.age = age;
         return this;
     }
@@ -92,14 +92,14 @@ public class PetAddDTO {
         return this;
     }
 
-    public UserEntity getOwner() {
-        return owner;
-    }
-
-    public PetAddDTO setOwner(UserEntity owner) {
-        this.owner = owner;
-        return this;
-    }
+//    public UserEntity getOwner() {
+//        return owner;
+//    }
+//
+//    public PetAddDTO setOwner(UserEntity owner) {
+//        this.owner = owner;
+//        return this;
+//    }
 
     public LocalDate getDateOfVisit() {
         return dateOfVisit;

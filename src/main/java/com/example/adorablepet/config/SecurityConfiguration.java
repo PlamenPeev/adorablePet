@@ -35,6 +35,7 @@ public class SecurityConfiguration {
                         "/pages/projects","/pages/price-list", "/api/**").permitAll().
                         requestMatchers("/pages/moderators").hasRole(RoleEnumName.MODERATOR.name()).
                         requestMatchers("/pages/admins").hasRole(RoleEnumName.ADMIN.name()).
+                        requestMatchers("/pages/my-pets").hasRole(RoleEnumName.USER.name()).
                 anyRequest().authenticated().
                 and().
                 formLogin().

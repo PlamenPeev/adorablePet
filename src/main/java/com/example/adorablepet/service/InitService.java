@@ -9,6 +9,7 @@ import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 @Service
@@ -36,9 +37,11 @@ public class InitService {
         if (roleRepository.count() == 0) {
             var moderatorRole = new Role().setRoleEnumName(RoleEnumName.MODERATOR);
             var adminRole = new Role().setRoleEnumName(RoleEnumName.ADMIN);
+            var userRole = new Role().setRoleEnumName(RoleEnumName.USER);
 
             roleRepository.save(moderatorRole);
             roleRepository.save(adminRole);
+            roleRepository.save(userRole);
         }
     }
 
@@ -50,7 +53,7 @@ public class InitService {
         }
     }
 
-    private void initAdmin(){
+    private void initAdmin() {
         var adminUser = new UserEntity().
                 setEmail("admin@example.com").
                 setFirstName("Admin").
@@ -64,9 +67,7 @@ public class InitService {
     }
 
 
-
-
-    private void initModerator(){
+    private void initModerator() {
 
         var moderatorRole = roleRepository.
                 findRoleByRoleEnumName(RoleEnumName.MODERATOR).orElseThrow();
@@ -84,7 +85,10 @@ public class InitService {
 
     }
 
-    private void initNormalUser(){
+    private void initNormalUser() {
+
+        var userRole = roleRepository.
+                findRoleByRoleEnumName(RoleEnumName.USER).orElseThrow();
 
         var normalUser = new UserEntity().
                 setEmail("user@example.com").
@@ -92,7 +96,8 @@ public class InitService {
                 setLastName("Userov").
                 setPhoneNumber("0778234543").
                 setCountry("France").
-                setPassword(passwordEncoder.encode("topsecret"));
+                setPassword(passwordEncoder.encode("topsecret")).
+                setRoles(List.of(userRole));
 
         userRepository.save(normalUser);
     }

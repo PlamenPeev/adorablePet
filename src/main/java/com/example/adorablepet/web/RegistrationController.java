@@ -1,6 +1,7 @@
 package com.example.adorablepet.web;
 
 import com.example.adorablepet.models.dtos.UserRegistrationDTO;
+import com.example.adorablepet.service.ApplicationUserDetailsService;
 import com.example.adorablepet.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -23,7 +24,9 @@ public class RegistrationController {
     private final UserService userService;
     private final SecurityContextRepository securityContextRepository;
 
-    public RegistrationController(UserService userService, SecurityContextRepository securityContextRepository) {
+
+    public RegistrationController(UserService userService,
+                                  SecurityContextRepository securityContextRepository) {
         this.userService = userService;
         this.securityContextRepository = securityContextRepository;
     }

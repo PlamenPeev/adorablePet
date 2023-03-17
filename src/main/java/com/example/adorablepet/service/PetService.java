@@ -5,9 +5,8 @@ import com.example.adorablepet.models.service.PetServiceModel;
 import com.example.adorablepet.repository.PetRepository;
 import com.example.adorablepet.session.CurrentUser;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.security.Principal;
 
 @Service
 public class PetService {
@@ -17,30 +16,21 @@ public class PetService {
     private final CurrentUser currentUser;
     private final PetRepository petRepository;
     private final TypeOfHelpService typeOfHelpService;
+    private final ApplicationUserDetailsService applicationUserDetailsService;
 
 
 
     public PetService(ModelMapper modelMapper, UserService userService,
                       CurrentUser currentUser, PetRepository petRepository,
-                      TypeOfHelpService typeOfHelpService) {
+                      TypeOfHelpService typeOfHelpService,
+                      ApplicationUserDetailsService applicationUserDetailsService) {
         this.modelMapper = modelMapper;
         this.userService = userService;
         this.currentUser = currentUser;
         this.petRepository = petRepository;
         this.typeOfHelpService = typeOfHelpService;
+        this.applicationUserDetailsService = applicationUserDetailsService;
     }
-
-
-
-//    public void addPet(PetAddDTO petAddDTO, UserDetailsService userDetailsService) {
-//        Pet pet = new Pet();
-//        pet.setOwner(this.userService.findUserByEmail(currentUser.getEmail()));
-//        pet.setTypeOfHelp(this.typeOfHelpService.
-//                findTypeOfHelpByTypeOfHelpEnumName(TypeOfHelpEnumName.
-//                        valueOf(petAddDTO.getTypeOfHelp().name())));
-//
-//        this.petRepository.save(pet);
-//    }
 
 
 
@@ -48,7 +38,9 @@ public class PetService {
         Pet pet = modelMapper
                 .map(petServiceModel, Pet.class);
 
+
         pet.setOwner(userService.findUserByEmail(currentUser.getEmail()));
+        //pet.setOwner(userService.findUserById(currentUser.getId()));
         pet.setTypeOfHelp(typeOfHelpService
                 .findByTypeOfHelpEnumName(
                         petServiceModel.getTypeOfHelp().getTypeOfHelpEnumName()));

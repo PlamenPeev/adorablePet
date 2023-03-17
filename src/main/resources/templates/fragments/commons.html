@@ -11,7 +11,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
     <script src="../../static/js/active-button.js"></script>
 
-
 </head>
 <body>
 
@@ -27,7 +26,7 @@
             <th:block>
                 <button sec:authorize="isAuthenticated()"><a th:text="#{navbar_add_pet}"
                                                              th:href="@{/pets/add}">ADD PET</a></button>
-                <button sec:authorize="isAuthenticated()"><a th:text="#{navbar_my_pets}"
+                <button sec:authorize="hasRole('USER')"><a th:text="#{navbar_my_pets}"
                                                              th:href="@{/pages/my-pets}">MY PETS</a></button>
                 <button sec:authorize="hasRole('MODERATOR')"><a th:text="#{navbar_moderators}"
                                                                 th:href="@{/pages/moderators}">MODERATORS</a></button>
@@ -81,6 +80,9 @@
         <a th:href="@{/pages/good-heart}" class="nav-item" th:text="#{navbar_good_heart}">GOOD HEART</a>
         <a th:href="@{/pages/projects}" class="nav-item" th:text="#{navbar_projects}">PROJECTS</a>
     </div>
+    <script th:src="@{/js/active-button.js}"></script>
+
+
 </header>
 
 <footer class="footer bg-transparent  py-2">

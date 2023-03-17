@@ -10,11 +10,6 @@ import java.util.List;
 
 public class UserRegistrationDTO {
 
-//    @NotNull
-//    @Length(min=3, max=20,
-//            message = "Username should be between 3 and 20 characters.")
-//        private String username;
-
 
 
     @NotNull
@@ -52,15 +47,6 @@ public class UserRegistrationDTO {
     public UserRegistrationDTO() {
     }
 
-
-//    public String getUsername() {
-//        return username;
-//    }
-//
-//    public UserRegisterDTO setUsername(String username) {
-//        this.username = username;
-//        return this;
-//    }
 
 
     public String getFirstName() {
@@ -126,7 +112,7 @@ public class UserRegistrationDTO {
         return this;
     }
 
-    public List<Role> getRoles() {
+    public List<Role> getRoles(String name) {
         return roles;
     }
 
