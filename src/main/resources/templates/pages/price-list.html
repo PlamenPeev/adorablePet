@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Vet Clinic Adorable Pet</title>
+    <link rel="shortcut icon" type="img/png" href="/images/favicon.png">
+    <link rel="stylesheet" th:href="@{/css/price-list.css}">
+
+    <style>
+        body{
+            background-image: url("/images/background.jpg");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+        }
+    </style>
+    <script src="../../static/js/price-list.js"></script>
+</head>
+
+
+<body>
+<header th:replace="fragments/commons::header"></header>
+
+
+
+<div class="main">
+
+
+        <button id="loadPrices">LOAD ALL PRICES</button>
+        <table>
+            <thead>
+            <tr>
+                <th>Type</th>
+                <th>Title</th>
+                <th>Price</th>
+            </tr>
+            </thead>
+            <tbody id="prices-container"></tbody>
+        </table>
+
+
+
+
+
+
+</div>
+
+
+<footer th:replace="fragments/commons::footer"></footer>
+</body>
+</html>

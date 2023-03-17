@@ -4,9 +4,11 @@ import com.example.adorablepet.models.entities.ManipulationEntity;
 import com.example.adorablepet.models.entities.TypeOfManipulation;
 import com.example.adorablepet.repository.ManipulationEntityRepository;
 import com.example.adorablepet.repository.TypeOfManipulationRepository;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,7 +37,7 @@ public class TypesManipulationApplicationInit implements CommandLineRunner {
     }
 
     private void initInjections() {
-        initType("INJECTIONS",
+        initManipulation("INJECTIONS",
                 "SUBCUTANEOUS INJECTION - 5",
                 "MUSCLE INJECTION - 6",
                 "VENOUS INJECTION (up to 20 ml.) - 12",
@@ -45,7 +47,7 @@ public class TypesManipulationApplicationInit implements CommandLineRunner {
     }
 
     private void initPuncture() {
-        initType("PUNCTURE",
+        initManipulation("PUNCTURE",
                 "Puncture of the chest (Thoracentesis) - 30",
                 "PUNCTURE of the abdominal cavity (Abdomenocentesis) - 25",
                 "with an ultrasound - 40",
@@ -55,7 +57,7 @@ public class TypesManipulationApplicationInit implements CommandLineRunner {
     }
 
     private void initBandages() {
-        initType("Bandages",
+        initManipulation("Bandages",
                 "Plain (consisting of a bandage and gauze) - 12",
                 "Robert Jones dressing (consisting of bandage, gauze, cotton and patch) - 25",
                 "splinting complex bandage with an immobilizing element - 40"
@@ -63,7 +65,7 @@ public class TypesManipulationApplicationInit implements CommandLineRunner {
     }
 
     private void initBloodTests() {
-        initType("Blood tests",
+        initManipulation("Blood tests",
                 "Taking blood from a dog - 10",
                 "Taking blood from a cat - 15",
                 "Complete blood count (CBC) - 15",
@@ -73,29 +75,33 @@ public class TypesManipulationApplicationInit implements CommandLineRunner {
 
     private void initImagingDiagnostics() {
 
-        initType("Imaging diagnostics",
+        initManipulation("Imaging diagnostics",
                 "Radiography, Photographic diagnosis - 15",
                 "Ultrasound - 45");
     }
 
 
-    private void initType(String typeName, String... types) {
-        ManipulationEntity typeManipulation = new ManipulationEntity();
-        typeManipulation.setName(typeName);
-        typeManipulation = manipulationRepository.save(typeManipulation);
+    private void initManipulation(String manipulationName, String... types) {
+        ManipulationEntity manipulation = new ManipulationEntity();
+        manipulation.setName(manipulationName);
+        manipulation = manipulationRepository.save(manipulation);
 
         List<TypeOfManipulation> allTypes = new ArrayList<>();
 
+
         for (String type: types) {
+
             TypeOfManipulation aType = new TypeOfManipulation();
-            aType.setType(typeManipulation);
+            aType.setManipulation(manipulation);
             aType.setTitle(type);
-            //aType.setPrice(UUID.randomUUID().toString());
+//            String substring= aType.getTitle().
+//             substring(Math.max(type.length() - 2,0));
+            aType.setPrice(new BigDecimal("0.00"));
             allTypes.add(aType);
         }
 
-        typeManipulation.setTypes(allTypes);
-        manipulationRepository.save(typeManipulation);
+        manipulation.setTypes(allTypes);
+        manipulationRepository.save(manipulation);
 
         typeOfManipulationRepository.saveAll(allTypes);
     }

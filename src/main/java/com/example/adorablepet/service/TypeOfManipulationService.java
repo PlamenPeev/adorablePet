@@ -31,12 +31,12 @@ public class TypeOfManipulationService {
         TypeOfManipulation newTypeOfManipulation = new TypeOfManipulation().
                 setTitle(newType.getTitle()).
                 setPrice(newType.getPrice()).
-                setType(typeOpt.orElseGet(() -> createNewType(typeName)));
+                setManipulation(typeOpt.orElseGet(() -> createNewManipulation(typeName)));
 
         return typeOfManipulationRepository.save(newTypeOfManipulation).getId();
     }
 
-    private ManipulationEntity createNewType(String typeName) {
+    private ManipulationEntity createNewManipulation(String typeName) {
         return manipulationRepository.save(new ManipulationEntity().setName(typeName));
     }
 
@@ -57,7 +57,7 @@ public class TypeOfManipulationService {
     private TypeOfManipulationDTO map(TypeOfManipulation typeOfManipulation) {
 
         ManipulationEntityDTO manipulationEntityDTO = new ManipulationEntityDTO().
-                setName(typeOfManipulation.getType().getName());
+                setName(typeOfManipulation.getManipulation().getName());
 
         return new TypeOfManipulationDTO().
                 setId(typeOfManipulation.getId()).

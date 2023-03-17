@@ -19,7 +19,6 @@ public class PetServiceModel {
     private TypeOfAnimalEnumName typeOfAnimalEnumName;
     private TypeOfHelp typeOfHelp;
     private UserEntity owner;
-    private Set<UserEntity> adopters;
     private LocalDate dateOfVisit;
     private int hourOfVisit;
 
@@ -89,14 +88,6 @@ public class PetServiceModel {
         return this;
     }
 
-    public Set<UserEntity> getAdopters() {
-        return adopters;
-    }
-
-    public PetServiceModel setAdopters(Set<UserEntity> adopters) {
-        this.adopters = adopters;
-        return this;
-    }
 
     public LocalDate getDateOfVisit() {
         return dateOfVisit;

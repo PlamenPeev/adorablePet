@@ -1,10 +1,12 @@
 package com.example.adorablepet.web;
 
 import com.example.adorablepet.models.dtos.PetAddDTO;
+import com.example.adorablepet.models.entities.Pet;
 import com.example.adorablepet.models.service.PetServiceModel;
 import com.example.adorablepet.service.PetService;
 import jakarta.validation.Valid;
 import org.modelmapper.ModelMapper;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -20,10 +22,13 @@ public class PetController {
 
     private final PetService petService;
     private final ModelMapper modelMapper;
+    private final UserDetailsService userDetailsService;
 
-    public PetController(PetService petService, ModelMapper modelMapper) {
+    public PetController(PetService petService, ModelMapper modelMapper,
+                         UserDetailsService userDetailsService) {
         this.petService = petService;
         this.modelMapper = modelMapper;
+        this.userDetailsService = userDetailsService;
     }
 
     @GetMapping("/add")
@@ -50,6 +55,9 @@ public class PetController {
 
         this.petService.addPet(this.modelMapper
                 .map(petAddDTO, PetServiceModel.class));
+
+        //this.petService.addPet(petAddDTO,userDetailsService);
+
 
         return "redirect:/";
     }

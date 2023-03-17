@@ -80,13 +80,12 @@ html{
 
 
 .nav-bar a:active{
-    background-color: #ccc;
+    background-color: darkolivegreen;
 }
 
 .nav-item {
     border: 1px solid #ccc;
     text-decoration: none;
-    color: darkred;
 }
 
 /*MAIN*/

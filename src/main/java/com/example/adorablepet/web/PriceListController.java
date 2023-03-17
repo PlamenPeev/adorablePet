@@ -22,7 +22,7 @@ public class PriceListController {
     }
 
     @GetMapping
-    public ResponseEntity<List<TypeOfManipulationDTO>> getAllTypes() {
+    public ResponseEntity<List<TypeOfManipulationDTO>> getAllType() {
         return ResponseEntity.
                 ok(typeOfManipulationService.getAllTypes());
     }
@@ -40,8 +40,8 @@ public class PriceListController {
     }
 
     @PostMapping()
-    public ResponseEntity<TypeOfManipulationDTO> createNewType(@RequestBody TypeOfManipulationDTO newType,
-                                                               UriComponentsBuilder uriComponentsBuilder) {
+    public ResponseEntity<TypeOfManipulationDTO> createType(@RequestBody TypeOfManipulationDTO newType,
+                                                           UriComponentsBuilder uriComponentsBuilder) {
         long newTypeId = typeOfManipulationService.createTypeOfManipulation(newType);
 
         return ResponseEntity.created(uriComponentsBuilder.

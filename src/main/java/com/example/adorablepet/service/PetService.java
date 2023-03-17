@@ -20,7 +20,6 @@ public class PetService {
 
 
 
-
     public PetService(ModelMapper modelMapper, UserService userService,
                       CurrentUser currentUser, PetRepository petRepository,
                       TypeOfHelpService typeOfHelpService) {
@@ -31,15 +30,31 @@ public class PetService {
         this.typeOfHelpService = typeOfHelpService;
     }
 
-   public void addPet(PetServiceModel petServiceModel) {
+
+
+//    public void addPet(PetAddDTO petAddDTO, UserDetailsService userDetailsService) {
+//        Pet pet = new Pet();
+//        pet.setOwner(this.userService.findUserByEmail(currentUser.getEmail()));
+//        pet.setTypeOfHelp(this.typeOfHelpService.
+//                findTypeOfHelpByTypeOfHelpEnumName(TypeOfHelpEnumName.
+//                        valueOf(petAddDTO.getTypeOfHelp().name())));
+//
+//        this.petRepository.save(pet);
+//    }
+
+
+
+   public void addPet( PetServiceModel petServiceModel) {
         Pet pet = modelMapper
                 .map(petServiceModel, Pet.class);
 
         pet.setOwner(userService.findUserByEmail(currentUser.getEmail()));
         pet.setTypeOfHelp(typeOfHelpService
-                .findTypeOfHelpByTypeOfHelpEnumName(
+                .findByTypeOfHelpEnumName(
                         petServiceModel.getTypeOfHelp().getTypeOfHelpEnumName()));
 
         this.petRepository.save(pet);
     }
+
+
 }

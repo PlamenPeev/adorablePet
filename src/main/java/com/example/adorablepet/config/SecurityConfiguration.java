@@ -17,41 +17,35 @@ import org.springframework.security.web.context.HttpSessionSecurityContextReposi
 import org.springframework.security.web.context.RequestAttributeSecurityContextRepository;
 import org.springframework.security.web.context.SecurityContextRepository;
 
-import java.security.Principal;
 
 
 @Configuration
 public class SecurityConfiguration {
 
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http,
                                            SecurityContextRepository securityContextRepository) throws Exception {
         http.
-                // defines which pages will be authorized
                         authorizeHttpRequests().
-                // allow access to all static files (images, CSS, js)
                         requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll().
-                        requestMatchers("/", "/users/login", "/users/register", "/users/login-error",
+                        requestMatchers("/","/users/login","/users/register", "/users/login-error",
                         "/pages/departments","/pages/departments-more-info","/pages/our-team",
-                        "/pages/information","/pages/clinic-services", "/pages/good-heart", "/pages/projects").permitAll().
-                // only for moderators
+                        "/pages/information","/pages/clinic-services", "/pages/good-heart",
+                        "/pages/projects","/pages/price-list", "/api/**").permitAll().
                         requestMatchers("/pages/moderators").hasRole(RoleEnumName.MODERATOR.name()).
-                // only for admins
                         requestMatchers("/pages/admins").hasRole(RoleEnumName.ADMIN.name()).
                 anyRequest().authenticated().
                 and().
-                // configure login with HTML form
-                        formLogin().
+                formLogin().
                 loginPage("/users/login").
-                // the names of the username, password input fields in the custom login form
-                        usernameParameter(UsernamePasswordAuthenticationFilter.SPRING_SECURITY_FORM_USERNAME_KEY).
+                usernameParameter(UsernamePasswordAuthenticationFilter.SPRING_SECURITY_FORM_USERNAME_KEY).
                 passwordParameter(UsernamePasswordAuthenticationFilter.SPRING_SECURITY_FORM_PASSWORD_KEY).
-                // where do we go after login
-                        defaultSuccessUrl("/").//use true argument if you always want to go there, otherwise go to previous page
+                defaultSuccessUrl("/").
                 failureForwardUrl("/users/login-error").
-                and().logout().//configure logout
+                and().logout().
                 logoutUrl("/users/logout").
-                logoutSuccessUrl("/").//go to homepage after logout
+                logoutSuccessUrl("/").
                 invalidateHttpSession(true).
                 and().
                 securityContext().
@@ -77,5 +71,6 @@ public class SecurityConfiguration {
                 new HttpSessionSecurityContextRepository()
         );
     }
+
 
 }

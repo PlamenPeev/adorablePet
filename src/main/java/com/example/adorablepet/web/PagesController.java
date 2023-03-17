@@ -29,10 +29,16 @@ public class PagesController {
         return "pages/information";
     }
 
+    @GetMapping("/price-list")
+    private String priceList(){
+        return "pages/price-list";
+    }
+
     @GetMapping("/clinic-services")
     private String clinicServices(){
         return "pages/clinic-services";
     }
+
 
     @GetMapping("/good-heart")
     private String goodHeart(){

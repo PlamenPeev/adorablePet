@@ -29,8 +29,8 @@ public class TypeOfHelpService {
         }
     }
 
-    public TypeOfHelp findTypeOfHelpByTypeOfHelpEnumName(TypeOfHelpEnumName typeOfHelpEnumName){
+    public TypeOfHelp findByTypeOfHelpEnumName(TypeOfHelpEnumName typeOfHelpEnumName){
 return this.typeOfHelpRepository.
-        findTypeOfHelpByTypeOfHelpEnumName(typeOfHelpEnumName).orElse(null);
+        findByTypeOfHelpEnumName(typeOfHelpEnumName).orElse(null);
     }
 }

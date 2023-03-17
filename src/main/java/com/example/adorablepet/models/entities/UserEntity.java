@@ -9,8 +9,7 @@ import java.util.List;
 @Table(name = "users")
 public class UserEntity extends BaseEntity{
 
-//    @Column(nullable = false)
-//    private String username;
+
 
     @Column(nullable = false)
     private String password;
@@ -36,14 +35,7 @@ public class UserEntity extends BaseEntity{
     public UserEntity() {
     }
 
-//    public String getUsername() {
-//        return username;
-//    }
-//
-//    public UserEntity setUsername(String username) {
-//        this.username = username;
-//        return this;
-//    }
+
 
     public String getPassword() {
         return password;

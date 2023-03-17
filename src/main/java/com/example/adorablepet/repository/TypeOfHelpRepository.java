@@ -10,5 +10,5 @@ import java.util.Optional;
 @Repository
 public interface TypeOfHelpRepository extends JpaRepository<TypeOfHelp, Long> {
 
-    Optional<TypeOfHelp>findTypeOfHelpByTypeOfHelpEnumName(TypeOfHelpEnumName typeOfHelpEnumName);
+    Optional<TypeOfHelp>findByTypeOfHelpEnumName(TypeOfHelpEnumName typeOfHelpEnumName);
 }

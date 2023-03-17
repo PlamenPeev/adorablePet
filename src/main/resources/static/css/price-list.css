@@ -1,3 +1,6 @@
+html{
+    font-family: 'Courgette', cursive;
+}
 
 .header {
     display: flex;
@@ -63,9 +66,6 @@
     background-color: #333;
     color: #fff;
 }
-html{
-    font-family: 'Courgette', cursive;
-}
 
 .nav-bar a {
     padding: 1rem;
@@ -89,91 +89,75 @@ html{
 }
 
 
+
 /*MAIN*/
 .main {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     padding: 5rem;
-    background-color: #4CAF50;
 }
 
-/* CARDS*/
-.card-container {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: space-between;
-    max-width: 1200px;
-    margin: auto;
-    padding: 40px;
+table{
+    border:1px solid #234465;
+    padding: 1%;
+    margin: 0 auto;
+    width: 70%;
+    border-radius: 4px;
+}
+table th{
+    text-decoration: underline;
+    text-align: center;
+}
+table tbody td{
+    text-align: center;
+    border-bottom:1px solid black;
+    padding: 0.5%;
 }
 
-.card {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 600px;
-    margin-bottom: 40px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    overflow: hidden;
-    background-color: #f2f2f2;
-    margin-left: 2rem;
+table tbody tr:nth-child(even){
+    background-color: #234465;
+    color: white
 }
 
-.q-a .scroll{
-    height: 400px;
-    overflow: scroll;
+table tbody tr:nth-child(odd){
+    color: #234465;
+    border-bottom: 1px solid black;
 }
 
-.box-container{
-    display: flex;
+table tbody tr:nth-child(odd) button{
+    background: #234465;
+    color:white;
 }
 
-.box-container img{
-    width: 50%;
-    height: 70%;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
+table tbody tr:nth-child(even) button{
+    background: white;
+    color:#234465;
 }
 
-.geeks {
-    width: 50%;
-    height: 200px;
+table tr td:not(:last-child):hover{
+    text-decoration: underline;
 }
 
-/* .card img {
-     width: 100%;
-     height: 200px;
-     *object-position: left;
- }*/
-
-.card h2 {
-    margin: 20px;
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.card p {
-    margin: 20px;
-    font-size: 16px;
-    color: #666;
-}
-
-.card .button {
-    display: block;
-    margin: 20px;
-    padding: 10px 20px;
+table button{
     border: none;
+    padding: 5px;
     border-radius: 5px;
-    /*background-color: #008CBA;*/
+    margin-left: 8%;
+}
+
+table button:hover{
+    text-decoration: underline;
+}
+
+button#loadPrices{
+    display:block;
+    padding: 0.5rem 1rem;
+    margin: 1% auto;
+    border-radius: 5px;
     background-color: #4CAF50;
     color: #fff;
-    font-size: 16px;
-    text-align: center;
-    text-decoration: none;
 }
 
 

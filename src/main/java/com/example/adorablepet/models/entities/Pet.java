@@ -6,7 +6,6 @@ import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.Set;
 
 @Entity
 @Table(name = "pets")
@@ -32,8 +31,6 @@ public class Pet extends BaseEntity{
     @ManyToOne
     private UserEntity owner;
 
-    @ManyToMany
-    private Set<UserEntity> adopters;
 
     @Column(name ="date_of_visit")
     private LocalDate dateOfVisit;
@@ -98,14 +95,6 @@ public class Pet extends BaseEntity{
         return this;
     }
 
-    public Set<UserEntity> getAdopters() {
-        return adopters;
-    }
-
-    public Pet setAdopters(Set<UserEntity> adopters) {
-        this.adopters = adopters;
-        return this;
-    }
 
     public LocalDate getDateOfVisit() {
         return dateOfVisit;

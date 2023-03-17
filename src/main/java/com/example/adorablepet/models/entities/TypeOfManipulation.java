@@ -8,7 +8,7 @@ import jakarta.persistence.Table;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "types")
+@Table(name = "manipulation_types")
 public class TypeOfManipulation extends BaseEntity{
 
     private String title;
@@ -16,7 +16,7 @@ public class TypeOfManipulation extends BaseEntity{
     private BigDecimal price;
 
     @ManyToOne
-    private ManipulationEntity type;
+    private ManipulationEntity manipulation;
 
     public TypeOfManipulation() {
     }
@@ -39,12 +39,12 @@ public class TypeOfManipulation extends BaseEntity{
         return this;
     }
 
-    public ManipulationEntity getType() {
-        return type;
+    public ManipulationEntity getManipulation() {
+        return manipulation;
     }
 
-    public TypeOfManipulation setType(ManipulationEntity type) {
-        this.type = type;
+    public TypeOfManipulation setManipulation(ManipulationEntity manipulation) {
+        this.manipulation = manipulation;
         return this;
     }
 
@@ -53,7 +53,7 @@ public class TypeOfManipulation extends BaseEntity{
         return "TypeOfManipulation{" +
                 "title='" + title + '\'' +
                 ", price=" + price +
-                ", type=" + (type != null ? type.getName() : null) +
+                ", manipulation=" + (manipulation != null ? manipulation.getName() : null) +
                 '}';
     }
 }

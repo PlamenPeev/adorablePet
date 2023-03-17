@@ -20,7 +20,7 @@ public class InitService {
 
     public InitService(RoleRepository roleRepository, UserRepository userRepository,
                        PasswordEncoder passwordEncoder,
-                       @Value("${app.default.password}") String defaultPassword) {
+                       @Value("${app.default.password") String defaultPassword) {
         this.roleRepository = roleRepository;
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;

@@ -1,5 +1,6 @@
 package com.example.adorablepet.session;
 
+import com.example.adorablepet.models.entities.UserEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.SessionScope;
 
@@ -12,6 +13,10 @@ public class CurrentUser {
     public CurrentUser() {
     }
 
+    public void login(UserEntity user){
+        this.id = user.getId();
+        this.email = user.getEmail();
+    }
     public Long getId() {
         return id;
     }

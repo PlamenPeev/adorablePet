@@ -34,7 +34,7 @@ public class PetAddDTO {
     @NotNull
     private UserEntity owner;
 
-    @NotNull
+
     @FutureOrPresent
     private LocalDate dateOfVisit;
 
@@ -43,8 +43,6 @@ public class PetAddDTO {
     @Max(17)
     private int hourOfVisit;
 
-
-    private Set<UserEntity> adopters;
 
     public PetAddDTO() {
     }
@@ -121,12 +119,5 @@ public class PetAddDTO {
         return this;
     }
 
-    public Set<UserEntity> getAdopters() {
-        return adopters;
-    }
 
-    public PetAddDTO setAdopters(Set<UserEntity> adopters) {
-        this.adopters = adopters;
-        return this;
-    }
 }

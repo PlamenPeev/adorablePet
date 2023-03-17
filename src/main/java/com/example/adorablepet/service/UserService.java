@@ -54,4 +54,10 @@ public class UserService {
                 .findUserByEmail(email)
                 .orElse(null);
     }
+
+    public UserEntity findUserById(Long id) {
+        return this.userRepository
+                .findUserById(id)
+                .orElse(null);
+    }
 }

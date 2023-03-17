@@ -12,7 +12,7 @@ public class ManipulationEntity extends BaseEntity{
 
     private String name;
 
-    @OneToMany(mappedBy = "type")
+    @OneToMany(mappedBy = "manipulation")
     private List<TypeOfManipulation> types;
 
     public ManipulationEntity() {
