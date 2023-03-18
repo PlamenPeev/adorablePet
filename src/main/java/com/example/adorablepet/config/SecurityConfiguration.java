@@ -17,11 +17,12 @@ import org.springframework.security.web.context.HttpSessionSecurityContextReposi
 import org.springframework.security.web.context.RequestAttributeSecurityContextRepository;
 import org.springframework.security.web.context.SecurityContextRepository;
 
+import javax.security.auth.x500.X500Principal;
+import java.security.Principal;
 
 
 @Configuration
 public class SecurityConfiguration {
-
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http,
@@ -72,6 +73,7 @@ public class SecurityConfiguration {
                 new HttpSessionSecurityContextRepository()
         );
     }
+
 
 
 }

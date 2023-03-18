@@ -41,7 +41,7 @@ public class RegistrationController {
 
 
     @PostMapping("/users/register")
-    public String registerNewUser(@Valid @ModelAttribute("userRegistrationDTO")
+    public String registerNewUser(@Valid @ModelAttribute(name = "userRegistrationDTO")
                                   UserRegistrationDTO userRegistrationDTO,
                                   BindingResult bindingResult,
                                   RedirectAttributes redirectAttributes,

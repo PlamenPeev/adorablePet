@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.security.Principal;
+
 @Controller
 @RequestMapping("/pets")
 public class PetController {
@@ -58,6 +60,8 @@ public class PetController {
 
         this.petService.addPet(this.modelMapper
                 .map(petAddDTO, PetServiceModel.class));
+
+//        this.petService.loggedUser(this.userDetailsService);
 
               return "redirect:/";
     }

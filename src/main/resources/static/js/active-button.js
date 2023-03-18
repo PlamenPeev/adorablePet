@@ -1,6 +1,6 @@
-let navItems = document.querySelectorAll('.nav-item');
-for (let i = 0; i < navItems.length; i++) {
-    navItems[i].addEventListener('click', function() {
+let navItemsBar = document.querySelectorAll('.nav-item');
+for (let i = 0; i < navItemsBar.length; i++) {
+    navItemsBar[i].addEventListener('click', function() {
         this.classList.add('active');
     });
 }

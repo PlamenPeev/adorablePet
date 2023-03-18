@@ -10,7 +10,9 @@ import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Component
 public class TypesManipulationApplicationInit implements CommandLineRunner {
@@ -92,11 +94,14 @@ public class TypesManipulationApplicationInit implements CommandLineRunner {
         for (String type: types) {
 
             TypeOfManipulation aType = new TypeOfManipulation();
+
             aType.setManipulation(manipulation);
             aType.setTitle(type);
-//            String substring= aType.getTitle().
-//             substring(Math.max(type.length() - 2,0));
-            aType.setPrice(new BigDecimal("1"));
+
+//            String price= aType.getTitle().
+//                    substring(Math.max(type.length() - 2,0));
+
+            aType.setPrice(new BigDecimal("0.00"));
             allTypes.add(aType);
         }
 
@@ -105,5 +110,52 @@ public class TypesManipulationApplicationInit implements CommandLineRunner {
 
         typeOfManipulationRepository.saveAll(allTypes);
     }
+
+
+//    private void initManipulation(String manipulationName, Map<String,Integer> types) {
+//        ManipulationEntity manipulation = new ManipulationEntity();
+//        manipulation.setName(manipulationName);
+//        manipulation = manipulationRepository.save(manipulation);
+//
+//        Map<String,Integer> gfg = new HashMap<String,Integer>();
+//
+//        // enter name/url pair
+//        gfg.put("GFG", "geeksforgeeks.org");
+//        gfg.put("Practice", "practice.geeksforgeeks.org");
+//        gfg.put("Code", "code.geeksforgeeks.org");
+//        gfg.put("Quiz", "www.geeksforgeeks.org");
+//
+//        TypeOfManipulation aType = new TypeOfManipulation();
+//
+//        // using for-each loop for iteration over Map.entrySet()
+//        for (Map.Entry<String,Integer> entry : gfg.entrySet())
+//
+//            gfg.put(entry.getKey(aType.getTitle(t)), entry.getValue());
+//
+//            System.out.println("Key = " + entry.getKey() +
+//                    ", Value = " + entry.getValue());
+//
+//        List<TypeOfManipulation> allTypes = new ArrayList<>();
+//
+//
+//        for (String type: types) {
+//
+//            TypeOfManipulation aType = new TypeOfManipulation();
+//
+//            aType.setManipulation(manipulation);
+//            aType.setTitle(type);
+//
+////            String price= aType.getTitle().
+////                    substring(Math.max(type.length() - 2,0));
+//
+//            aType.setPrice(new BigDecimal("0.00"));
+//            allTypes.add(aType);
+//        }
+//
+//        manipulation.setTypes(allTypes);
+//        manipulationRepository.save(manipulation);
+//
+//        typeOfManipulationRepository.saveAll(allTypes);
+//    }
 
 }
