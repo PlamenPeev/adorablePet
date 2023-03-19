@@ -1,5 +1,6 @@
 package com.example.adorablepet.init;
 
+import com.example.adorablepet.models.dtos.TypeOfManipulationDTO;
 import com.example.adorablepet.models.entities.ManipulationEntity;
 import com.example.adorablepet.models.entities.TypeOfManipulation;
 import com.example.adorablepet.repository.ManipulationEntityRepository;
@@ -40,50 +41,66 @@ public class TypesManipulationApplicationInit implements CommandLineRunner {
 
     private void initInjections() {
         initManipulation("INJECTIONS",
-                "SUBCUTANEOUS INJECTION - 5",
-                "MUSCLE INJECTION - 6",
-                "VENOUS INJECTION (up to 20 ml.) - 12",
-                "SUBCONJUNCTIVE INJECTION - 15",
-                "INTRAARTICULAR, INTRACARDIAC, INTRATRACHEAL - 20"
-        );
+                List.of(new TypeOfManipulationDTO().setTitle("SUBCUTANEOUS INJECTION").setPrice(new BigDecimal(5)),
+                        new TypeOfManipulationDTO().setTitle("MUSCLE INJECTION ").setPrice(new BigDecimal(6)),
+                        new TypeOfManipulationDTO().setTitle("VENOUS INJECTION (up to 20 ml.)").setPrice(new BigDecimal(12)),
+                        new TypeOfManipulationDTO().setTitle("SUBCONJUNCTIVE INJECTION ").setPrice(new BigDecimal(15)),
+                        new TypeOfManipulationDTO().setTitle("INTRAARTICULAR, INTRACARDIAC, INTRATRACHEAL").setPrice(new BigDecimal(20))));
+//                "SUBCUTANEOUS INJECTION - 5",
+//                "MUSCLE INJECTION - 6",
+//                "VENOUS INJECTION (up to 20 ml.) - 12",
+//                "SUBCONJUNCTIVE INJECTION - 15",
+//                "INTRAARTICULAR, INTRACARDIAC, INTRATRACHEAL - 20");
     }
 
     private void initPuncture() {
         initManipulation("PUNCTURE",
-                "Puncture of the chest (Thoracentesis) - 30",
-                "PUNCTURE of the abdominal cavity (Abdomenocentesis) - 25",
-                "with an ultrasound - 40",
-                "BLADDER PUNCTURE (Cystosynthesis) - 12",
-                "with an ultrasound - 25"
-        );
+                List.of(new TypeOfManipulationDTO().setTitle("Puncture of the chest (Thoracentesis)").setPrice(new BigDecimal(30)),
+                        new TypeOfManipulationDTO().setTitle("PUNCTURE of the abdominal cavity (Abdomenocentesis)").setPrice(new BigDecimal(25)),
+                        new TypeOfManipulationDTO().setTitle("with an ultrasound").setPrice(new BigDecimal(40)),
+                        new TypeOfManipulationDTO().setTitle("BLADDER PUNCTURE (Cystosynthesis)").setPrice(new BigDecimal(12)),
+                        new TypeOfManipulationDTO().setTitle("with an ultrasound").setPrice(new BigDecimal(25))));
+//                "Puncture of the chest (Thoracentesis) - 30",
+//                "PUNCTURE of the abdominal cavity (Abdomenocentesis) - 25",
+//                "with an ultrasound - 40",
+//                "BLADDER PUNCTURE (Cystosynthesis) - 12",
+//                "with an ultrasound - 25");
     }
 
     private void initBandages() {
         initManipulation("Bandages",
-                "Plain (consisting of a bandage and gauze) - 12",
-                "Robert Jones dressing (consisting of bandage, gauze, cotton and patch) - 25",
-                "splinting complex bandage with an immobilizing element - 40"
-        );
+                List.of(new TypeOfManipulationDTO().setTitle("Plain (consisting of a bandage and gauze)").setPrice(new BigDecimal(12)),
+                        new TypeOfManipulationDTO().setTitle("Robert Jones dressing (consisting of bandage, gauze, cotton and patch)").setPrice(new BigDecimal(25)),
+                        new TypeOfManipulationDTO().setTitle("splinting complex bandage with an immobilizing element").setPrice(new BigDecimal(40))));
+//                "Plain (consisting of a bandage and gauze) - 12",
+//                "Robert Jones dressing (consisting of bandage, gauze, cotton and patch) - 25",
+//                "splinting complex bandage with an immobilizing element - 40");
     }
 
     private void initBloodTests() {
         initManipulation("Blood tests",
-                "Taking blood from a dog - 10",
-                "Taking blood from a cat - 15",
-                "Complete blood count (CBC) - 15",
-                "Differential Blood Picture - 20"
-        );
+                List.of(new TypeOfManipulationDTO().setTitle("Taking blood from a dog").setPrice(new BigDecimal(10)),
+                        new TypeOfManipulationDTO().setTitle("Taking blood from a cat").setPrice(new BigDecimal(15)),
+                        new TypeOfManipulationDTO().setTitle("Complete blood count (CBC)").setPrice(new BigDecimal(15)),
+                        new TypeOfManipulationDTO().setTitle("Differential Blood Picture").setPrice(new BigDecimal(20))));
+//                "Taking blood from a dog - 10",
+//                "Taking blood from a cat - 15",
+//                "Complete blood count (CBC) - 15",
+//                "Differential Blood Picture - 20");
     }
 
     private void initImagingDiagnostics() {
 
         initManipulation("Imaging diagnostics",
-                "Radiography, Photographic diagnosis - 15",
-                "Ultrasound - 45");
+                List.of(new TypeOfManipulationDTO().setTitle("Ultrasound").setPrice(new BigDecimal(45)),
+                        new TypeOfManipulationDTO().setTitle("Radiography, Photographic diagnosis")
+                                .setPrice(new BigDecimal(15))));
+//                "Radiography, Photographic diagnosis - 15",
+//                "Ultrasound - 45");
     }
 
 
-    private void initManipulation(String manipulationName, String... types) {
+    private void initManipulation(String manipulationName, List<TypeOfManipulationDTO> types) {
         ManipulationEntity manipulation = new ManipulationEntity();
         manipulation.setName(manipulationName);
         manipulation = manipulationRepository.save(manipulation);
@@ -91,17 +108,13 @@ public class TypesManipulationApplicationInit implements CommandLineRunner {
         List<TypeOfManipulation> allTypes = new ArrayList<>();
 
 
-        for (String type: types) {
+        for (TypeOfManipulationDTO type: types) {
 
             TypeOfManipulation aType = new TypeOfManipulation();
 
             aType.setManipulation(manipulation);
-            aType.setTitle(type);
-
-//            String price= aType.getTitle().
-//                    substring(Math.max(type.length() - 2,0));
-
-            aType.setPrice(new BigDecimal("0.00"));
+            aType.setTitle(type.getTitle());
+            aType.setPrice(type.getPrice());
             allTypes.add(aType);
         }
 
@@ -111,51 +124,5 @@ public class TypesManipulationApplicationInit implements CommandLineRunner {
         typeOfManipulationRepository.saveAll(allTypes);
     }
 
-
-//    private void initManipulation(String manipulationName, Map<String,Integer> types) {
-//        ManipulationEntity manipulation = new ManipulationEntity();
-//        manipulation.setName(manipulationName);
-//        manipulation = manipulationRepository.save(manipulation);
-//
-//        Map<String,Integer> gfg = new HashMap<String,Integer>();
-//
-//        // enter name/url pair
-//        gfg.put("GFG", "geeksforgeeks.org");
-//        gfg.put("Practice", "practice.geeksforgeeks.org");
-//        gfg.put("Code", "code.geeksforgeeks.org");
-//        gfg.put("Quiz", "www.geeksforgeeks.org");
-//
-//        TypeOfManipulation aType = new TypeOfManipulation();
-//
-//        // using for-each loop for iteration over Map.entrySet()
-//        for (Map.Entry<String,Integer> entry : gfg.entrySet())
-//
-//            gfg.put(entry.getKey(aType.getTitle(t)), entry.getValue());
-//
-//            System.out.println("Key = " + entry.getKey() +
-//                    ", Value = " + entry.getValue());
-//
-//        List<TypeOfManipulation> allTypes = new ArrayList<>();
-//
-//
-//        for (String type: types) {
-//
-//            TypeOfManipulation aType = new TypeOfManipulation();
-//
-//            aType.setManipulation(manipulation);
-//            aType.setTitle(type);
-//
-////            String price= aType.getTitle().
-////                    substring(Math.max(type.length() - 2,0));
-//
-//            aType.setPrice(new BigDecimal("0.00"));
-//            allTypes.add(aType);
-//        }
-//
-//        manipulation.setTypes(allTypes);
-//        manipulationRepository.save(manipulation);
-//
-//        typeOfManipulationRepository.saveAll(allTypes);
-//    }
 
 }

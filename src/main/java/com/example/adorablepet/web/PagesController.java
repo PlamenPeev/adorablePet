@@ -1,7 +1,9 @@
 package com.example.adorablepet.web;
 
+import com.example.adorablepet.models.entities.ObjectNotFoundException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -69,4 +71,8 @@ public class PagesController {
         return "pages/my-pets";
     }
 
+    @GetMapping("/{id}")
+    public String getPageById(@PathVariable("id") Long id) {
+        throw new ObjectNotFoundException(id, "Page");
+    }
 }

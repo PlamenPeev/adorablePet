@@ -2,6 +2,7 @@ package com.example.adorablepet.web;
 
 
 import com.example.adorablepet.models.dtos.TypeOfManipulationDTO;
+import com.example.adorablepet.models.entities.ObjectNotFoundException;
 import com.example.adorablepet.service.TypeOfManipulationService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -49,5 +50,9 @@ public class PriceListController {
                 build();
     }
 
+    @GetMapping("/api/manipulations/{id}")
+    public String getManipulationById(@PathVariable("id") Long id) {
+        throw new ObjectNotFoundException(id, "Manipulation");
+    }
 
 }

@@ -1,6 +1,7 @@
 package com.example.adorablepet.web;
 
 import com.example.adorablepet.models.dtos.PetAddDTO;
+import com.example.adorablepet.models.entities.ObjectNotFoundException;
 import com.example.adorablepet.models.entities.Pet;
 import com.example.adorablepet.models.service.PetServiceModel;
 import com.example.adorablepet.service.PetService;
@@ -12,10 +13,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.security.Principal;
@@ -57,14 +55,15 @@ public class PetController {
             return "redirect:add";
         }
 
-
         this.petService.addPet(this.modelMapper
                 .map(petAddDTO, PetServiceModel.class));
-
-//        this.petService.loggedUser(this.userDetailsService);
 
               return "redirect:/";
     }
 
+    @GetMapping("/{id}")
+    public String getPetById(@PathVariable("id") Long id) {
+        throw new ObjectNotFoundException(id, "Pet");
+    }
 
 }
