@@ -68,11 +68,11 @@ public class PagesController {
     @GetMapping("/my-pets")
     private String myPets(){
 
-        return "pages/my-pets";
+        return "home";
     }
 
-    @GetMapping("/{id}")
-    public String getPageById(@PathVariable("id") Long id) {
-        throw new ObjectNotFoundException(id, "Page");
-    }
+//    @GetMapping("/{id}")
+//    public String getPageById(@PathVariable("id") Long id) {
+//        throw new ObjectNotFoundException(id, "Page");
+//    }
 }

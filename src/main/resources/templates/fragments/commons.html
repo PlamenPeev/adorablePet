@@ -5,7 +5,7 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Vet Clinic Adorable Pet</title>
-    <link rel="shortcut icon" type="img/png" th:href="@{/images/favicon.png}">
+    <link rel="shortcut icon" type="image/png" th:href="@{/images/favicon.png}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
@@ -27,7 +27,7 @@
                 <button sec:authorize="isAuthenticated()"><a th:text="#{navbar_add_pet}"
                                                              th:href="@{/pets/add}">ADD PET</a></button>
                 <button sec:authorize="hasRole('USER')"><a th:text="#{navbar_my_pets}"
-                                                             th:href="@{/pages/my-pets}">MY PETS</a></button>
+                                                             th:href="@{/home}">MY PETS</a></button>
                 <button sec:authorize="hasRole('MODERATOR')"><a th:text="#{navbar_moderators}"
                                                                 th:href="@{/pages/moderators}">MODERATORS</a></button>
                 <button sec:authorize="hasRole('ADMIN')"><a th:text="#{navbar_admins}"

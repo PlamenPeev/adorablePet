@@ -31,12 +31,27 @@ public class TypesManipulationApplicationInit implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         if (typeOfManipulationRepository.count() == 0 && manipulationRepository.count() == 0) {
+            initExaminations();
             initInjections();
             initPuncture();
             initBandages();
+            initSkinDiagnosis();
             initBloodTests();
             initImagingDiagnostics();
         }
+    }
+
+    private void initExaminations() {
+        initManipulation("EXAMINATION",
+                List.of(new TypeOfManipulationDTO().setTitle("Dog and Cat").setPrice(new BigDecimal(22)),
+                        new TypeOfManipulationDTO().setTitle("CONTROL OR PARTIAL REVIEW").setPrice(new BigDecimal(10)),
+                        new TypeOfManipulationDTO().setTitle("DECORATIVE ANIMALS").setPrice(new BigDecimal(13)),
+                        new TypeOfManipulationDTO().setTitle("EXOTIC BIRDS - Parrots").setPrice(new BigDecimal(18)),
+                        new TypeOfManipulationDTO().setTitle("VAGINAL EXAMINATION").setPrice(new BigDecimal(12)),
+                        new TypeOfManipulationDTO().setTitle("RECTAL EXAMINATION").setPrice(new BigDecimal(6)),
+                        new TypeOfManipulationDTO().setTitle("OTOSCOPE").setPrice(new BigDecimal(10)),
+                        new TypeOfManipulationDTO().setTitle("DENTAL").setPrice(new BigDecimal(20)),
+                        new TypeOfManipulationDTO().setTitle("OPHTHALMOLOGICAL").setPrice(new BigDecimal(15))));
     }
 
     private void initInjections() {
@@ -46,11 +61,6 @@ public class TypesManipulationApplicationInit implements CommandLineRunner {
                         new TypeOfManipulationDTO().setTitle("VENOUS INJECTION (up to 20 ml.)").setPrice(new BigDecimal(12)),
                         new TypeOfManipulationDTO().setTitle("SUBCONJUNCTIVE INJECTION ").setPrice(new BigDecimal(15)),
                         new TypeOfManipulationDTO().setTitle("INTRAARTICULAR, INTRACARDIAC, INTRATRACHEAL").setPrice(new BigDecimal(20))));
-//                "SUBCUTANEOUS INJECTION - 5",
-//                "MUSCLE INJECTION - 6",
-//                "VENOUS INJECTION (up to 20 ml.) - 12",
-//                "SUBCONJUNCTIVE INJECTION - 15",
-//                "INTRAARTICULAR, INTRACARDIAC, INTRATRACHEAL - 20");
     }
 
     private void initPuncture() {
@@ -60,11 +70,6 @@ public class TypesManipulationApplicationInit implements CommandLineRunner {
                         new TypeOfManipulationDTO().setTitle("with an ultrasound").setPrice(new BigDecimal(40)),
                         new TypeOfManipulationDTO().setTitle("BLADDER PUNCTURE (Cystosynthesis)").setPrice(new BigDecimal(12)),
                         new TypeOfManipulationDTO().setTitle("with an ultrasound").setPrice(new BigDecimal(25))));
-//                "Puncture of the chest (Thoracentesis) - 30",
-//                "PUNCTURE of the abdominal cavity (Abdomenocentesis) - 25",
-//                "with an ultrasound - 40",
-//                "BLADDER PUNCTURE (Cystosynthesis) - 12",
-//                "with an ultrasound - 25");
     }
 
     private void initBandages() {
@@ -72,9 +77,14 @@ public class TypesManipulationApplicationInit implements CommandLineRunner {
                 List.of(new TypeOfManipulationDTO().setTitle("Plain (consisting of a bandage and gauze)").setPrice(new BigDecimal(12)),
                         new TypeOfManipulationDTO().setTitle("Robert Jones dressing (consisting of bandage, gauze, cotton and patch)").setPrice(new BigDecimal(25)),
                         new TypeOfManipulationDTO().setTitle("splinting complex bandage with an immobilizing element").setPrice(new BigDecimal(40))));
-//                "Plain (consisting of a bandage and gauze) - 12",
-//                "Robert Jones dressing (consisting of bandage, gauze, cotton and patch) - 25",
-//                "splinting complex bandage with an immobilizing element - 40");
+    }
+
+
+    private void initSkinDiagnosis() {
+        initManipulation("Diagnosis of skin diseases",
+                List.of(new TypeOfManipulationDTO().setTitle("Taking material for research").setPrice(new BigDecimal(11)),
+                        new TypeOfManipulationDTO().setTitle("Microscopic examination for scabies").setPrice(new BigDecimal(10)),
+                        new TypeOfManipulationDTO().setTitle("Fungal Culture").setPrice(new BigDecimal(27))));
     }
 
     private void initBloodTests() {
@@ -83,10 +93,6 @@ public class TypesManipulationApplicationInit implements CommandLineRunner {
                         new TypeOfManipulationDTO().setTitle("Taking blood from a cat").setPrice(new BigDecimal(15)),
                         new TypeOfManipulationDTO().setTitle("Complete blood count (CBC)").setPrice(new BigDecimal(15)),
                         new TypeOfManipulationDTO().setTitle("Differential Blood Picture").setPrice(new BigDecimal(20))));
-//                "Taking blood from a dog - 10",
-//                "Taking blood from a cat - 15",
-//                "Complete blood count (CBC) - 15",
-//                "Differential Blood Picture - 20");
     }
 
     private void initImagingDiagnostics() {
@@ -95,9 +101,8 @@ public class TypesManipulationApplicationInit implements CommandLineRunner {
                 List.of(new TypeOfManipulationDTO().setTitle("Ultrasound").setPrice(new BigDecimal(45)),
                         new TypeOfManipulationDTO().setTitle("Radiography, Photographic diagnosis")
                                 .setPrice(new BigDecimal(15))));
-//                "Radiography, Photographic diagnosis - 15",
-//                "Ultrasound - 45");
     }
+
 
 
     private void initManipulation(String manipulationName, List<TypeOfManipulationDTO> types) {

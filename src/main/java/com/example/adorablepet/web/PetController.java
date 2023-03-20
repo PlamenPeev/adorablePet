@@ -66,4 +66,10 @@ public class PetController {
         throw new ObjectNotFoundException(id, "Pet");
     }
 
+    @GetMapping("/remove/{id}")
+    public String delete(@PathVariable Long id){
+        this.petService.remove(id);
+        return "redirect:/";
+    }
+
 }
