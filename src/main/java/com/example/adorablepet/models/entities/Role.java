@@ -11,11 +11,6 @@ public class Role extends BaseEntity{
     @Enumerated(EnumType.STRING)
     private RoleEnumName roleEnumName;
 
-    @Column(columnDefinition = "TEXT")
-    private String description;
-
-
-
     public Role() {
     }
 
@@ -25,15 +20,6 @@ public class Role extends BaseEntity{
 
     public Role setRoleEnumName(RoleEnumName roleEnumName) {
         this.roleEnumName = roleEnumName;
-        return this;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public Role setDescription(String description) {
-        this.description = description;
         return this;
     }
 

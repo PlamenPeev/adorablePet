@@ -9,12 +9,15 @@ public class DatabaseInit implements CommandLineRunner {
 
     private final TypeOfHelpService typeOfHelpService;
 
+
     public DatabaseInit(TypeOfHelpService typeOfHelpService) {
         this.typeOfHelpService = typeOfHelpService;
+
     }
 
     @Override
     public void run(String... args) throws Exception {
-typeOfHelpService.initTypeOfHelps();
+               typeOfHelpService.initTypeOfHelps();
+
     }
 }
