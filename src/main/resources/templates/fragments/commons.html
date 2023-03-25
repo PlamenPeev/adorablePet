@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -27,7 +27,7 @@
                 <button sec:authorize="isAuthenticated()"><a th:text="#{navbar_add_pet}"
                                                              th:href="@{/pets/add}">ADD PET</a></button>
                 <button sec:authorize="hasRole('USER')"><a th:text="#{navbar_my_pets}"
-                                                             th:href="@{/home}">MY PETS</a></button>
+                                                             th:href="@{/pages/my-pets}">MY PETS</a></button>
                 <button sec:authorize="hasRole('MODERATOR')"><a th:text="#{navbar_moderators}"
                                                                 th:href="@{/pages/moderators}">MODERATORS</a></button>
                 <button sec:authorize="hasRole('ADMIN')"><a th:text="#{navbar_admins}"

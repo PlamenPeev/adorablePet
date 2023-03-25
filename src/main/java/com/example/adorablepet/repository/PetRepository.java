@@ -22,9 +22,17 @@ public interface PetRepository extends JpaRepository<Pet, Long> {
 //    @Query("SELECT p FROM Pet AS p GROUP BY p.typeOfHelp.typeOfHelpEnumName")
 //    List<Pet> findPetsByTypeOfHelpEnumName(TypeOfHelpEnumName name);
 
-    @Query("SELECT p FROM Pet p GROUP BY p.typeOfHelp")
+    @Query("SELECT p FROM Pet p GROUP BY p.typeOfHelp.typeOfHelpEnumName")
     List<Pet> findPetsByTypeOfHelp(TypeOfHelpEnumName name);
+
+@Query("SELECT p FROM Pet p Group by p.typeOfHelp.typeOfHelpEnumName")
+    List<Pet> findAllByTypeOfHelp();
 //
 //    @Query("SELECT p FROM Pet p GROUP BY p.owner, p.typeOfHelp.typeOfHelpEnumName")
 //    List<Pet> findAllByUserByTypeOfHelp(String username, TypeOfHelpEnumName name);
+
+    List<Pet> findAllByOwner_EmailAndTypeOfHelp_TypeOfHelpEnumName(String email, TypeOfHelpEnumName name);
+
+    @Query("SELECT COUNT(p.id) FROM Pet p GROUP BY p.owner.id")
+    List<Pet> findPetsByOwner(Long id);
 }

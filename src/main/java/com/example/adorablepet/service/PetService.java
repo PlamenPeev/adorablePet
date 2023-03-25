@@ -56,7 +56,44 @@ public class PetService {
                 .collect(Collectors.toList());
     }
 
+    public List<PetViewModel> findAllPets() {
 
+        return this.petRepository
+                .findAllByTypeOfHelp()
+                .stream()
+                .map(pet -> {
+                    PetViewModel petViewModel= this.modelMapper
+                            .map(pet, PetViewModel.class);
+                    return petViewModel;
+                })
+                .collect(Collectors.toList());
+
+    }
+
+
+        public List<PetViewModel> findPetsByUsername(String email,TypeOfHelpEnumName name) {
+            return this.petRepository.findAllByOwner_EmailAndTypeOfHelp_TypeOfHelpEnumName(email,name)
+                    .stream()
+                    .map(pet -> {
+                        PetViewModel petViewModel= this.modelMapper
+                                .map(pet, PetViewModel.class);
+                        return petViewModel;
+                    })
+                    .collect(Collectors.toList());
+
+    }
+
+    public List<PetViewModel> findPetsByOwner(Long id){
+        return this.petRepository
+                .findPetsByOwner(id)
+                .stream()
+                .map(pet -> {
+                    PetViewModel petViewModel= this.modelMapper
+                            .map(pet, PetViewModel.class);
+                    return petViewModel;
+                })
+                .collect(Collectors.toList());
+    }
 
 //    public List<PetViewModel> findAllByUser(String username, TypeOfHelpEnumName name){
 //        return this.petRepository.findAllByUserByTypeOfHelp(username, name)

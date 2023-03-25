@@ -5,6 +5,7 @@ import com.example.adorablepet.models.entities.UserEntity;
 import com.example.adorablepet.models.enums.RoleEnumName;
 import com.example.adorablepet.repository.RoleRepository;
 import com.example.adorablepet.repository.UserRepository;
+import com.example.adorablepet.session.CurrentUser;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -22,11 +23,13 @@ public class UserService {
     private final PasswordEncoder passwordEncoder;
     private final UserDetailsService userDetailsService;
     private final RoleRepository roleRepository;
-    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, UserDetailsService userDetailsService, RoleRepository roleRepository) {
+    private final CurrentUser currentUser;
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, UserDetailsService userDetailsService, RoleRepository roleRepository, CurrentUser currentUser) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.userDetailsService = userDetailsService;
         this.roleRepository = roleRepository;
+        this.currentUser = currentUser;
     }
 
 
@@ -67,5 +70,11 @@ public class UserService {
         return this.userRepository
                 .findUserById(id)
                 .orElse(null);
+    }
+
+    public UserEntity loginUser(Long id, String mail) {
+        currentUser.setId(id);
+        currentUser.setEmail(mail);
+        return loginUser(id,mail);
     }
 }

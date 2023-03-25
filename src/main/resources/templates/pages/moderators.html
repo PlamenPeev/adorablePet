@@ -28,52 +28,55 @@
         <div class="row mt-3 mb-3">
             <div class="col-5 bg-dark rounded m-auto" style="height: 30vh; overflow: auto">
                 <h3 class="mySticky bg-gray text-dark rounded">TREATMENTS</h3>
-                <div th:each="o : ${products}"  th:object="${o}"
+                <div th:each="treatment : ${treatments}"  th:object="${treatment}"
                      class="mt-3 rounded badge-info">
-                    <img class="mr-2" th:src=" '/img/' + *{category.getCategoryNameEnum().name().toLowerCase()} + '.png'"
-
-                         alt="Food" width="50px" height="50px">
-                    <span >Name: {name} Pet: {pet}</span>
-                    <a class="ml-3 text-danger" th:href="@{/products/buy/{id}(id=*{id})}">Confirm</a>
+                    <span th:text="|Pet: *{typeOfAnimalEnumName} Name: *{name}|"></span>
+                    <br>
+                    <span th:text="|Date: *{dateOfVisit} Hour: *{hourOfVisit}:00|"></span>
+                    <a class="ml-3 text-danger" th:href="@{/pets/remove/{id}(id=*{id})}">Cancel</a>
                 </div>
             </div>
             <div class="col-5 bg-dark rounded m-auto" style="height: 30vh; overflow: auto">
                 <h3 class="mySticky bg-gray text-dark rounded">PREVENTION</h3>
-                <div class="mt-3 rounded badge-warning">
-                    <span>Name: {name} Pet: {pet}</span>
-                    <span>Date: {date} Hour: {hour}</span>
-                    <a class="ml-3 text-danger" href="/static">Confirm</a>
+                <div th:each="prevention : ${preventions}"  th:object="${prevention}"
+                     class="mt-3 rounded badge-warning">
+                    <span th:text="|Pet: *{typeOfAnimalEnumName} Name: *{name}|"></span>
+                    <br>
+                    <span th:text="|Date: *{dateOfVisit} Hour: *{hourOfVisit}:00|"></span>
+                    <a class="ml-3 text-danger" th:href="@{/pets/remove/{id}(id=*{id})}">Cancel</a>
                 </div>
             </div>
         </div>
         <div class="row mt-3 mb-3">
             <div class="col-5 bg-dark rounded m-auto" style="height: 30vh; overflow: auto">
                 <h3 class="mySticky bg-gray text-dark rounded">GROOMING</h3>
-                <div th:each="o : ${products}"  th:object="${o}"
+                <div th:each="grooming : ${grooms}"  th:object="${grooming}"
                      class="mt-3 rounded badge-success">
-                    <img class="mr-2" th:src=" '/img/' + *{category.getCategoryNameEnum().name().toLowerCase()} + '.png'"
-                         alt="Food" width="50px" height="50px">
-                    <span th:text="|Name: *{name} Price: *{price} lv|"></span>
-                    <a class="ml-3 text-danger" th:href="@{/products/buy/{id}(id=*{id})}">Confirm</a>
+                    <span th:text="|Pet: *{typeOfAnimalEnumName} Name: *{name}|"></span>
+                    <br>
+                    <span th:text="|Date: *{dateOfVisit} Hour: *{hourOfVisit}:00|"></span>
+                    <a class="ml-3 text-danger" th:href="@{/pets/remove/{id}(id=*{id})}">Cancel</a>
                 </div>
             </div>
             <div class="col-5 bg-dark rounded m-auto" style="height: 30vh; overflow: auto">
                 <h3 class="mySticky bg-gray text-dark rounded">HOTEL</h3>
-                <div th:each="o : ${products}"  th:object="${o}"
+                <div th:each="hotel : ${hotels}"  th:object="${hotel}"
                      class="mt-3 rounded badge-secondary">
-                    <img class="mr-2" th:src=" '/img/' + *{category.getCategoryNameEnum().name().toLowerCase()} + '.png'"
-                         alt="Food" width="50px" height="50px">
-                    <span th:text="|Name: *{name} Price: *{price} lv|"></span>
-                    <a class="ml-3 text-danger" th:href="@{/products/buy/{id}(id=*{id})}">Confirm</a>
+                    <span th:text="|Pet: *{typeOfAnimalEnumName} Name: *{name}|"></span>
+                    <br>
+                    <span th:text="|Date: *{dateOfVisit} Hour: *{hourOfVisit}:00|"></span>
+                    <a class="ml-3 text-danger" th:href="@{/pets/remove/{id}(id=*{id})}">Cancel</a>
                 </div>
             </div>
 
             <div class="col-5 bg-dark rounded m-auto" style="height: 30vh; overflow: auto">
                 <h3 class="mySticky bg-gray text-dark rounded">SCHOOL</h3>
-                <div th:each="o : ${pets}"  th:object="${o}"
+                <div th:each="school : ${schools}"  th:object="${school}"
                      class="mt-3 rounded badge-school">
-                    <span th:text="|Name: *{name} Price: *{price} lv|"></span>
-                    <a class="ml-3 text-danger" th:href="@{/products/buy/{id}(id=*{id})}">Cancel</a>
+                    <span th:text="|Pet: *{typeOfAnimalEnumName} Name: *{name}|"></span>
+                    <br>
+                    <span th:text="|Date: *{dateOfVisit} Hour: *{hourOfVisit}:00|"></span>
+                    <a class="ml-3 text-danger" th:href="@{/pets/remove/{id}(id=*{id})}">Cancel</a>
                 </div>
             </div>
         </div>
