@@ -4,6 +4,7 @@ import com.example.adorablepet.models.entities.ObjectNotFoundException;
 import com.example.adorablepet.models.entities.Pet;
 import com.example.adorablepet.models.enums.TypeOfHelpEnumName;
 import com.example.adorablepet.models.views.PetViewModel;
+import com.example.adorablepet.models.views.UserViewModel;
 import com.example.adorablepet.repository.PetRepository;
 import com.example.adorablepet.service.PetService;
 import com.example.adorablepet.service.UserService;
@@ -92,14 +93,14 @@ public class PagesController {
         List<PetViewModel> hotels = this.petService.findPetsByUsername(principal.getName(),TypeOfHelpEnumName.HOTEL);
         List<PetViewModel> schools = this.petService.findPetsByUsername(principal.getName(),TypeOfHelpEnumName.SCHOOL);
         List<PetViewModel> preventions = this.petService.findPetsByUsername(principal.getName(),TypeOfHelpEnumName.PREVENTION);
-        //List<PetViewModel> allPetsByUser = this.petService.findPetsByOwner(currentUser.getId());
+        List<UserViewModel> numVisitByUser = this.userService.findAllByPetsCount(currentUser.getEmail());
 
         model.addAttribute("treatments", treatments);
         model.addAttribute("grooms", grooms);
         model.addAttribute("hotels", hotels);
         model.addAttribute("schools", schools);
         model.addAttribute("preventions", preventions);
-        //model.addAttribute("allPetsByUser", allPetsByUser);
+        model.addAttribute("numVisitByUser", numVisitByUser);
 
 
         return "pages/my-pets";
@@ -108,18 +109,12 @@ public class PagesController {
     @GetMapping("/moderators")
     private String pageModerators(Model model){
 
-//        if (currentUser.getId() == null) {
-//            return "index";
-//        }
 
-        List<PetViewModel> pets = petService.findAllPets();
-
-
-        List<PetViewModel> treatments = this.petService.findAllByTypeOfHelp(TypeOfHelpEnumName.TREATMENT);
-        List<PetViewModel> grooms = this.petService.findAllByTypeOfHelp(TypeOfHelpEnumName.TREATMENT);
-        List<PetViewModel> hotels = this.petService.findAllByTypeOfHelp(TypeOfHelpEnumName.TREATMENT);
-        List<PetViewModel> schools = this.petService.findAllByTypeOfHelp(TypeOfHelpEnumName.TREATMENT);
-        List<PetViewModel> preventions = this.petService.findAllByTypeOfHelp(TypeOfHelpEnumName.TREATMENT);
+        List<PetViewModel> treatments = this.petService.findPets(TypeOfHelpEnumName.TREATMENT);
+        List<PetViewModel> grooms = this.petService.findPets(TypeOfHelpEnumName.GROOMING);
+        List<PetViewModel> hotels = this.petService.findPets(TypeOfHelpEnumName.HOTEL);
+        List<PetViewModel> schools = this.petService.findPets(TypeOfHelpEnumName.SCHOOL);
+        List<PetViewModel> preventions = this.petService.findPets(TypeOfHelpEnumName.PREVENTION);
 
 
         model.addAttribute("treatments", treatments);
@@ -128,7 +123,7 @@ public class PagesController {
         model.addAttribute("schools", schools);
         model.addAttribute("preventions", preventions);
 
-        model.addAttribute("pets", pets);
+
 
 
         return "pages/moderators";
@@ -137,18 +132,13 @@ public class PagesController {
     @GetMapping("/admins")
     public String pageAdmins(Model model) {
 
-//        if (currentUser.getId() == null) {
-//            return "index";
-//        }
-
-        List<PetViewModel> pets = petService.findAllPets();
 
 
-        List<PetViewModel> treatments = this.petService.findAllByTypeOfHelp(TypeOfHelpEnumName.TREATMENT);
-        List<PetViewModel> grooms = this.petService.findAllByTypeOfHelp(TypeOfHelpEnumName.TREATMENT);
-        List<PetViewModel> hotels = this.petService.findAllByTypeOfHelp(TypeOfHelpEnumName.TREATMENT);
-        List<PetViewModel> schools = this.petService.findAllByTypeOfHelp(TypeOfHelpEnumName.TREATMENT);
-        List<PetViewModel> preventions = this.petService.findAllByTypeOfHelp(TypeOfHelpEnumName.TREATMENT);
+        List<PetViewModel> treatments = this.petService.findPets(TypeOfHelpEnumName.TREATMENT);
+        List<PetViewModel> grooms = this.petService.findPets(TypeOfHelpEnumName.GROOMING);
+        List<PetViewModel> hotels = this.petService.findPets(TypeOfHelpEnumName.HOTEL);
+        List<PetViewModel> schools = this.petService.findPets(TypeOfHelpEnumName.SCHOOL);
+        List<PetViewModel> preventions = this.petService.findPets(TypeOfHelpEnumName.PREVENTION);
 
 
         model.addAttribute("treatments", treatments);
@@ -157,7 +147,7 @@ public class PagesController {
         model.addAttribute("schools", schools);
         model.addAttribute("preventions", preventions);
 
-        model.addAttribute("pets", pets);
+
 
         return "pages/admins";
     }

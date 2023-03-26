@@ -3,9 +3,12 @@ package com.example.adorablepet.service;
 import com.example.adorablepet.models.dtos.UserRegistrationDTO;
 import com.example.adorablepet.models.entities.UserEntity;
 import com.example.adorablepet.models.enums.RoleEnumName;
+import com.example.adorablepet.models.views.PetViewModel;
+import com.example.adorablepet.models.views.UserViewModel;
 import com.example.adorablepet.repository.RoleRepository;
 import com.example.adorablepet.repository.UserRepository;
 import com.example.adorablepet.session.CurrentUser;
+import org.modelmapper.ModelMapper;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,6 +18,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
 
 @Service
 public class UserService {
@@ -24,12 +28,14 @@ public class UserService {
     private final UserDetailsService userDetailsService;
     private final RoleRepository roleRepository;
     private final CurrentUser currentUser;
-    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, UserDetailsService userDetailsService, RoleRepository roleRepository, CurrentUser currentUser) {
+    private final ModelMapper modelMapper;
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, UserDetailsService userDetailsService, RoleRepository roleRepository, CurrentUser currentUser, ModelMapper modelMapper) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.userDetailsService = userDetailsService;
         this.roleRepository = roleRepository;
         this.currentUser = currentUser;
+        this.modelMapper = modelMapper;
     }
 
 
@@ -66,15 +72,27 @@ public class UserService {
                 .orElse(null);
     }
 
-    public UserEntity findUserById(Long id) {
-        return this.userRepository
-                .findUserById(id)
-                .orElse(null);
-    }
+//    public UserEntity findUserById(Long id) {
+//        return this.userRepository
+//                .findUserById(id)
+//                .orElse(null);
+//    }
 
-    public UserEntity loginUser(Long id, String mail) {
-        currentUser.setId(id);
-        currentUser.setEmail(mail);
-        return loginUser(id,mail);
+//    public UserEntity loginUser(Long id, String mail) {
+//        currentUser.setId(id);
+//        currentUser.setEmail(mail);
+//        return loginUser(id,mail);
+//    }
+
+    public List<UserViewModel> findAllByPetsCount(String mail){
+        return this.userRepository
+                .findAllByPetsCount(mail)
+                .stream()
+                .map(user -> {
+                    UserViewModel userViewModel= this.modelMapper
+                            .map(user, UserViewModel.class);
+                    return userViewModel;
+                })
+                .collect(Collectors.toList());
     }
 }

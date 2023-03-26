@@ -4,7 +4,9 @@ import com.example.adorablepet.models.entities.Pet;
 import com.example.adorablepet.models.enums.TypeOfHelpEnumName;
 import com.example.adorablepet.models.service.PetServiceModel;
 import com.example.adorablepet.models.views.PetViewModel;
+import com.example.adorablepet.models.views.UserViewModel;
 import com.example.adorablepet.repository.PetRepository;
+import com.example.adorablepet.repository.UserRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
@@ -20,14 +22,16 @@ public class PetService {
     private final UserService userService;
     private final PetRepository petRepository;
     private final TypeOfHelpService typeOfHelpService;
+    private final UserRepository userRepository;
 
 
     public PetService(ModelMapper modelMapper, UserService userService, PetRepository petRepository,
-                      TypeOfHelpService typeOfHelpService) {
+                      TypeOfHelpService typeOfHelpService, UserRepository userRepository) {
         this.modelMapper = modelMapper;
         this.userService = userService;
         this.petRepository = petRepository;
         this.typeOfHelpService = typeOfHelpService;
+        this.userRepository = userRepository;
     }
 
 
@@ -83,9 +87,25 @@ public class PetService {
 
     }
 
-    public List<PetViewModel> findPetsByOwner(Long id){
+    public List<PetViewModel> findPets(TypeOfHelpEnumName name) {
         return this.petRepository
-                .findPetsByOwner(id)
+                .findPetsByTypeOfHelp_TypeOfHelpEnumName(name)
+                .stream()
+                .map(pet -> {
+                    PetViewModel petViewModel= this.modelMapper
+                            .map(pet, PetViewModel.class);
+                    return petViewModel;
+                })
+                .collect(Collectors.toList());
+
+    }
+
+
+
+
+    public List<PetViewModel> findPetsByOwner(String mail){
+        return this.petRepository
+                .findPetsByOwner(mail)
                 .stream()
                 .map(pet -> {
                     PetViewModel petViewModel= this.modelMapper

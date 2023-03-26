@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -28,7 +29,10 @@ public class UserEntity extends BaseEntity {
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Role> roles = new ArrayList<>();
 
-@Column
+    @OneToMany(mappedBy = "owner",fetch = FetchType.EAGER)
+    private Set<Pet> pets;
+
+    @Column
     private String country;
 
     public UserEntity() {
@@ -100,6 +104,15 @@ public class UserEntity extends BaseEntity {
 
     public UserEntity addRole(Role role) {
         this.roles.add(role);
+        return this;
+    }
+
+    public Set<Pet> getPets() {
+        return pets;
+    }
+
+    public UserEntity setPets(Set<Pet> pets) {
+        this.pets = pets;
         return this;
     }
 
