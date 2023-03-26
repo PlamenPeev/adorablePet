@@ -2,6 +2,7 @@ package com.example.adorablepet.service;
 
 import com.example.adorablepet.models.entities.Role;
 import com.example.adorablepet.models.entities.UserEntity;
+import com.example.adorablepet.models.user.AdorablePetUserDetails;
 import com.example.adorablepet.repository.UserRepository;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -30,9 +31,12 @@ public class ApplicationUserDetailsService implements UserDetailsService {
     }
 
     private UserDetails map(UserEntity userEntity) {
-        return new User(
-                userEntity.getEmail(),
+        return new AdorablePetUserDetails(
+                userEntity.getId(),
                 userEntity.getPassword(),
+                userEntity.getEmail(),
+                userEntity.getFirstName(),
+                userEntity.getLastName(),
                 extractAuthorities(userEntity)
         );
     }

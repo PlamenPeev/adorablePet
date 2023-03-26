@@ -1,6 +1,7 @@
 package com.example.adorablepet.models.entities;
 
 import jakarta.persistence.*;
+import org.springframework.security.core.GrantedAuthority;
 
 import java.util.ArrayList;
 import java.util.List;

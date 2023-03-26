@@ -33,7 +33,7 @@
                     <span th:text="|Pet: *{typeOfAnimalEnumName} Name: *{name}|"></span>
                     <br>
                     <span th:text="|Date: *{dateOfVisit} Hour: *{hourOfVisit}:00|"></span>
-                    <a class="ml-3 text-danger" th:href="@{/pets/remove/{id}(id=*{id})}">Cancel</a>
+                    <a class="ml-3 text-danger" th:href="@{/pets/remove/{id}(id=*{id})}">Confirm</a>
                 </div>
             </div>
             <div class="col-5 bg-dark rounded m-auto" style="height: 30vh; overflow: auto">
@@ -43,7 +43,7 @@
                     <span th:text="|Pet: *{typeOfAnimalEnumName} Name: *{name}|"></span>
                     <br>
                     <span th:text="|Date: *{dateOfVisit} Hour: *{hourOfVisit}:00|"></span>
-                    <a class="ml-3 text-danger" th:href="@{/pets/remove/{id}(id=*{id})}">Cancel</a>
+                    <a class="ml-3 text-danger" th:href="@{/pets/remove/{id}(id=*{id})}">Confirm</a>
                 </div>
             </div>
         </div>
@@ -55,7 +55,7 @@
                     <span th:text="|Pet: *{typeOfAnimalEnumName} Name: *{name}|"></span>
                     <br>
                     <span th:text="|Date: *{dateOfVisit} Hour: *{hourOfVisit}:00|"></span>
-                    <a class="ml-3 text-danger" th:href="@{/pets/remove/{id}(id=*{id})}">Cancel</a>
+                    <a class="ml-3 text-danger" th:href="@{/pets/remove/{id}(id=*{id})}">Confirm</a>
                 </div>
             </div>
             <div class="col-5 bg-dark rounded m-auto" style="height: 30vh; overflow: auto">
@@ -65,7 +65,7 @@
                     <span th:text="|Pet: *{typeOfAnimalEnumName} Name: *{name}|"></span>
                     <br>
                     <span th:text="|Date: *{dateOfVisit} Hour: *{hourOfVisit}:00|"></span>
-                    <a class="ml-3 text-danger" th:href="@{/pets/remove/{id}(id=*{id})}">Cancel</a>
+                    <a class="ml-3 text-danger" th:href="@{/pets/remove/{id}(id=*{id})}">Confirm</a>
                 </div>
             </div>
 
@@ -76,12 +76,12 @@
                     <span th:text="|Pet: *{typeOfAnimalEnumName} Name: *{name}|"></span>
                     <br>
                     <span th:text="|Date: *{dateOfVisit} Hour: *{hourOfVisit}:00|"></span>
-                    <a class="ml-3 text-danger" th:href="@{/pets/remove/{id}(id=*{id})}">Cancel</a>
+                    <a class="ml-3 text-danger" th:href="@{/pets/remove/{id}(id=*{id})}">Confirm</a>
                 </div>
             </div>
         </div>
         <a href="/home" class="btn btn-danger"
-           th:text="|All pets for *{totalPriceOfProducts}|"></a>
+           th:text="|All pets: *{countOfPets}|"></a>
     </div>
 </main>
 <footer th:replace="fragments/commons::footer"></footer>

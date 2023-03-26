@@ -115,14 +115,14 @@ public class PagesController {
         List<PetViewModel> hotels = this.petService.findPets(TypeOfHelpEnumName.HOTEL);
         List<PetViewModel> schools = this.petService.findPets(TypeOfHelpEnumName.SCHOOL);
         List<PetViewModel> preventions = this.petService.findPets(TypeOfHelpEnumName.PREVENTION);
-
+        Long countOfPets = this.petService.countAllPets();
 
         model.addAttribute("treatments", treatments);
         model.addAttribute("grooms", grooms);
         model.addAttribute("hotels", hotels);
         model.addAttribute("schools", schools);
         model.addAttribute("preventions", preventions);
-
+        model.addAttribute("countOfPets", countOfPets);
 
 
 
