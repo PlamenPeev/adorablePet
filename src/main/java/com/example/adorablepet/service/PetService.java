@@ -52,30 +52,12 @@ public class PetService {
     }
 
 
-    public List<PetViewModel> findAllByTypeOfHelp(TypeOfHelpEnumName name){
-        return this.petRepository.findPetsByTypeOfHelp(name)
-                .stream()
-                .map(pet -> modelMapper
-                        .map(pet, PetViewModel.class))
-                .collect(Collectors.toList());
-    }
-
-    public List<PetViewModel> findAllPets() {
-
-        return this.petRepository
-                .findAllByTypeOfHelp()
-                .stream()
-                .map(pet -> {
-                    PetViewModel petViewModel= this.modelMapper
-                            .map(pet, PetViewModel.class);
-                    return petViewModel;
-                })
-                .collect(Collectors.toList());
-
+    public Long countAllPets() {
+        return this.petRepository.countAllPets();
     }
 
 
-        public List<PetViewModel> findPetsByUsername(String email,TypeOfHelpEnumName name) {
+    public List<PetViewModel> findPetsByUsername(String email,TypeOfHelpEnumName name) {
             return this.petRepository.findAllByOwner_EmailAndTypeOfHelp_TypeOfHelpEnumName(email,name)
                     .stream()
                     .map(pet -> {
@@ -101,27 +83,13 @@ public class PetService {
     }
 
 
-
-
-    public List<PetViewModel> findPetsByOwner(String mail){
+    public Long findPetsByOwner(String mail){
         return this.petRepository
-                .findPetsByOwner(mail)
-                .stream()
-                .map(pet -> {
-                    PetViewModel petViewModel= this.modelMapper
-                            .map(pet, PetViewModel.class);
-                    return petViewModel;
-                })
-                .collect(Collectors.toList());
+                .findPetsByOwner(mail);
+
     }
 
-//    public List<PetViewModel> findAllByUser(String username, TypeOfHelpEnumName name){
-//        return this.petRepository.findAllByUserByTypeOfHelp(username, name)
-//                .stream()
-//                .map(pet -> modelMapper
-//                        .map(pet, PetViewModel.class))
-//                .collect(Collectors.toList());
-//    }
+
 
     public void remove(Long id) {
         petRepository

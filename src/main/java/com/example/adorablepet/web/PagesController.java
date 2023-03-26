@@ -93,7 +93,7 @@ public class PagesController {
         List<PetViewModel> hotels = this.petService.findPetsByUsername(principal.getName(),TypeOfHelpEnumName.HOTEL);
         List<PetViewModel> schools = this.petService.findPetsByUsername(principal.getName(),TypeOfHelpEnumName.SCHOOL);
         List<PetViewModel> preventions = this.petService.findPetsByUsername(principal.getName(),TypeOfHelpEnumName.PREVENTION);
-        List<UserViewModel> numVisitByUser = this.userService.findAllByPetsCount(currentUser.getEmail());
+        Long numVisitByUser = this.petService.findPetsByOwner(principal.getName());
 
         model.addAttribute("treatments", treatments);
         model.addAttribute("grooms", grooms);
@@ -139,6 +139,7 @@ public class PagesController {
         List<PetViewModel> hotels = this.petService.findPets(TypeOfHelpEnumName.HOTEL);
         List<PetViewModel> schools = this.petService.findPets(TypeOfHelpEnumName.SCHOOL);
         List<PetViewModel> preventions = this.petService.findPets(TypeOfHelpEnumName.PREVENTION);
+        Long countOfPets = this.petService.countAllPets();
 
 
         model.addAttribute("treatments", treatments);
@@ -146,6 +147,7 @@ public class PagesController {
         model.addAttribute("hotels", hotels);
         model.addAttribute("schools", schools);
         model.addAttribute("preventions", preventions);
+        model.addAttribute("countOfPets", countOfPets);
 
 
 
