@@ -33,7 +33,7 @@ public class Pet extends BaseEntity{
 
 
     @Column(name ="date_of_visit")
-    private LocalDate dateOfVisit;
+    private LocalDate date;
 
     @Column(name ="hour_of_visit")
     private int hourOfVisit;
@@ -97,11 +97,11 @@ public class Pet extends BaseEntity{
 
 
     public LocalDate getDateOfVisit() {
-        return dateOfVisit;
+        return date;
     }
 
     public Pet setDateOfVisit(LocalDate dateOfVisit) {
-        this.dateOfVisit = dateOfVisit;
+        this.date = date;
         return this;
     }
 

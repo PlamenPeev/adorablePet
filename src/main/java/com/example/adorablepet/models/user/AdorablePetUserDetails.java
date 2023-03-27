@@ -12,16 +12,21 @@ public class AdorablePetUserDetails implements UserDetails {
     private final String username;
     private final String firstName;
     private final String lastName;
+    private final String phoneNumber;
+    private final String country;
     private final Collection<GrantedAuthority> authorities;
 
     public AdorablePetUserDetails(Long id, String password, String username,
                                   String firstName, String lastName,
+                                  String phoneNumber, String country,
                                   Collection<GrantedAuthority> authorities) {
         this.id = id;
         this.password = password;
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
+        this.country = country;
         this.authorities = authorities;
     }
 
@@ -48,9 +53,19 @@ public class AdorablePetUserDetails implements UserDetails {
         return fullName.toString();
     }
 
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
     public Long getId() {
         return id;
     }
+
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return authorities;

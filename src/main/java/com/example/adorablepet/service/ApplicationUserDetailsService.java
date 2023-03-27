@@ -6,7 +6,6 @@ import com.example.adorablepet.models.user.AdorablePetUserDetails;
 import com.example.adorablepet.repository.UserRepository;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -37,6 +36,8 @@ public class ApplicationUserDetailsService implements UserDetailsService {
                 userEntity.getEmail(),
                 userEntity.getFirstName(),
                 userEntity.getLastName(),
+                userEntity.getPhoneNumber(),
+                userEntity.getCountry(),
                 extractAuthorities(userEntity)
         );
     }

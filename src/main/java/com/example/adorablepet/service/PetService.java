@@ -3,6 +3,7 @@ package com.example.adorablepet.service;
 import com.example.adorablepet.models.entities.Pet;
 import com.example.adorablepet.models.enums.TypeOfHelpEnumName;
 import com.example.adorablepet.models.service.PetServiceModel;
+import com.example.adorablepet.models.user.AdorablePetUserDetails;
 import com.example.adorablepet.models.views.PetViewModel;
 import com.example.adorablepet.models.views.UserViewModel;
 import com.example.adorablepet.repository.PetRepository;
@@ -40,7 +41,7 @@ public class PetService {
         Pet pet = modelMapper
                 .map(petServiceModel, Pet.class);
 
-       User principal = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+       AdorablePetUserDetails principal = (AdorablePetUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
        pet.setOwner(userService.findUserByEmail(principal.getUsername()));
 
