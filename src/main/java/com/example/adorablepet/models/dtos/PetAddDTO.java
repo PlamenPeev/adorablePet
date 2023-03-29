@@ -36,7 +36,7 @@ public class PetAddDTO {
 
 
     @FutureOrPresent
-    private LocalDate dateOfVisit;
+    private LocalDate date;
 
     @NotNull( message = "The hour should be between 09:00 and 17:00.")
     @Min(9)
@@ -101,12 +101,13 @@ public class PetAddDTO {
 //        return this;
 //    }
 
-    public LocalDate getDateOfVisit() {
-        return dateOfVisit;
+
+    public LocalDate getDate() {
+        return date;
     }
 
-    public PetAddDTO setDateOfVisit(LocalDate dateOfVisit) {
-        this.dateOfVisit = dateOfVisit;
+    public PetAddDTO setDate(LocalDate date) {
+        this.date = date;
         return this;
     }
 

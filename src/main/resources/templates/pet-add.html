@@ -105,13 +105,13 @@
 
         <div class="form-group">
             <div class="label-holder text-white textCol d-flex justify-content-center">
-                <label for="dateOfVisit" class="h4 mb-2">Date of Visit</label>
+                <label for="date" class="h4 mb-2">Date of Visit</label>
             </div>
-            <input th:field="*{dateOfVisit}" th:errorclass="bg-danger"
+            <input th:field="*{date}" th:errorclass="bg-danger"
                    type="date" class="form-control"
-                   id="dateOfVisit"
-                   name="dateOfVisit"/>
-            <small th:each="e : ${#fields.errors('dateOfVisit')}" th:text="${e}"
+                   id="date"
+                   name="date"/>
+            <small th:each="e : ${#fields.errors('date')}" th:text="${e}"
                    class="text-danger">Visit date error</small>
         </div>
 

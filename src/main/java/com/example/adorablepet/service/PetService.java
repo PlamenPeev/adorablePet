@@ -5,14 +5,13 @@ import com.example.adorablepet.models.enums.TypeOfHelpEnumName;
 import com.example.adorablepet.models.service.PetServiceModel;
 import com.example.adorablepet.models.user.AdorablePetUserDetails;
 import com.example.adorablepet.models.views.PetViewModel;
-import com.example.adorablepet.models.views.UserViewModel;
 import com.example.adorablepet.repository.PetRepository;
 import com.example.adorablepet.repository.UserRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -25,7 +24,6 @@ public class PetService {
     private final TypeOfHelpService typeOfHelpService;
     private final UserRepository userRepository;
 
-
     public PetService(ModelMapper modelMapper, UserService userService, PetRepository petRepository,
                       TypeOfHelpService typeOfHelpService, UserRepository userRepository) {
         this.modelMapper = modelMapper;
@@ -36,8 +34,7 @@ public class PetService {
     }
 
 
-
-   public void addPet(PetServiceModel petServiceModel) {
+    public void addPet(PetServiceModel petServiceModel) {
         Pet pet = modelMapper
                 .map(petServiceModel, Pet.class);
 
@@ -96,5 +93,11 @@ public class PetService {
         petRepository
                 .deleteById(id);
     }
+
+
+
+//    public void confirm(Long id) {
+//        petRepository.notify();
+//    }
 
 }

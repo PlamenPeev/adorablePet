@@ -72,17 +72,7 @@ public class UserService {
                 .orElse(null);
     }
 
-//    public UserEntity findUserById(Long id) {
-//        return this.userRepository
-//                .findUserById(id)
-//                .orElse(null);
-//    }
 
-//    public UserEntity loginUser(Long id, String mail) {
-//        currentUser.setId(id);
-//        currentUser.setEmail(mail);
-//        return loginUser(id,mail);
-//    }
 
     public List<UserViewModel> findAllByPetsCount(String mail){
         return this.userRepository

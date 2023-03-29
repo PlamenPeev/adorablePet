@@ -18,7 +18,7 @@ public class PetViewModel {
     private TypeOfAnimalEnumName typeOfAnimalEnumName;
     private TypeOfHelp typeOfHelp;
     private UserEntity owner;
-    private LocalDate dateOfVisit;
+    private LocalDate date;
     private int hourOfVisit;
 
     public PetViewModel(Pet pet) {
@@ -29,7 +29,7 @@ public class PetViewModel {
         this.typeOfAnimalEnumName = pet.getTypeOfAnimalEnumName();
         this.typeOfHelp = pet.getTypeOfHelp();
         this.owner = pet.getOwner();
-        this.dateOfVisit = pet.getDateOfVisit();
+        this.date = pet.getDate();
         this.hourOfVisit = pet.getHourOfVisit();
     }
 
@@ -99,12 +99,12 @@ public class PetViewModel {
         return this;
     }
 
-    public LocalDate getDateOfVisit() {
-        return dateOfVisit;
+    public LocalDate getDate() {
+        return date;
     }
 
-    public PetViewModel setDateOfVisit(LocalDate dateOfVisit) {
-        this.dateOfVisit = dateOfVisit;
+    public PetViewModel setDate(LocalDate date) {
+        this.date = date;
         return this;
     }
 

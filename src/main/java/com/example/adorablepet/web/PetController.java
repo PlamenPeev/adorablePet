@@ -72,4 +72,10 @@ public class PetController {
         return "redirect:/";
     }
 
+//    @GetMapping("/confirm/{id}")
+//    public String confirm(@PathVariable Long id){
+//        this.petService.confirm(id);
+//        return "redirect:/";
+//    }
+
 }

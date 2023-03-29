@@ -19,7 +19,7 @@ public class PetServiceModel {
     private TypeOfAnimalEnumName typeOfAnimalEnumName;
     private TypeOfHelp typeOfHelp;
     private UserEntity owner;
-    private LocalDate dateOfVisit;
+    private LocalDate date;
     private int hourOfVisit;
 
     public PetServiceModel() {
@@ -89,12 +89,12 @@ public class PetServiceModel {
     }
 
 
-    public LocalDate getDateOfVisit() {
-        return dateOfVisit;
+    public LocalDate getDate() {
+        return date;
     }
 
-    public PetServiceModel setDateOfVisit(LocalDate dateOfVisit) {
-        this.dateOfVisit = dateOfVisit;
+    public PetServiceModel setDate(LocalDate date) {
+        this.date = date;
         return this;
     }
 

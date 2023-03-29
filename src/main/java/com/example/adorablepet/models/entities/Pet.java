@@ -41,6 +41,10 @@ public class Pet extends BaseEntity{
     public Pet() {
     }
 
+    public Pet(long l, String pet1, TypeOfHelp setTypeOfHelpEnumName) {
+
+    }
+
     public String getName() {
         return name;
     }
@@ -95,12 +99,11 @@ public class Pet extends BaseEntity{
         return this;
     }
 
-
-    public LocalDate getDateOfVisit() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public Pet setDateOfVisit(LocalDate dateOfVisit) {
+    public Pet setDate(LocalDate date) {
         this.date = date;
         return this;
     }
