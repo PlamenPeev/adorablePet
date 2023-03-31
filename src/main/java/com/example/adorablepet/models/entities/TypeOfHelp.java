@@ -12,7 +12,7 @@ public class TypeOfHelp extends BaseEntity{
     @Enumerated(EnumType.STRING)
     private TypeOfHelpEnumName typeOfHelpEnumName;
 
-    @Column(columnDefinition = "TEXT")
+    @Column(name = "description", length = 1000)
     private String description;
 
     public TypeOfHelp() {
