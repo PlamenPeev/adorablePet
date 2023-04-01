@@ -1,15 +1,11 @@
 package com.example.adorablepet.web;
 
 import com.example.adorablepet.models.entities.ObjectNotFoundException;
-import com.example.adorablepet.models.entities.Pet;
 import com.example.adorablepet.models.enums.TypeOfHelpEnumName;
 import com.example.adorablepet.models.views.PetViewModel;
-import com.example.adorablepet.models.views.UserViewModel;
 import com.example.adorablepet.repository.PetRepository;
 import com.example.adorablepet.service.PetService;
 import com.example.adorablepet.service.UserService;
-import com.example.adorablepet.session.CurrentUser;
-import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,12 +22,10 @@ public class PagesController {
     private final PetService petService;
     private final UserService userService;
     private final PetRepository petRepository;
-    private final CurrentUser currentUser;
 
-    public PagesController(PetService petService, CurrentUser currentUser,
-                           HttpSession httpSession, UserService userService, PetRepository petRepository) {
+
+    public PagesController(PetService petService, UserService userService, PetRepository petRepository) {
         this.petService = petService;
-        this.currentUser = currentUser;
         this.userService = userService;
         this.petRepository = petRepository;
     }
@@ -74,7 +68,6 @@ public class PagesController {
 
     @GetMapping("/projects")
     private String projects(){
-
         return "pages/projects";
     }
 
@@ -86,7 +79,6 @@ public class PagesController {
         if (principal.getName() == null) {
             return "index";
         }
-
 
         List<PetViewModel> treatments = this.petService.findPetsByUsername(principal.getName(),TypeOfHelpEnumName.TREATMENT);
         List<PetViewModel> grooms = this.petService.findPetsByUsername(principal.getName(),TypeOfHelpEnumName.GROOMING);
@@ -101,6 +93,7 @@ public class PagesController {
         model.addAttribute("schools", schools);
         model.addAttribute("preventions", preventions);
         model.addAttribute("numVisitByUser", numVisitByUser);
+        model.addAttribute("user", principal.getName());
 
 
         return "pages/my-pets";

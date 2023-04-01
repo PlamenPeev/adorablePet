@@ -1,12 +1,10 @@
 package com.example.adorablepet.service;
 
-import com.example.adorablepet.AdorablePetApplication;
 import com.example.adorablepet.models.entities.Role;
 import com.example.adorablepet.models.entities.UserEntity;
 import com.example.adorablepet.models.enums.RoleEnumName;
 import com.example.adorablepet.models.user.AdorablePetUserDetails;
 import com.example.adorablepet.repository.UserRepository;
-import jakarta.persistence.Column;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

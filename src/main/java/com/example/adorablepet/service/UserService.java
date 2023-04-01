@@ -3,11 +3,9 @@ package com.example.adorablepet.service;
 import com.example.adorablepet.models.dtos.UserRegistrationDTO;
 import com.example.adorablepet.models.entities.UserEntity;
 import com.example.adorablepet.models.enums.RoleEnumName;
-import com.example.adorablepet.models.views.PetViewModel;
 import com.example.adorablepet.models.views.UserViewModel;
 import com.example.adorablepet.repository.RoleRepository;
 import com.example.adorablepet.repository.UserRepository;
-import com.example.adorablepet.session.CurrentUser;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -27,14 +25,15 @@ public class UserService {
     private final PasswordEncoder passwordEncoder;
     private final UserDetailsService userDetailsService;
     private final RoleRepository roleRepository;
-    private final CurrentUser currentUser;
+
     private final ModelMapper modelMapper;
-    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, UserDetailsService userDetailsService, RoleRepository roleRepository, CurrentUser currentUser, ModelMapper modelMapper) {
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder,
+                       UserDetailsService userDetailsService, RoleRepository roleRepository,
+                       ModelMapper modelMapper) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.userDetailsService = userDetailsService;
         this.roleRepository = roleRepository;
-        this.currentUser = currentUser;
         this.modelMapper = modelMapper;
     }
 
