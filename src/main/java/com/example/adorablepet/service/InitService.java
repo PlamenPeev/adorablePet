@@ -33,7 +33,7 @@ public class InitService {
         initUsers();
     }
 
-    private void initRoles() {
+    void initRoles() {
         if (roleRepository.count() == 0) {
             var moderatorRole = new Role().setRoleEnumName(RoleEnumName.MODERATOR);
             var adminRole = new Role().setRoleEnumName(RoleEnumName.ADMIN);
@@ -45,7 +45,7 @@ public class InitService {
         }
     }
 
-    private void initUsers() {
+    void initUsers() {
         if (userRepository.count() == 0) {
             initAdmin();
             initModerator();

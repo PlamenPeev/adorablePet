@@ -1,15 +1,12 @@
 package com.example.adorablepet.models.dtos;
 
-import com.example.adorablepet.models.entities.TypeOfHelp;
-import com.example.adorablepet.models.entities.UserEntity;
 import com.example.adorablepet.models.enums.ChippedEnumName;
 import com.example.adorablepet.models.enums.TypeOfAnimalEnumName;
 import com.example.adorablepet.models.enums.TypeOfHelpEnumName;
 import jakarta.validation.constraints.*;
 import org.hibernate.validator.constraints.Length;
-import java.math.BigDecimal;
+
 import java.time.LocalDate;
-import java.util.Set;
 
 public class PetAddDTO {
 
@@ -30,10 +27,6 @@ public class PetAddDTO {
 
     @NotNull
     private TypeOfHelpEnumName typeOfHelp;
-
-//    @NotNull
-//    private UserEntity owner;
-
 
     @FutureOrPresent
     private LocalDate date;
@@ -91,15 +84,6 @@ public class PetAddDTO {
         this.typeOfHelp = typeOfHelp;
         return this;
     }
-
-//    public UserEntity getOwner() {
-//        return owner;
-//    }
-//
-//    public PetAddDTO setOwner(UserEntity owner) {
-//        this.owner = owner;
-//        return this;
-//    }
 
 
     public LocalDate getDate() {

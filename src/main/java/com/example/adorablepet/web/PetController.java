@@ -2,7 +2,6 @@ package com.example.adorablepet.web;
 
 import com.example.adorablepet.models.dtos.PetAddDTO;
 import com.example.adorablepet.models.entities.ObjectNotFoundException;
-import com.example.adorablepet.models.entities.Pet;
 import com.example.adorablepet.models.service.PetServiceModel;
 import com.example.adorablepet.service.PetService;
 import jakarta.validation.Valid;
@@ -15,8 +14,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import java.security.Principal;
 
 @Controller
 @RequestMapping("/pets")
@@ -71,6 +68,17 @@ public class PetController {
         this.petService.remove(id);
         return "redirect:/";
     }
+
+//    @PreAuthorize("@petService.isOwner(#userDetails, #id)")
+//    @DeleteMapping("/remove/{id}")
+//    public String delete(
+//            @AuthenticationPrincipal UserDetails userDetails,
+//            @PathVariable("id") Long id) {
+//
+//        this.petService.remove(id);
+//
+//        return "redirect:/";
+//    }
 
 //    @GetMapping("/confirm/{id}")
 //    public String confirm(@PathVariable Long id){
