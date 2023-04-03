@@ -13,13 +13,11 @@ import java.util.List;
 @Repository
 public interface PetRepository extends JpaRepository<Pet, Long> {
 
+//
+//    @Query("SELECT p FROM Pet AS p GROUP BY p.owner.email")
+//    List<Pet> findUserByEmail(String email);
 
-    @Query("SELECT p FROM Pet AS p GROUP BY p.owner.email")
-    List<Pet> findUserByEmail(String email);
 
-
-
-//TODO: Working true
     List<Pet> findPetsByTypeOfHelp_TypeOfHelpEnumName(TypeOfHelpEnumName name);
 
     List<Pet> findAllByOwner_EmailAndTypeOfHelp_TypeOfHelpEnumName(String email, TypeOfHelpEnumName name);
@@ -31,4 +29,5 @@ public interface PetRepository extends JpaRepository<Pet, Long> {
     Long countAllPets();
 
     void deleteByDateBefore(LocalDate thresholdDate);
+
 }

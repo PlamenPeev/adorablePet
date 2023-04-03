@@ -41,5 +41,38 @@ public class RegistrationControllerIT {
                 andExpect(redirectedUrl("login"));
     }
 
+    @Test
+    public void testRegistrationInvalidUser() throws Exception {
+        mockMvc.perform(post("/users/register")
+                        .param("email", "test-firstTest.com")
+                        .param("firstName", "T")
+                        .param("lastName", "Testov")
+                        .param("phoneNumber", "0878123456")
+                        .param("country", "Bulgaria")
+                        .param("password", "test1234")
+                        .param("confirmPassword", "test1234")
+                        .with(csrf())
+                ).
+                andExpect(status().is3xxRedirection()).
+                andExpect(redirectedUrl("register"));
+    }
+
+
+    @Test
+    public void testRegistrationConfirmationPassError() throws Exception {
+        mockMvc.perform(post("/users/register")
+                        .param("email", "test@firstTest.com")
+                        .param("firstName", "TestUser")
+                        .param("lastName", "Testov")
+                        .param("phoneNumber", "0878123456")
+                        .param("country", "Bulgaria")
+                        .param("password", "test1234")
+                        .param("confirmPassword", "1234")
+                        .with(csrf())
+                ).
+                andExpect(status().is3xxRedirection()).
+                andExpect(redirectedUrl("register"));
+    }
+
 }
 

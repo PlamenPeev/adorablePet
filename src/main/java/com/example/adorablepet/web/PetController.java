@@ -69,17 +69,6 @@ public class PetController {
         return "redirect:/";
     }
 
-//    @PreAuthorize("@petService.isOwner(#userDetails, #id)")
-//    @DeleteMapping("/remove/{id}")
-//    public String delete(
-//            @AuthenticationPrincipal UserDetails userDetails,
-//            @PathVariable("id") Long id) {
-//
-//        this.petService.remove(id);
-//
-//        return "redirect:/";
-//    }
-
 //    @GetMapping("/confirm/{id}")
 //    public String confirm(@PathVariable Long id){
 //        this.petService.confirm(id);

@@ -79,13 +79,11 @@ public class PetService {
 
     }
 
-
     public Long findPetsByOwner(String mail){
         return this.petRepository
                 .findPetsByOwner(mail);
 
     }
-
 
 
     public void remove(Long id) {

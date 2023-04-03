@@ -24,8 +24,8 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @SpringBootTest
@@ -38,22 +38,6 @@ class PetControllerIT {
     @MockBean
     private PetService petServiceTest;
 
-
-//    @GetMapping("/pets/add")
-//    public String add(Model model) {
-//        if (!model.containsAttribute("petAddDTO")) {
-//            model.addAttribute("petAddDTO", new PetAddDTO());
-//        }
-//        return "pet-add";
-//    }
-
-    @Test
-    public void testPetAddPageShown() throws Exception {
-        mockMvc.perform(get("/pets/add"))
-                .andExpect(status().isOk())
-                .andExpect(view().name("pet-add"));
-
-    }
 
     @Test
     void testAddPet() throws Exception {
@@ -93,23 +77,38 @@ class PetControllerIT {
                 .addPet(any(PetServiceModel.class));
     }
 
-//    @Test
-//    void testDeletePet() throws Exception {
-//        Long id = 1L;
-//
-//        this.mockMvc.perform(get("/pet/remove/{id}", id)
-//                        .with(csrf()))
-//                .andExpect(status().is3xxRedirection())
-//                .andExpect(redirectedUrl("/"));
-//
-//        verify(petServiceTest, times(1)).remove(id);
-//    }
 
-//    @Test
-//    void testGetPetById() throws Exception {
-//        Long id = 1L;
-//
-//        this.mockMvc.perform(get("/pet/{id}", id))
-//                .andExpect(status().isNotFound());
-//    }
+    @Test
+    void testAddInvalidPet() throws Exception {
+        AdorablePetUserDetails userDetails = new AdorablePetUserDetails(
+                1L, "12345", "johny","John", "Doe",
+                "087654321","Bulgaria", Collections.emptyList());
+
+        Authentication auth = new UsernamePasswordAuthenticationToken(userDetails, "password", userDetails.getAuthorities());
+        SecurityContextHolder.getContext().setAuthentication(auth);
+
+        this.mockMvc.perform(post("/pets/add")
+                        .param("name", "D")
+                        .param("age", "2.0")
+                        .param("chippedEnumName", String.valueOf(ChippedEnumName.YES))
+                        .param("typeOfAnimalEnumName", String.valueOf(TypeOfAnimalEnumName.DOG))
+                        .param("typeOfHelp", String.valueOf(TypeOfHelpEnumName.GROOMING))
+                        .param("owner", auth.getName())
+                        .param("date", String.valueOf(LocalDate.now()))
+                        .param("hourOfVisit", "23")
+                        .with(csrf()))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("add"));
+    }
+
+
+    @Test
+    public void testPetAddPageShown() throws Exception {
+        mockMvc.perform(get("/pets/add"))
+               .andExpect(status().isOk())
+                .andExpect(view().name("pets/add"));
+
+    }
+
+
 }
