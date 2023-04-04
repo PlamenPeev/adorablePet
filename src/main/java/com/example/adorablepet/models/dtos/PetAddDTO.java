@@ -28,6 +28,7 @@ public class PetAddDTO {
     @NotNull
     private TypeOfHelpEnumName typeOfHelp;
 
+    @NotNull
     @FutureOrPresent
     private LocalDate date;
 

@@ -55,12 +55,12 @@ public class InitService {
 
     private void initAdmin() {
         var adminUser = new UserEntity().
-                setEmail("admin@example.com").
+                setEmail("admin@adorable_pet.com").
                 setFirstName("Admin").
                 setLastName("Adminov").
                 setPhoneNumber("0888234567").
                 setCountry("Australia").
-                setPassword(passwordEncoder.encode("topsecret")).
+                setPassword(passwordEncoder.encode("petsecret")).
                 setRoles(roleRepository.findAll());
 
         userRepository.save(adminUser);
@@ -73,12 +73,12 @@ public class InitService {
                 findRoleByRoleEnumName(RoleEnumName.MODERATOR).orElseThrow();
 
         var moderatorUser = new UserEntity().
-                setEmail("moderator@example.com").
+                setEmail("moderator@adorable_pet.com").
                 setFirstName("Moderator").
                 setLastName("Moderatorov").
                 setPhoneNumber("0879234589").
                 setCountry("Greece").
-                setPassword(passwordEncoder.encode("topsecret")).
+                setPassword(passwordEncoder.encode("petsecret")).
                 setRoles(List.of(moderatorRole));
 
         userRepository.save(moderatorUser);
@@ -91,12 +91,12 @@ public class InitService {
                 findRoleByRoleEnumName(RoleEnumName.USER).orElseThrow();
 
         var normalUser = new UserEntity().
-                setEmail("user@example.com").
+                setEmail("user@adorable_pet.com").
                 setFirstName("User").
                 setLastName("Userov").
                 setPhoneNumber("0778234543").
                 setCountry("France").
-                setPassword(passwordEncoder.encode("topsecret")).
+                setPassword(passwordEncoder.encode("petsecret")).
                 setRoles(List.of(userRole));
 
         userRepository.save(normalUser);
