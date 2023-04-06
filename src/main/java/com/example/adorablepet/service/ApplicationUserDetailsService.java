@@ -51,6 +51,7 @@ public class ApplicationUserDetailsService implements UserDetailsService {
     }
 
     private GrantedAuthority mapRole(Role role) {
+
         return new SimpleGrantedAuthority("ROLE_" + role.getRoleEnumName());
     }
 }

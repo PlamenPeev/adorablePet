@@ -1,13 +1,9 @@
 package com.example.adorablepet.web;
 
-import com.example.adorablepet.models.entities.TypeOfHelp;
-import com.example.adorablepet.models.entities.UserEntity;
-import com.example.adorablepet.service.PetService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -23,14 +19,6 @@ public class HomeControllerIT {
     @Autowired
     private MockMvc mockMvc;
 
-    @MockBean
-    private PetService petServiceTest;
-
-    @MockBean
-    private TypeOfHelp mockTypeOfHelp;
-
-    @MockBean
-    private UserEntity mockOwner;
 
     @Test
     @WithMockUser(username = "test@test.com",
