@@ -71,7 +71,7 @@ public class PetServiceTest {
         // Arrange
         AdorablePetUserDetails userDetails = new AdorablePetUserDetails(
                 1L, "12345", "johny","John", "Doe",
-                "087654321","Bulgaria", Collections.emptyList());
+                87654321,"Bulgaria", Collections.emptyList());
 
 
         Authentication auth = new UsernamePasswordAuthenticationToken(userDetails, "password", userDetails.getAuthorities());

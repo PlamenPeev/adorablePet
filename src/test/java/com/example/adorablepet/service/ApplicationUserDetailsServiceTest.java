@@ -44,7 +44,7 @@ void setUp(){
                 .setPassword("vetClinic")
                 .setFirstName("Paun")
                 .setLastName("{Paunov")
-                .setPhoneNumber("12345678")
+                .setPhoneNumber(12345678)
                 .setRoles(
                      List.of(
                              new Role().setRoleEnumName(RoleEnumName.ADMIN),

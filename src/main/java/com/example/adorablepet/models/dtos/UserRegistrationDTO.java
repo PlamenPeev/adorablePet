@@ -4,6 +4,7 @@ import com.example.adorablepet.models.entities.Role;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import org.hibernate.validator.constraints.Length;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +24,8 @@ public class UserRegistrationDTO {
     private String lastName;
 
     @NotNull
-    private String phoneNumber;
+    @Positive
+    private Integer phoneNumber;
 
     private String country;
 
@@ -67,11 +69,11 @@ public class UserRegistrationDTO {
         return this;
     }
 
-    public String getPhoneNumber() {
+    public Integer getPhoneNumber() {
         return phoneNumber;
     }
 
-    public UserRegistrationDTO setPhoneNumber(String phoneNumber) {
+    public UserRegistrationDTO setPhoneNumber(Integer phoneNumber) {
         this.phoneNumber = phoneNumber;
         return this;
     }

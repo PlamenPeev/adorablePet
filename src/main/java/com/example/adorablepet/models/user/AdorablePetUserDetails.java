@@ -12,13 +12,13 @@ public class AdorablePetUserDetails implements UserDetails {
     private final String username;
     private final String firstName;
     private final String lastName;
-    private final String phoneNumber;
+    private final Integer phoneNumber;
     private final String country;
     private final Collection<GrantedAuthority> authorities;
 
     public AdorablePetUserDetails(Long id, String password, String username,
                                   String firstName, String lastName,
-                                  String phoneNumber, String country,
+                                  Integer phoneNumber, String country,
                                   Collection<GrantedAuthority> authorities) {
         this.id = id;
         this.password = password;
@@ -53,7 +53,7 @@ public class AdorablePetUserDetails implements UserDetails {
         return fullName.toString();
     }
 
-    public String getPhoneNumber() {
+    public Integer getPhoneNumber() {
         return phoneNumber;
     }
 

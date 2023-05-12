@@ -58,7 +58,7 @@ public class InitService {
                 setEmail("admin@adorable_pet.com").
                 setFirstName("Admin").
                 setLastName("Adminov").
-                setPhoneNumber("0888234567").
+                setPhoneNumber((int) 8882345674L).
                 setCountry("Australia").
                 setPassword(passwordEncoder.encode("petsecret")).
                 setRoles(roleRepository.findAll());
@@ -76,7 +76,7 @@ public class InitService {
                 setEmail("moderator@adorable_pet.com").
                 setFirstName("Moderator").
                 setLastName("Moderatorov").
-                setPhoneNumber("0879234589").
+                setPhoneNumber(879234589).
                 setCountry("Greece").
                 setPassword(passwordEncoder.encode("petsecret")).
                 setRoles(List.of(moderatorRole));
@@ -94,7 +94,7 @@ public class InitService {
                 setEmail("user@adorable_pet.com").
                 setFirstName("User").
                 setLastName("Userov").
-                setPhoneNumber("0778234543").
+                setPhoneNumber(778234543).
                 setCountry("France").
                 setPassword(passwordEncoder.encode("petsecret")).
                 setRoles(List.of(userRole));

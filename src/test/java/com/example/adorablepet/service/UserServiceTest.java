@@ -59,7 +59,7 @@ public class UserServiceTest {
         userRegistrationDTO.setEmail("test@test.com");
         userRegistrationDTO.setFirstName("FirstTest");
         userRegistrationDTO.setLastName("Testovich");
-        userRegistrationDTO.setPhoneNumber("12345678");
+        userRegistrationDTO.setPhoneNumber(12345678);
         userRegistrationDTO.setCountry("Germany");
         userRegistrationDTO.setPassword("password123123");
         userRegistrationDTO.setConfirmPassword("password123123");
@@ -83,7 +83,7 @@ public class UserServiceTest {
 
         AdorablePetUserDetails userDetails = new AdorablePetUserDetails(
                 1L, "12345", "johny","John", "Doe",
-                "087654321","Bulgaria", Collections.emptyList());
+                87654321,"Bulgaria", Collections.emptyList());
 
         when(mockUserDetailsService.loadUserByUsername(userRegistrationDTO
                 .getEmail())).thenReturn(userDetails);

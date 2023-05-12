@@ -1,7 +1,6 @@
 package com.example.adorablepet.models.entities;
 
 import jakarta.persistence.*;
-import org.springframework.security.core.GrantedAuthority;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +24,7 @@ public class UserEntity extends BaseEntity {
     private String email;
 
     @Column(name = "phone_number")
-    private String phoneNumber;
+    private Integer phoneNumber;
 
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Role> roles = new ArrayList<>();
@@ -76,11 +75,11 @@ public class UserEntity extends BaseEntity {
         return this;
     }
 
-    public String getPhoneNumber() {
+    public Integer getPhoneNumber() {
         return phoneNumber;
     }
 
-    public UserEntity setPhoneNumber(String phoneNumber) {
+    public UserEntity setPhoneNumber(Integer phoneNumber) {
         this.phoneNumber = phoneNumber;
         return this;
     }

@@ -70,7 +70,7 @@ public class UserEntityTest {
         when(mockUser.getFirstName()).thenReturn("John");
         when(mockUser.getLastName()).thenReturn("Doe");
         when(mockUser.getEmail()).thenReturn("johndoe@example.com");
-        when(mockUser.getPhoneNumber()).thenReturn("1234567890");
+        when(mockUser.getPhoneNumber()).thenReturn(1234567890);
         //when(mockUser.getRoles()).thenReturn(roles);
         when(mockUser.getPets()).thenReturn((pets));
         when(mockUser.getCountry()).thenReturn("US");
