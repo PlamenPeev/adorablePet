@@ -1,7 +1,6 @@
 package com.example.adorablepet.web;
 
 import com.example.adorablepet.models.dtos.UserRegistrationDTO;
-import com.example.adorablepet.service.ApplicationUserDetailsService;
 import com.example.adorablepet.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -68,6 +67,6 @@ public class RegistrationController {
             securityContextRepository.saveContext(context, request, response);
         });
 
-        return "redirect:login";
+        return "redirect:/pets/add";
     }
 }
